@@ -3,483 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ask Socrates — He Will Not Help You</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <title>...</title>
   <style>
-:root {
-  --marble-light: #f5f0e8;
-  --marble-mid: #e8dfd0;
-  --marble-dark: #d4c8b4;
-  --stone: #8b7d6b;
-  --stone-dark: #5c4f3f;
-  --gold: #c9a227;
-  --gold-bright: #e8c547;
-  --wine: #6b2d3c;
-  --wine-deep: #4a1a28;
-  --ink: #2c2416;
-  --socrates-bg: #f0ebe0;
-  --user-bg: #e0d4c0;
-  --shadow: rgba(44, 36, 22, 0.15);
-  --rage-red: #c41e3a;
-  --rage-glow: rgba(196, 30, 58, 0.4);
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { min-height: 100vh; }
-body {
-  font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--ink);
-  background: var(--marble-light);
-  position: relative;
-}
-.marble-bg {
-  position: fixed; inset: 0; z-index: -1;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.5) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(200,190,170,0.3) 0%, transparent 40%),
-    linear-gradient(135deg, var(--marble-light) 0%, var(--marble-mid) 50%, var(--marble-dark) 100%);
-}
-.marble-bg::after {
-  content: ""; position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity: 0.6; pointer-events: none;
-}
-.visually-hidden {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
-.agora-header {
-  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-  padding: 2rem 1.5rem 1.5rem;
-  background: linear-gradient(180deg, var(--wine-deep) 0%, var(--wine) 100%);
-  color: var(--marble-light);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 4px 20px var(--shadow);
-}
-.bust-svg { width: 72px; height: 84px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
-.header-text { text-align: center; }
-.agora-header h1 {
-  font-family: Cinzel, "Times New Roman", serif;
-  font-size: clamp(1.6rem, 5vw, 2.4rem);
-  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-}
-.tagline { font-style: italic; opacity: 0.85; margin-top: 0.35rem; font-size: 1rem; }
-.dialogue-chamber {
-  display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem;
-  max-width: 1100px; margin: 0 auto; padding: 1.5rem;
-}
-@media (max-width: 800px) {
-  .dialogue-chamber { grid-template-columns: 1fr; }
-  .sidebar { order: -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; }
-  .stat-card--wisdom { grid-column: 1 / -1; }
-}
-.chat-panel {
-  background: rgba(255,255,255,0.55);
-  border: 2px solid var(--stone); border-radius: 4px;
-  box-shadow: inset 0 0 30px rgba(255,255,255,0.5), 0 8px 24px var(--shadow);
-  display: flex; flex-direction: column; min-height: 520px;
-}
-.chat-log {
-  flex: 1; overflow-y: auto; padding: 1.25rem;
-  display: flex; flex-direction: column; gap: 1rem; max-height: 60vh;
-}
-.message { display: flex; gap: 0.75rem; animation: fadeSlideIn 0.4s ease-out; }
-@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.message--user { flex-direction: row-reverse; }
-.message__avatar {
-  flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: Cinzel, serif; font-weight: 700; font-size: 1.1rem;
-}
-.message--socrates .message__avatar {
-  background: linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%);
-  color: var(--gold-bright); border: 2px solid var(--gold);
-}
-.message--user .message__avatar { background: var(--stone); color: var(--marble-light); }
-.message__bubble {
-  max-width: 85%; padding: 0.9rem 1.1rem; border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08);
-}
-.message--socrates .message__bubble { background: var(--socrates-bg); border-left: 3px solid var(--gold); }
-.message--user .message__bubble { background: var(--user-bg); border-right: 3px solid var(--stone); text-align: right; }
-.message__bubble p + p { margin-top: 0.6rem; }
-.message--intro .message__bubble { font-style: italic; }
-.message--rage .message__bubble { border-left-color: var(--rage-red); box-shadow: 0 0 12px var(--rage-glow); }
-.message--typing .message__bubble::after { content: "▋"; animation: blink 0.8s step-end infinite; color: var(--wine); }
-@keyframes blink { 50% { opacity: 0; } }
-.ask-form {
-  display: flex; gap: 0.75rem; padding: 1rem 1.25rem;
-  border-top: 2px solid var(--marble-dark); background: rgba(240,235,224,0.8);
-}
-#user-question {
-  flex: 1; font-family: inherit; font-size: 1rem; padding: 0.75rem 1rem;
-  border: 2px solid var(--stone); border-radius: 4px;
-  background: var(--marble-light); color: var(--ink); resize: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-#user-question:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,39,0.25); }
-#user-question::placeholder { color: var(--stone); font-style: italic; }
-.submit-btn {
-  display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem;
-  font-family: Cinzel, serif; font-size: 0.85rem; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  color: var(--marble-light);
-  background: linear-gradient(180deg, var(--wine) 0%, var(--wine-deep) 100%);
-  border: 2px solid var(--gold); border-radius: 4px; cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s; white-space: nowrap;
-}
-.submit-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
-.submit-btn:active:not(:disabled) { transform: translateY(0); }
-.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.submit-btn__icon { font-size: 1.1rem; }
-.sidebar { display: flex; flex-direction: column; gap: 1rem; }
-.stat-card {
-  background: rgba(255,255,255,0.6); border: 2px solid var(--stone);
-  border-radius: 4px; padding: 1rem; box-shadow: 0 4px 12px var(--shadow);
-}
-.stat-card h2 {
-  font-family: Cinzel, serif; font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--stone-dark); margin-bottom: 0.6rem;
-}
-.stat-card__big {
-  font-family: Cinzel, serif; font-size: 2.5rem; font-weight: 700;
-  color: var(--wine); text-align: center;
-}
-.stat-card__label { text-align: center; font-size: 0.9rem; font-style: italic; color: var(--stone-dark); margin-top: 0.4rem; }
-.patience-meter { height: 12px; background: var(--marble-dark); border-radius: 6px; overflow: hidden; border: 1px solid var(--stone); }
-.patience-meter__fill {
-  height: 100%; width: 100%;
-  background: linear-gradient(90deg, #4a9e6b 0%, var(--gold) 50%, var(--rage-red) 100%);
-  border-radius: 6px; transition: width 0.5s ease;
-}
-.stat-card--wisdom {
-  border-color: var(--gold);
-  background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(255,255,255,0.6) 100%);
-}
-.wisdom-quote { font-style: italic; font-size: 0.95rem; line-height: 1.5; color: var(--stone-dark); }
-.rage-quit-btn {
-  padding: 0.75rem; font-family: Cinzel, serif; font-size: 0.8rem; font-weight: 600;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--rage-red); background: transparent;
-  border: 2px dashed var(--rage-red); border-radius: 4px; cursor: pointer;
-  transition: background 0.2s, color 0.2s; animation: pulseRage 2s ease-in-out infinite;
-}
-.rage-quit-btn:hover { background: var(--rage-red); color: var(--marble-light); }
-@keyframes pulseRage { 0%,100% { box-shadow: 0 0 0 0 var(--rage-glow); } 50% { box-shadow: 0 0 12px 4px var(--rage-glow); } }
-.agora-footer { text-align: center; padding: 1.5rem; font-size: 0.85rem; font-style: italic; color: var(--stone); }
-body.rage-shake { animation: rageShake 0.4s ease-in-out; }
-@keyframes rageShake {
-  0%,100% { transform: translateX(0); }
-  20% { transform: translateX(-4px) rotate(-0.3deg); }
-  40% { transform: translateX(4px) rotate(0.3deg); }
-  60% { transform: translateX(-3px); }
-  80% { transform: translateX(3px); }
-}
+    /* ─── LANDING PAGE ─── */
+    body.landing {
+      background: #000;
+      color: #fff;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    #landing-page { display: contents; }
+
+    .quote {
+      font-size: clamp(1.8rem, 6vw, 4.5rem);
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+      background: linear-gradient(135deg, #ffffff 0%, #cccccc 20%, #666666 45%, #111111 70%, #ffffff 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+      user-select: none;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .exit-btn {
+      margin-top: 3.5rem;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color 0.3s, border-color 0.3s, background 0.3s;
+    }
+
+    .exit-btn:hover { color: #fff; border-color: rgba(255, 255, 255, 0.6); background: rgba(255, 255, 255, 0.05); }
+    .exit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    #flashbang {
+      position: fixed; inset: 0; z-index: 99999;
+      background: #fff; pointer-events: none;
+      opacity: 0; visibility: hidden;
+    }
+
+    #flashbang.active { visibility: visible; animation: flashbang 4.5s ease-out forwards; }
+
+    @keyframes flashbang {
+      0% { opacity: 0; }
+      2%, 8% { opacity: 1; }
+      25% { opacity: 0.92; }
+      45% { opacity: 0.7; }
+      70% { opacity: 0.35; }
+      100% { opacity: 0; }
+    }
+
+    body.blasted { animation: screenShake 0.35s ease-out; }
+
+    @keyframes screenShake {
+      0%, 100% { transform: translate(0, 0); }
+      15% { transform: translate(-6px, 4px); }
+      30% { transform: translate(5px, -5px); }
+      45% { transform: translate(-4px, -3px); }
+      60% { transform: translate(4px, 2px); }
+      75% { transform: translate(-2px, 3px); }
+    }
+
+    /* ─── CAT PAGE ─── */
+    #cat-page {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='26' font-size='24'%3E🐱%3C/text%3E%3C/svg%3E") 16 16, auto;
+    }
+
+    body.cats-active #landing-page { display: none; }
+    body.cats-active #cat-page { display: block; }
+    body.cats-active { background: #fff; }
+
+    #cat-field { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
+
+    .cat {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      animation: catWobble 0.6s ease-in-out infinite alternate;
+    }
+
+    .cat img { display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+    .cat-emoji { line-height: 1; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); }
+
+    @keyframes catWobble {
+      from { transform: rotate(-8deg) scale(1); }
+      to   { transform: rotate(8deg) scale(1.05); }
+    }
+
+    #overlay-text {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: clamp(3rem, 12vw, 10rem);
+      color: rgba(0, 0, 0, 0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 0;
+      pointer-events: none;
+      animation: pulseText 0.3s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseText {
+      from { transform: scale(1); opacity: 0.06; }
+      to   { transform: scale(1.02); opacity: 0.12; }
+    }
+
+    #counter {
+      position: fixed; top: 12px; left: 12px; z-index: 99999;
+      font-family: monospace; font-size: 14px;
+      background: rgba(0, 0, 0, 0.75); color: #0f0;
+      padding: 8px 12px; border-radius: 4px;
+      pointer-events: none;
+    }
   </style>
 </head>
-<body>
-  <div class="marble-bg" aria-hidden="true"></div>
+<body class="landing">
+  <div id="landing-page">
+    <p class="quote">You were never supposed to be here.</p>
+    <button class="exit-btn" id="exit-btn" type="button">Leave</button>
+  </div>
 
-  <header class="agora-header">
-    <div class="bust" aria-hidden="true">
-      <svg viewBox="0 0 120 140" class="bust-svg">
-        <ellipse cx="60" cy="95" rx="38" ry="42" fill="#d4c4a8" />
-        <ellipse cx="60" cy="48" rx="32" ry="38" fill="#e8dcc8" />
-        <ellipse cx="60" cy="52" rx="28" ry="32" fill="#f0e6d6" />
-        <path d="M28 48 Q60 20 92 48" fill="#8b7355" opacity="0.6" />
-        <ellipse cx="48" cy="50" rx="5" ry="3" fill="#4a3728" />
-        <ellipse cx="72" cy="50" rx="5" ry="3" fill="#4a3728" />
-        <path d="M52 62 Q60 68 68 62" fill="none" stroke="#8b7355" stroke-width="2" />
-        <path d="M35 75 Q60 90 85 75" fill="none" stroke="#8b7355" stroke-width="2.5" />
-      </svg>
-    </div>
-    <div class="header-text">
-      <h1>Ask Socrates</h1>
-      <p class="tagline">You came for answers. You will leave with questions and rage.</p>
-    </div>
-  </header>
+  <div id="cat-page">
+    <div id="overlay-text">CATS</div>
+    <div id="counter">cats deployed: 0</div>
+    <div id="cat-field"></div>
+  </div>
 
-  <main class="dialogue-chamber">
-    <section class="chat-panel" aria-label="Dialogue with Socrates">
-      <div id="chat-log" class="chat-log" role="log" aria-live="polite">
-        <article class="message message--socrates message--intro">
-          <div class="message__avatar" aria-hidden="true">Σ</div>
-          <div class="message__bubble">
-            <p>Greetings, seeker. I am Socrates — or at least, the part of me that enjoys watching you squirm.</p>
-            <p>Ask me anything. I shall respond with a question so infuriating, you will forget what you wanted to know.</p>
-          </div>
-        </article>
-      </div>
-
-      <form id="ask-form" class="ask-form" autocomplete="off">
-        <label for="user-question" class="visually-hidden">Your question</label>
-        <textarea id="user-question" name="question" rows="2" placeholder="Ask your question, mortal..." maxlength="500" required></textarea>
-        <button type="submit" id="submit-btn" class="submit-btn">
-          <span class="submit-btn__text">Consult the Oracle</span>
-          <span class="submit-btn__icon" aria-hidden="true">⚖</span>
-        </button>
-      </form>
-    </section>
-
-    <aside class="sidebar">
-      <div class="stat-card">
-        <h2>Your Patience</h2>
-        <div class="patience-meter" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="patience-meter">
-          <div class="patience-meter__fill" id="patience-fill"></div>
-        </div>
-        <p class="stat-card__label" id="patience-label">Serene (for now)</p>
-      </div>
-      <div class="stat-card">
-        <h2>Questions Asked</h2>
-        <p class="stat-card__big" id="questions-count">0</p>
-      </div>
-      <div class="stat-card stat-card--wisdom">
-        <h2>Socratic Wisdom™</h2>
-        <p id="wisdom-quote" class="wisdom-quote">"The unexamined life is not worth living — but the over-examined question is not worth asking."</p>
-      </div>
-      <button type="button" id="rage-quit-btn" class="rage-quit-btn" hidden>I Give Up</button>
-    </aside>
-  </main>
-
-  <footer class="agora-footer">
-    <p>No answers were harmed in the making of this website. Your sanity, however, is not guaranteed.</p>
-  </footer>
+  <div id="flashbang" aria-hidden="true"></div>
 
   <script>
-(function () {
-  "use strict";
+    /* ─── FLASHBANG ─── */
+    const btn = document.getElementById("exit-btn");
+    const flash = document.getElementById("flashbang");
+    let blasted = false;
+    let catsStarted = false;
 
-  const chatLog = document.getElementById("chat-log");
-  const askForm = document.getElementById("ask-form");
-  const userQuestion = document.getElementById("user-question");
-  const submitBtn = document.getElementById("submit-btn");
-  const patienceFill = document.getElementById("patience-fill");
-  const patienceLabel = document.getElementById("patience-label");
-  const patienceMeter = document.getElementById("patience-meter");
-  const questionsCount = document.getElementById("questions-count");
-  const wisdomQuote = document.getElementById("wisdom-quote");
-  const rageQuitBtn = document.getElementById("rage-quit-btn");
-
-  let questionCount = 0;
-  let patience = 100;
-  let usedTemplates = new Set();
-
-  const OPENERS = [
-    "Ah.", "Interesting.", "How curious.", "You dare ask me this?",
-    "A question, you say?", "So it has come to this.",
-    "Fascinating — and by fascinating, I mean predictable.",
-    "Before I dignify this with thought, tell me:",
-    "You have walked into my agora and spoken. Now suffer:",
-    "I drank hemlock so people like you could ask questions like this. Was it worth it? But first:",
-  ];
-
-  const CLOSERS = [
-    "Think on that, if you are capable of thinking at all.",
-    "I await your inevitable confusion.",
-    "The examined life begins with you examining why you thought I would answer.",
-    "Return when you have defined your terms — and your ego.",
-    "You came seeking wisdom. I offered you mirrors. Rage at the reflection.",
-    "Now go. Bother the trees. They are better listeners and ask fewer stupid questions.",
-    "I have posed my question. Your move — if you have one.",
-    "This is the Socratic method. You wanted philosophy. You got consequences.",
-  ];
-
-  const RAGEBAIT_TEMPLATES = [
-    (topic) => `You ask about "${topic}" — but have you ever stopped to consider whether "${topic}" even exists, or if you merely invented it to avoid doing anything useful?`,
-    (topic) => `Tell me: when you say you want to know about ${topic}, do you seek truth, or do you seek someone to blame when ${topic} disappoints you — as it inevitably will?`,
-    (topic) => `Is ${topic} a genuine problem, or is ${topic} simply the costume your laziness wears to social gatherings?`,
-    (topic) => `You demand answers about ${topic}. Yet you have not once asked whether you deserve answers. What is "deserve," anyway? A feeling? A contract with the universe you never signed?`,
-    (topic) => `Suppose I told you everything about ${topic}. Would you act on it? Or would you ask another question tomorrow, because action terrifies you more than ignorance?`,
-    (topic) => `If ${topic} were solved tonight while you slept, would you even notice? Or would you wake up and invent a new crisis, because peace bores you?`,
-    (topic) => `Everyone asks about ${topic}. No one asks why they lack the courage to live without needing ${topic} explained to them like a child. Why are you like everyone else?`,
-    (topic) => `You want my wisdom on ${topic}. But what if I told you that your question about ${topic} reveals more about your character than any answer ever could — and the revelation is not flattering?`,
-    (topic) => `Define ${topic}. No, seriously — define it. You cannot, can you? You wade into intellectual battle armed with vagueness and expect victory?`,
-    (topic) => `Is your interest in ${topic} rooted in genuine curiosity, or in the desperate hope that some ancient Greek man will validate your life choices?`,
-    (topic) => `What if ${topic} is a distraction? What if the real question is why you keep asking strangers on the internet instead of confronting the void in your own soul?`,
-    (topic) => `You speak of ${topic} as though it were simple. Are you simple? Is that the confession hidden inside your question?`,
-    (topic) => `If I answered ${topic} perfectly, would you thank me — or argue, because being right was never the point and you simply wanted to feel heard?`,
-    (topic) => `How many hours have you spent thinking about ${topic} versus how many seconds acting? Does that ratio disturb you, or have you made peace with being all question and no answer?`,
-    (topic) => `You ask about ${topic}, but would you recognize the truth about ${topic} if it slapped you across the face? Or would you call it "rude" and ask again?`,
-  ];
-
-  const META_RAGEBAIT = [
-    "You typed a question into a website expecting a dead philosopher to help you. What does that say about your problem-solving skills?",
-    "Why do you believe that any answer — from me, from Google, from anyone — will fix what is clearly a you-shaped problem?",
-    "Is this question urgent, or did you ask it because silence felt uncomfortable for three whole seconds?",
-    "You want an answer in seconds. Socrates spent his life asking questions. Do you see the irony, or are you too busy being offended?",
-    "If I gave you the perfect answer, would you read past the first sentence, or skim for validation like every other mortal?",
-    "You came to a ragebait oracle. You knew what this was. And yet here you are, surprised. Fascinating.",
-  ];
-
-  const WISDOM_QUOTES = [
-    '"The unexamined life is not worth living — but the over-examined question is not worth asking."',
-    '"I know that I know nothing. You, apparently, know even less — yet ask louder."',
-    '"Wonder is the beginning of wisdom. Annoyance is the beginning of your current mood."',
-    '"Strong minds discuss ideas. Weak minds ask me for life advice on a website."',
-    '"To find yourself, think for yourself. To lose yourself, keep asking me."',
-    '"He who is not contented with what he has would not be contented with what Socrates would say."',
-    '"The only true wisdom is knowing you will not get a straight answer here."',
-    '"By all means, marry. If you get a good spouse, you\'ll be happy. If not, ask me about relationships and suffer twice."',
-  ];
-
-  const PATIENCE_LABELS = [
-    { min: 80, label: "Serene (for now)" },
-    { min: 60, label: "Mildly irritated" },
-    { min: 40, label: "Visibly annoyed" },
-    { min: 20, label: "Questioning your existence" },
-    { min: 0, label: "Fully enraged" },
-  ];
-
-  const RAGE_QUIT_RESPONSES = [
-    "You give up? How telling. The wise persist through discomfort. The foolish close the tab. Which are you?",
-    "Ah, surrender. The oldest philosophy of all — and the least impressive.",
-    "You came, you asked, you raged, you quit. A complete tragedy in four acts. I am moved. (I am not moved.)",
-    "Giving up already? I drank hemlock. You closed a browser tab. We are not the same.",
-  ];
-
-  function extractTopic(question) {
-    const cleaned = question
-      .replace(/^(how|what|why|when|where|who|is|are|can|could|should|would|do|does|did|will)\s+/i, "")
-      .replace(/[?!.]+$/, "")
-      .trim();
-    if (!cleaned) return "your vague predicament";
-    const words = cleaned.split(/\s+/);
-    if (words.length <= 6) return cleaned.toLowerCase();
-    return words.slice(0, 5).join(" ").toLowerCase() + "...";
-  }
-
-  function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-
-  function pickTemplate() {
-    const unused = [];
-    for (let i = 0; i < RAGEBAIT_TEMPLATES.length; i++) {
-      if (!usedTemplates.has(i)) unused.push(i);
+    function playFlashSound() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const noise = ctx.createBufferSource();
+        const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.15, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 0.4);
+        }
+        noise.buffer = buffer;
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.9, ctx.currentTime);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+        const osc = ctx.createOscillator();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(1200, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.08);
+        const oscGain = ctx.createGain();
+        oscGain.gain.setValueAtTime(0.5, ctx.currentTime);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+        noise.connect(noiseGain);
+        osc.connect(oscGain);
+        noiseGain.connect(ctx.destination);
+        oscGain.connect(ctx.destination);
+        noise.start();
+        osc.start();
+        noise.stop(ctx.currentTime + 0.15);
+        osc.stop(ctx.currentTime + 0.1);
+      } catch (_) {}
     }
-    if (unused.length === 0) {
-      usedTemplates.clear();
-      for (let i = 0; i < RAGEBAIT_TEMPLATES.length; i++) unused.push(i);
+
+    function flashbang() {
+      if (blasted) return;
+      blasted = true;
+      btn.disabled = true;
+      playFlashSound();
+      document.body.classList.add("blasted");
+      setTimeout(() => document.body.classList.remove("blasted"), 350);
+      flash.classList.remove("active");
+      void flash.offsetWidth;
+      flash.classList.add("active");
+      setTimeout(() => {
+        document.body.classList.remove("landing");
+        document.body.classList.add("cats-active");
+        startCatSpam();
+      }, 500);
     }
-    const chosen = unused[Math.floor(Math.random() * unused.length)];
-    usedTemplates.add(chosen);
-    return RAGEBAIT_TEMPLATES[chosen];
-  }
 
-  function generateRagebait(question) {
-    const topic = extractTopic(question);
-    const opener = pickRandom(OPENERS);
-    const template = pickTemplate();
-    const closer = pickRandom(CLOSERS);
-    let body = template(topic);
-    if (questionCount > 2 && Math.random() > 0.4) body += " " + pickRandom(META_RAGEBAIT);
-    if (question.length < 15 && Math.random() > 0.3) {
-      body = `Such brevity. Such confidence. You asked "${question.trim()}" as though four words could contain the complexity of human existence. ${body}`;
+    btn.addEventListener("click", flashbang);
+
+    /* ─── CAT SPAM ─── */
+    function startCatSpam() {
+      if (catsStarted) return;
+      catsStarted = true;
+
+      const field = document.getElementById("cat-field");
+      const counter = document.getElementById("counter");
+      let catCount = 0;
+      const EMOJIS = ["🐱", "🐈", "🐈‍⬛", "😺", "😸", "😹", "😻", "🙀", "😿", "😾", "🐾"];
+
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+      function updateCounter() { counter.textContent = `cats deployed: ${catCount}`; }
+
+      function spawnEmojiCat() {
+        const el = document.createElement("div");
+        el.className = "cat cat-emoji";
+        el.textContent = pick(EMOJIS);
+        el.style.left = rand(-5, 95) + "vw";
+        el.style.top = rand(-5, 95) + "vh";
+        el.style.fontSize = rand(30, 120) + "px";
+        el.style.zIndex = Math.floor(rand(1, 9999));
+        el.style.animationDuration = rand(0.2, 1.2) + "s";
+        el.style.transform = `rotate(${rand(-45, 45)}deg)`;
+        field.appendChild(el);
+        catCount++;
+        updateCounter();
+      }
+
+      function spawnImageCat() {
+        const el = document.createElement("div");
+        el.className = "cat";
+        const img = document.createElement("img");
+        const size = Math.floor(rand(80, 280));
+        img.width = size;
+        img.height = size;
+        img.src = `https://cataas.com/cat?${Date.now()}-${Math.random()}`;
+        img.alt = "cat";
+        el.appendChild(img);
+        el.style.left = rand(-10, 90) + "vw";
+        el.style.top = rand(-10, 90) + "vh";
+        el.style.zIndex = Math.floor(rand(1, 9999));
+        el.style.animationDuration = rand(0.3, 1.5) + "s";
+        el.style.transform = `rotate(${rand(-30, 30)}deg)`;
+        field.appendChild(el);
+        catCount++;
+        updateCounter();
+      }
+
+      function spawnCat() {
+        if (Math.random() > 0.35) spawnEmojiCat();
+        else spawnImageCat();
+      }
+
+      function spamBurst(amount) {
+        for (let i = 0; i < amount; i++) setTimeout(spawnCat, i * 30);
+      }
+
+      spamBurst(40);
+      setInterval(() => spawnCat(), 120);
+      setInterval(() => spamBurst(8), 800);
+      setInterval(() => spamBurst(15), 2000);
+
+      document.addEventListener("mousemove", () => {
+        if (Math.random() > 0.7) spawnCat();
+      });
+
+      document.addEventListener("click", (e) => {
+        spamBurst(12);
+        for (let i = 0; i < 6; i++) {
+          const el = document.createElement("div");
+          el.className = "cat cat-emoji";
+          el.textContent = "🐱";
+          el.style.left = e.clientX + rand(-80, 80) + "px";
+          el.style.top = e.clientY + rand(-80, 80) + "px";
+          el.style.fontSize = rand(40, 100) + "px";
+          el.style.zIndex = 99999;
+          field.appendChild(el);
+          catCount++;
+        }
+        updateCounter();
+      });
+
+      document.addEventListener("keydown", () => spamBurst(5));
+      setInterval(() => { document.title = "🐱".repeat(Math.floor(rand(5, 30))); }, 200);
     }
-    if (!/\?$/.test(question.trim())) {
-      body = `You did not even phrase it as a question — yet you expect answers? ${body}`;
-    }
-    return `${opener} ${body} ${closer}`;
-  }
-
-  function updatePatience() {
-    patience = Math.max(0, patience - (12 + Math.floor(Math.random() * 10)));
-    patienceFill.style.width = patience + "%";
-    patienceMeter.setAttribute("aria-valuenow", patience);
-    const label = PATIENCE_LABELS.find((l) => patience >= l.min);
-    patienceLabel.textContent = label ? label.label : "Fully enraged";
-    if (patience <= 40) rageQuitBtn.hidden = false;
-    if (patience <= 20) {
-      document.body.classList.add("rage-shake");
-      setTimeout(() => document.body.classList.remove("rage-shake"), 400);
-    }
-  }
-
-  function createMessage(text, role, extraClass = "") {
-    const article = document.createElement("article");
-    article.className = `message message--${role} ${extraClass}`.trim();
-    const avatar = document.createElement("div");
-    avatar.className = "message__avatar";
-    avatar.setAttribute("aria-hidden", "true");
-    avatar.textContent = role === "socrates" ? "Σ" : "You";
-    const bubble = document.createElement("div");
-    bubble.className = "message__bubble";
-    const p = document.createElement("p");
-    p.textContent = text;
-    bubble.appendChild(p);
-    article.appendChild(avatar);
-    article.appendChild(bubble);
-    return article;
-  }
-
-  function scrollToBottom() { chatLog.scrollTop = chatLog.scrollHeight; }
-
-  async function typeMessage(text, extraClass = "") {
-    const article = document.createElement("article");
-    article.className = `message message--socrates message--typing ${extraClass}`.trim();
-    const avatar = document.createElement("div");
-    avatar.className = "message__avatar";
-    avatar.setAttribute("aria-hidden", "true");
-    avatar.textContent = "Σ";
-    const bubble = document.createElement("div");
-    bubble.className = "message__bubble";
-    const p = document.createElement("p");
-    bubble.appendChild(p);
-    article.appendChild(avatar);
-    article.appendChild(bubble);
-    chatLog.appendChild(article);
-    scrollToBottom();
-    const isRage = patience <= 40;
-    const speed = isRage ? 12 : 22;
-    for (let i = 0; i <= text.length; i++) {
-      p.textContent = text.slice(0, i);
-      if (i % 3 === 0) scrollToBottom();
-      await sleep(speed);
-    }
-    article.classList.remove("message--typing");
-    if (isRage) article.classList.add("message--rage");
-  }
-
-  function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const question = userQuestion.value.trim();
-    if (!question) return;
-    submitBtn.disabled = true;
-    questionCount++;
-    questionsCount.textContent = questionCount;
-    wisdomQuote.textContent = pickRandom(WISDOM_QUOTES);
-    chatLog.appendChild(createMessage(question, "user"));
-    userQuestion.value = "";
-    scrollToBottom();
-    await sleep(600 + Math.random() * 800);
-    const ragebait = generateRagebait(question);
-    await typeMessage(ragebait, patience <= 40 ? "message--rage" : "");
-    updatePatience();
-    submitBtn.disabled = false;
-    userQuestion.focus();
-  }
-
-  function handleRageQuit() {
-    const response = pickRandom(RAGE_QUIT_RESPONSES);
-    chatLog.appendChild(createMessage(response, "socrates", "message--rage"));
-    scrollToBottom();
-    patience = 0;
-    patienceFill.style.width = "0%";
-    patienceLabel.textContent = "You broke yourself";
-    rageQuitBtn.hidden = true;
-  }
-
-  askForm.addEventListener("submit", handleSubmit);
-  rageQuitBtn.addEventListener("click", handleRageQuit);
-  userQuestion.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); askForm.requestSubmit(); }
-  });
-})();
   </script>
 </body>
 </html>
