@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>...</title>
+  <title>nothing to see here</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
 
-    /* ─── LANDING PAGE ─── */
-    body.landing {
+    html, body {
+      height: 100%;
+      overflow: hidden;
       background: #000;
       color: #fff;
       font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -21,289 +24,207 @@
       padding: 2rem;
     }
 
-    #landing-page { display: contents; }
-
     .quote {
-      font-size: clamp(1.8rem, 6vw, 4.5rem);
-      font-weight: 700;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.35);
       text-align: center;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      max-width: 14ch;
-      background: linear-gradient(135deg, #ffffff 0%, #cccccc 20%, #666666 45%, #111111 70%, #ffffff 100%);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 8s ease infinite;
+      max-width: 32ch;
+      margin-bottom: 3rem;
+      line-height: 1.5;
       user-select: none;
     }
 
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+    .click-zone {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    .exit-btn {
-      margin-top: 3.5rem;
-      padding: 0.9rem 2.2rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+    .click-label {
+      font-size: clamp(1.8rem, 6vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 2px;
-      cursor: pointer;
-      transition: color 0.3s, border-color 0.3s, background 0.3s;
+      color: #ff2222;
+      text-shadow: 0 0 20px rgba(255, 34, 34, 0.6);
+      animation: labelPulse 1s ease-in-out infinite;
+      user-select: none;
     }
 
-    .exit-btn:hover { color: #fff; border-color: rgba(255, 255, 255, 0.6); background: rgba(255, 255, 255, 0.05); }
-    .exit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    @keyframes labelPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.85; }
+    }
+
+    .arrow-wrap {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: -1rem;
+    }
+
+    .arrow {
+      font-size: clamp(4rem, 15vw, 9rem);
+      color: #ff2222;
+      animation: arrowBounce 0.6s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgba(255, 34, 34, 0.8));
+      line-height: 1;
+      user-select: none;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(18px); }
+    }
+
+    #the-circle {
+      width: clamp(180px, 40vw, 320px);
+      height: clamp(180px, 40vw, 320px);
+      border-radius: 50%;
+      border: 6px solid #ff2222;
+      background: radial-gradient(circle at 35% 35%, #2a0000, #000);
+      cursor: pointer;
+      box-shadow:
+        0 0 40px rgba(255, 34, 34, 0.4),
+        inset 0 0 60px rgba(255, 34, 34, 0.15);
+      animation: circlePulse 1.5s ease-in-out infinite;
+      transition: transform 0.1s;
+      outline: none;
+    }
+
+    #the-circle:hover {
+      transform: scale(1.06);
+      box-shadow:
+        0 0 80px rgba(255, 34, 34, 0.7),
+        inset 0 0 60px rgba(255, 34, 34, 0.25);
+    }
+
+    #the-circle:active {
+      transform: scale(0.97);
+    }
+
+    @keyframes circlePulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(255, 34, 34, 0.4), inset 0 0 60px rgba(255, 34, 34, 0.15); }
+      50% { box-shadow: 0 0 90px rgba(255, 34, 34, 0.8), inset 0 0 80px rgba(255, 34, 34, 0.3); }
+    }
 
     #flashbang {
-      position: fixed; inset: 0; z-index: 99999;
-      background: #fff; pointer-events: none;
-      opacity: 0; visibility: hidden;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #fff;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
     }
 
-    #flashbang.active { visibility: visible; animation: flashbang 4.5s ease-out forwards; }
+    #flashbang.active {
+      visibility: visible;
+      animation: flashbang 5s ease-out forwards;
+    }
 
     @keyframes flashbang {
-      0% { opacity: 0; }
-      2%, 8% { opacity: 1; }
-      25% { opacity: 0.92; }
-      45% { opacity: 0.7; }
-      70% { opacity: 0.35; }
+      0%   { opacity: 0; }
+      1%   { opacity: 1; }
+      10%  { opacity: 1; }
+      30%  { opacity: 0.95; }
+      55%  { opacity: 0.75; }
+      80%  { opacity: 0.4; }
       100% { opacity: 0; }
     }
 
-    body.blasted { animation: screenShake 0.35s ease-out; }
+    body.blasted {
+      animation: shake 0.4s ease-out;
+    }
 
-    @keyframes screenShake {
+    @keyframes shake {
       0%, 100% { transform: translate(0, 0); }
-      15% { transform: translate(-6px, 4px); }
-      30% { transform: translate(5px, -5px); }
-      45% { transform: translate(-4px, -3px); }
-      60% { transform: translate(4px, 2px); }
-      75% { transform: translate(-2px, 3px); }
+      20% { transform: translate(-8px, 6px); }
+      40% { transform: translate(7px, -7px); }
+      60% { transform: translate(-6px, -4px); }
+      80% { transform: translate(5px, 5px); }
     }
 
-    /* ─── CAT PAGE ─── */
-    #cat-page {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: #fff;
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='26' font-size='24'%3E🐱%3C/text%3E%3C/svg%3E") 16 16, auto;
-    }
-
-    body.cats-active #landing-page { display: none; }
-    body.cats-active #cat-page { display: block; }
-    body.cats-active { background: #fff; }
-
-    #cat-field { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
-
-    .cat {
-      position: absolute;
-      pointer-events: none;
-      user-select: none;
-      animation: catWobble 0.6s ease-in-out infinite alternate;
-    }
-
-    .cat img { display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
-    .cat-emoji { line-height: 1; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); }
-
-    @keyframes catWobble {
-      from { transform: rotate(-8deg) scale(1); }
-      to   { transform: rotate(8deg) scale(1.05); }
-    }
-
-    #overlay-text {
-      position: fixed; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-family: Impact, "Arial Black", sans-serif;
-      font-size: clamp(3rem, 12vw, 10rem);
-      color: rgba(0, 0, 0, 0.08);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      z-index: 0;
-      pointer-events: none;
-      animation: pulseText 0.3s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulseText {
-      from { transform: scale(1); opacity: 0.06; }
-      to   { transform: scale(1.02); opacity: 0.12; }
-    }
-
-    #counter {
-      position: fixed; top: 12px; left: 12px; z-index: 99999;
-      font-family: monospace; font-size: 14px;
-      background: rgba(0, 0, 0, 0.75); color: #0f0;
-      padding: 8px 12px; border-radius: 4px;
-      pointer-events: none;
-    }
+    .hidden { display: none !important; }
   </style>
 </head>
-<body class="landing">
-  <div id="landing-page">
-    <p class="quote">You were never supposed to be here.</p>
-    <button class="exit-btn" id="exit-btn" type="button">Leave</button>
-  </div>
+<body>
+  <p class="quote">"Curiosity is the wick in the candle of learning — and also how you set your retinas on fire."</p>
 
-  <div id="cat-page">
-    <div id="overlay-text">CATS</div>
-    <div id="counter">cats deployed: 0</div>
-    <div id="cat-field"></div>
+  <div class="click-zone" id="click-zone">
+    <p class="click-label">CLICK THIS</p>
+    <div class="arrow-wrap">
+      <span class="arrow" aria-hidden="true">▼</span>
+    </div>
+    <button id="the-circle" type="button" aria-label="Click this circle"></button>
   </div>
 
   <div id="flashbang" aria-hidden="true"></div>
 
   <script>
-    /* ─── FLASHBANG ─── */
-    const btn = document.getElementById("exit-btn");
+    const circle = document.getElementById("the-circle");
     const flash = document.getElementById("flashbang");
-    let blasted = false;
-    let catsStarted = false;
+    const clickZone = document.getElementById("click-zone");
+    let done = false;
 
     function playFlashSound() {
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
         const noise = ctx.createBufferSource();
-        const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.15, ctx.sampleRate);
+        const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.2, ctx.sampleRate);
         const data = buffer.getChannelData(0);
         for (let i = 0; i < data.length; i++) {
-          data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 0.4);
+          data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 0.3);
         }
         noise.buffer = buffer;
+
         const noiseGain = ctx.createGain();
-        noiseGain.gain.setValueAtTime(0.9, ctx.currentTime);
-        noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+        noiseGain.gain.setValueAtTime(1, ctx.currentTime);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+
         const osc = ctx.createOscillator();
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(1200, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.08);
+        osc.type = "square";
+        osc.frequency.setValueAtTime(2000, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.1);
+
         const oscGain = ctx.createGain();
-        oscGain.gain.setValueAtTime(0.5, ctx.currentTime);
-        oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+        oscGain.gain.setValueAtTime(0.6, ctx.currentTime);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
         noise.connect(noiseGain);
         osc.connect(oscGain);
         noiseGain.connect(ctx.destination);
         oscGain.connect(ctx.destination);
+
         noise.start();
         osc.start();
-        noise.stop(ctx.currentTime + 0.15);
-        osc.stop(ctx.currentTime + 0.1);
+        noise.stop(ctx.currentTime + 0.2);
+        osc.stop(ctx.currentTime + 0.12);
       } catch (_) {}
     }
 
     function flashbang() {
-      if (blasted) return;
-      blasted = true;
-      btn.disabled = true;
+      if (done) return;
+      done = true;
+
       playFlashSound();
+
       document.body.classList.add("blasted");
-      setTimeout(() => document.body.classList.remove("blasted"), 350);
+      setTimeout(() => document.body.classList.remove("blasted"), 400);
+
+      clickZone.classList.add("hidden");
+
       flash.classList.remove("active");
       void flash.offsetWidth;
       flash.classList.add("active");
-      setTimeout(() => {
-        document.body.classList.remove("landing");
-        document.body.classList.add("cats-active");
-        startCatSpam();
-      }, 500);
     }
 
-    btn.addEventListener("click", flashbang);
-
-    /* ─── CAT SPAM ─── */
-    function startCatSpam() {
-      if (catsStarted) return;
-      catsStarted = true;
-
-      const field = document.getElementById("cat-field");
-      const counter = document.getElementById("counter");
-      let catCount = 0;
-      const EMOJIS = ["🐱", "🐈", "🐈‍⬛", "😺", "😸", "😹", "😻", "🙀", "😿", "😾", "🐾"];
-
-      function rand(min, max) { return Math.random() * (max - min) + min; }
-      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-      function updateCounter() { counter.textContent = `cats deployed: ${catCount}`; }
-
-      function spawnEmojiCat() {
-        const el = document.createElement("div");
-        el.className = "cat cat-emoji";
-        el.textContent = pick(EMOJIS);
-        el.style.left = rand(-5, 95) + "vw";
-        el.style.top = rand(-5, 95) + "vh";
-        el.style.fontSize = rand(30, 120) + "px";
-        el.style.zIndex = Math.floor(rand(1, 9999));
-        el.style.animationDuration = rand(0.2, 1.2) + "s";
-        el.style.transform = `rotate(${rand(-45, 45)}deg)`;
-        field.appendChild(el);
-        catCount++;
-        updateCounter();
-      }
-
-      function spawnImageCat() {
-        const el = document.createElement("div");
-        el.className = "cat";
-        const img = document.createElement("img");
-        const size = Math.floor(rand(80, 280));
-        img.width = size;
-        img.height = size;
-        img.src = `https://cataas.com/cat?${Date.now()}-${Math.random()}`;
-        img.alt = "cat";
-        el.appendChild(img);
-        el.style.left = rand(-10, 90) + "vw";
-        el.style.top = rand(-10, 90) + "vh";
-        el.style.zIndex = Math.floor(rand(1, 9999));
-        el.style.animationDuration = rand(0.3, 1.5) + "s";
-        el.style.transform = `rotate(${rand(-30, 30)}deg)`;
-        field.appendChild(el);
-        catCount++;
-        updateCounter();
-      }
-
-      function spawnCat() {
-        if (Math.random() > 0.35) spawnEmojiCat();
-        else spawnImageCat();
-      }
-
-      function spamBurst(amount) {
-        for (let i = 0; i < amount; i++) setTimeout(spawnCat, i * 30);
-      }
-
-      spamBurst(40);
-      setInterval(() => spawnCat(), 120);
-      setInterval(() => spamBurst(8), 800);
-      setInterval(() => spamBurst(15), 2000);
-
-      document.addEventListener("mousemove", () => {
-        if (Math.random() > 0.7) spawnCat();
-      });
-
-      document.addEventListener("click", (e) => {
-        spamBurst(12);
-        for (let i = 0; i < 6; i++) {
-          const el = document.createElement("div");
-          el.className = "cat cat-emoji";
-          el.textContent = "🐱";
-          el.style.left = e.clientX + rand(-80, 80) + "px";
-          el.style.top = e.clientY + rand(-80, 80) + "px";
-          el.style.fontSize = rand(40, 100) + "px";
-          el.style.zIndex = 99999;
-          field.appendChild(el);
-          catCount++;
-        }
-        updateCounter();
-      });
-
-      document.addEventListener("keydown", () => spamBurst(5));
-      setInterval(() => { document.title = "🐱".repeat(Math.floor(rand(5, 30))); }, 200);
-    }
+    circle.addEventListener("click", flashbang);
   </script>
 </body>
 </html>
