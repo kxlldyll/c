@@ -4,66 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NEXUS • Underground Modding OS</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { --accent: #00f0ff; --bg: #0a0e14; --card: rgba(20,25,35,0.9); }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background: var(--bg); color: #e0e7ff; font-family: system-ui; }
+    .header { 
+      position: sticky; top: 0; background: rgba(10,14,20,0.95); 
+      backdrop-filter: blur(12px); padding: 1rem 5%; display: flex; 
+      justify-content: space-between; align-items: center; z-index: 100;
+    }
+    .logo { font-size: 2rem; font-weight: 800; background: linear-gradient(90deg, var(--accent), #ff00aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; padding: 40px 5%; }
+    .card { 
+      background: var(--card); border-radius: 16px; padding: 28px; 
+      border: 1px solid rgba(0,240,255,0.2); transition: 0.4s;
+    }
+    .card:hover { transform: translateY(-12px); border-color: var(--accent); }
+    button { width: 100%; padding: 14px; background: var(--accent); color: black; border: none; border-radius: 10px; margin-top: 12px; font-weight: 600; cursor: pointer; }
+  </style>
 </head>
 <body>
-  <header class="header">
+  <div class="header">
     <div class="logo">NEXUS</div>
-    <nav class="nav">
-      <button data-filter="all" class="filter-btn active">All</button>
-      <button data-filter="outfits" class="filter-btn">Outfits</button>
-      <button data-filter="vehicles" class="filter-btn">Vehicles</button>
-      <button data-filter="economy" class="filter-btn">Economy</button>
-    </nav>
-    <div class="header-right">
-      <button id="theme-btn" class="icon-btn">🎨</button>
-      <button id="cart-btn" class="cart-btn">
-        Cart <span id="cart-count" class="badge">0</span>
-      </button>
-    </div>
-  </header>
-
-  <main class="main">
-    <div class="hero">
-      <h1>Underground Modding OS</h1>
-      <p class="subtitle">Enterprise-grade cheating since 2018. Your account is now our sandbox.</p>
-    </div>
-
-    <div class="products-grid" id="products-grid"></div>
-  </main>
-
-  <!-- Cart Drawer -->
-  <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-header">
-      <h2>Your Cart</h2>
-      <button id="close-cart">✕</button>
-    </div>
-    <div id="cart-items"></div>
-    <div class="cart-total">
-      <span>Total</span>
-      <strong id="cart-total">$0.00</strong>
-    </div>
-    <button id="checkout-btn" class="checkout-btn">Proceed to Checkout</button>
+    <div>Cart (0)</div>
   </div>
 
-  <!-- Checkout Modal -->
-  <div class="modal" id="checkout-modal">
-    <div class="modal-content">
-      <h2>Secure Checkout</h2>
-      <p>We accept LTC, Robux, and your dignity.</p>
-      <button id="place-order" class="place-order-btn">Place Order (It's a prank)</button>
-      <button id="close-modal" class="cancel-btn">Nevermind</button>
-    </div>
+  <div style="padding: 60px 5% 40px; text-align:center;">
+    <h1 style="font-size:3.5rem;">Underground Modding OS</h1>
+    <p style="font-size:1.3rem; opacity:0.85;">Enterprise-grade cheating since 2018. Your account is now our sandbox.</p>
   </div>
 
-  <!-- Theme Customizer -->
-  <div class="theme-panel" id="theme-panel">
-    <h3>Appearance Settings</h3>
-    <button onclick="setTheme('#00f0ff')">Cyber Blue</button>
-    <button onclick="setTheme('#ff00aa')">Vice Pink</button>
-    <button onclick="setTheme('#00ff88')">Toxic Green</button>
-  </div>
+  <div class="products-grid" id="products"></div>
 
-  <script src="app.js"></script>
+  <script>
+    const products = [
+      {name:"God Tier Outfits Pack", price:35, desc:"50 outfits so clean your character will file for divorce."},
+      {name:"30M Safe Cash Drop", price:22, desc:"We drop it. Rockstar pretends not to notice."},
+      {name:"Oppressor MK II (Missiles Included)", price:45, desc:"The griefing meta never dies."},
+      {name:"Rank 8000 Boost", price:60, desc:"From zero to tryhard in under 40 minutes."}
+    ];
+
+    document.getElementById('products').innerHTML = products.map(p => `
+      <div class="card">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div style="font-size:2rem; margin:16px 0; color:var(--accent);">$${p.price}</div>
+        <button onclick="alert('Added ${p.name} (lol)')">Add to Cart</button>
+      </div>
+    `).join('');
+  </script>
 </body>
 </html>
