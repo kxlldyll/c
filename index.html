@@ -1,1419 +1,2412 @@
+﻿===== index.html =====
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="[REDACTED] ? Premium GTA Online modding services. Instant delivery on all platforms." />
-  <meta name="theme-color" content="#080c10" />
-  <title>[REDACTED] ? GTA Online Services</title>
+  <meta name="description" content="Professional GTA V Steam modding services ? outfits, garage vehicles, ranks & bundles. Pay via LTC, Robux, or gift cards." />
+  <meta name="theme-color" content="#0e1419" />
+  <title>[REDACTED] ? GTA V Steam Services</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/legal.css" />
 </head>
 <body>
-  <div class="scanlines hidden" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
 
-  <div class="promo-bar">
-    <div class="promo-bar__inner">
-      <span class="promo-bar__tag">FLASH SALE</span>
-      <span class="promo-bar__text">Bundle deals up to <strong>40% off</strong> ? ends in <span id="sale-timer">02:47:13</span></span>
-      <span class="promo-bar__live"><span class="pulse-dot"></span> <span id="live-count">847</span> orders in the last 24h</span>
+  <div class="top-strip">
+    <div class="top-strip__left">
+      <span class="steam-badge">Steam Only</span>
+      <span class="top-strip__sep">|</span>
+      <span>No Launcher ? No Epic ? No Console</span>
     </div>
+    <span class="top-strip__ticker" id="live-ticker">Order completed ? Rank 120 ? PC Enhanced</span>
+    <span class="top-strip__support">Support <span class="status-live">Online</span></span>
   </div>
 
-  <nav class="navbar">
-    <a class="navbar__brand" href="#">
-      <span class="navbar__logo">?</span>
-      <span id="nav-name">[REDACTED]</span>
+  <header class="header">
+    <a class="brand" href="#panel-home">
+      <span class="brand__mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </span>
+      <div class="brand__text">
+        <span class="brand__name" data-shop-name>[REDACTED]</span>
+        <span class="brand__sub">GTA V ? Steam Services</span>
+      </div>
     </a>
-    <div class="navbar__links">
-      <a href="#money">Money</a>
-      <a href="#vehicles">Vehicles</a>
-      <a href="#businesses">Businesses</a>
-      <a href="#bundles">Bundles</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <div class="navbar__actions">
-      <button class="navbar__cart-btn" id="cart-toggle" type="button">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="navbar__cart-count" id="nav-cart-count">0</span>
+
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link active" href="#panel-home" data-tab="home">Home</a>
+      <a class="nav-link" href="#panel-services" data-tab="services">Services</a>
+      <a class="nav-link" href="#panel-bundles" data-tab="bundles">Bundles</a>
+      <a class="nav-link" href="#panel-process" data-tab="process">Process</a>
+      <a class="nav-link" href="#panel-faq" data-tab="faq">FAQ</a>
+      <a class="nav-link" href="#panel-payments" data-tab="payments">Payments</a>
+      <a class="nav-link" href="#panel-contact" data-tab="contact">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="icon-btn" id="theme-open" type="button" aria-label="Customize theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
-      <button class="btn btn--accent btn--sm" id="customizer-open" type="button">Theme</button>
+      <button class="cart-btn" id="cart-open" type="button">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span>Cart</span>
+        <span class="cart-btn__count" data-cart-count>0</span>
+      </button>
     </div>
-  </nav>
+  </header>
 
-  <aside class="customizer collapsed" id="customizer">
-    <div class="customizer__panel" id="customizer-panel">
-      <header class="customizer__header">
-        <h2>Theme Lab</h2>
-        <button class="btn btn--ghost btn--sm" id="customizer-close" type="button">?</button>
-      </header>
+  <aside class="theme-panel" id="theme-panel">
+    <div class="theme-panel__head">
+      <h2>Appearance</h2>
+      <button class="icon-btn" id="theme-close" type="button" aria-label="Close">?</button>
+    </div>
+    <label class="field"><span>Brand Name</span><input type="text" id="shop-name-input" value="[REDACTED]" /></label>
+    <div class="theme-swatches" id="theme-swatches"></div>
+    <label class="field">
+      <span>Color Theme</span>
+      <select id="theme-preset"></select>
+    </label>
+    <p class="theme-panel__divider">Payment handles</p>
+    <label class="field"><span>Payment User / Handle</span><input type="text" id="pay-user-input" value="[user]" /></label>
+    <label class="field"><span>LTC Wallet Address</span><input type="text" id="ltc-wallet-input" value="ltc1q[user]placeholder" /></label>
+    <label class="field"><span>Roblox Username</span><input type="text" id="roblox-user-input" value="[user]" /></label>
+    <label class="field"><span>Discord Handle</span><input type="text" id="discord-user-input" value="[user]" /></label>
+    <label class="field"><span>Corner Radius <strong id="radius-val">8</strong>px</span><input type="range" id="radius-range" min="0" max="20" value="8" /></label>
+    <label class="field"><span>Font Scale <strong id="font-val">100</strong>%</span><input type="range" id="font-range" min="92" max="108" value="100" /></label>
+    <label class="field"><span>Accent Glow <strong id="glow-val">30</strong>%</span><input type="range" id="glow-range" min="0" max="80" value="30" /></label>
+    <label class="check"><input type="checkbox" id="anim-grad" checked /> Gradient product titles</label>
+    <button class="btn btn--ghost btn--full" id="theme-reset" type="button">Restore defaults</button>
+  </aside>
 
-      <div class="customizer__section">
-        <label class="customizer__label" for="theme-preset">Preset</label>
-        <select id="theme-preset" class="customizer__select">
-          <option value="pro-dark">Pro Dark</option>
-          <option value="los-santos">Los Santos Green</option>
-          <option value="vice">Vice Pink</option>
-          <option value="midnight">Midnight Heist</option>
-          <option value="gold-rush">Gold Rush</option>
-          <option value="chrome">Chrome Deluxo</option>
-          <option value="blood">Blood Money</option>
-          <option value="custom">Custom</option>
-        </select>
+  <aside class="cart-panel" id="cart-panel">
+    <div class="cart-panel__backdrop" id="cart-backdrop"></div>
+    <div class="cart-panel__sheet">
+      <div class="cart-panel__head">
+        <div><h2>Order Summary</h2><p class="cart-panel__sub">Steam ? LTC / Robux payment</p></div>
+        <button class="icon-btn" id="cart-close" type="button" aria-label="Close">?</button>
       </div>
-
-      <div class="customizer__section">
-        <label class="customizer__label" for="shop-name-mode">Shop Name</label>
-        <select id="shop-name-mode" class="customizer__select">
-          <option value="redacted">[REDACTED]</option>
-          <option value="random">Random Name</option>
-          <option value="custom">Custom</option>
-        </select>
-        <input type="text" id="shop-name-custom" class="customizer__input" placeholder="Your shop name..." hidden />
-        <button class="btn btn--ghost btn--sm" id="reroll-name" type="button" hidden>Re-roll</button>
+      <ul class="cart-list" id="cart-list"><li class="cart-empty">Your cart is empty</li></ul>
+      <div class="cart-panel__foot">
+        <div class="cart-total-row"><span>Total</span><strong data-cart-total>$0.00</strong></div>
+        <button class="btn btn--primary btn--full" id="cart-checkout" type="button" disabled>Proceed to Checkout</button>
+        <p class="cart-note">Secure checkout opens in a new browser tab</p>
+        <button class="btn btn--ghost btn--sm btn--full" id="cart-clear" type="button">Clear cart</button>
       </div>
-
-      <div class="customizer__grid">
-        <div class="customizer__field"><label for="color-bg">Background</label><input type="color" id="color-bg" value="#080c10" /></div>
-        <div class="customizer__field"><label for="color-surface">Surface</label><input type="color" id="color-surface" value="#111820" /></div>
-        <div class="customizer__field"><label for="color-accent">Accent</label><input type="color" id="color-accent" value="#00e676" /></div>
-        <div class="customizer__field"><label for="color-accent2">Accent 2</label><input type="color" id="color-accent2" value="#ff4081" /></div>
-        <div class="customizer__field"><label for="color-text">Text</label><input type="color" id="color-text" value="#f0f4f8" /></div>
-        <div class="customizer__field"><label for="color-muted">Muted</label><input type="color" id="color-muted" value="#6b7c8f" /></div>
-      </div>
-
-      <div class="customizer__section">
-        <label class="customizer__label" for="gradient-start">Product Gradient Start</label>
-        <input type="color" id="gradient-start" value="#00e676" />
-      </div>
-      <div class="customizer__section">
-        <label class="customizer__label" for="gradient-end">Product Gradient End</label>
-        <input type="color" id="gradient-end" value="#00b0ff" />
-      </div>
-
-      <div class="customizer__section">
-        <label class="customizer__label" for="font-heading">Heading Font</label>
-        <select id="font-heading" class="customizer__select">
-          <option value="Bebas Neue">Bebas Neue</option>
-          <option value="Impact">Impact</option>
-          <option value="Arial Black">Arial Black</option>
-        </select>
-      </div>
-      <div class="customizer__section">
-        <label class="customizer__label" for="font-body">Body Font</label>
-        <select id="font-body" class="customizer__select">
-          <option value="Inter">Inter</option>
-          <option value="Arial">Arial</option>
-          <option value="JetBrains Mono">JetBrains Mono</option>
-        </select>
-      </div>
-
-      <div class="customizer__section">
-        <label class="customizer__label" for="card-radius">Card Radius <span id="radius-val">12</span>px</label>
-        <input type="range" id="card-radius" min="0" max="32" value="12" />
-      </div>
-      <div class="customizer__section">
-        <label class="customizer__label" for="glow-intensity">Glow <span id="glow-val">35</span>%</label>
-        <input type="range" id="glow-intensity" min="0" max="100" value="35" />
-      </div>
-      <div class="customizer__section">
-        <label class="customizer__check"><input type="checkbox" id="scanlines-toggle" /> Scanlines</label>
-        <label class="customizer__check"><input type="checkbox" id="animated-gradient" checked /> Animated Gradients</label>
-      </div>
-      <button class="btn btn--ghost btn--full" id="reset-theme" type="button">Reset Theme</button>
     </div>
   </aside>
 
-  <header class="hero">
-    <div class="hero__content">
-      <div class="hero__trust">
-        <span>? 4.9/5 Rating</span>
-        <span>?</span>
-        <span>12,400+ Customers</span>
-        <span>?</span>
-        <span>Since 2019</span>
+  <main>
+    <section class="page-panel" id="panel-home">
+      <div class="hero">
+        <div class="hero__copy">
+          <div class="hero__labels">
+            <span class="label-pill">Est. 2018</span>
+            <span class="label-pill label-pill--steam">Steam Only</span>
+            <span class="label-pill">14,800+ Orders</span>
+          </div>
+          <h1>Professional GTA V<br /><span class="grad-text">Steam Modding Services</span></h1>
+          <p class="lead">Modded outfits, garage-delivered vehicles, rank progression, and curated bundles ? <strong>Steam library required</strong>. Pay via Litecoin, Robux, or gift cards to <span data-pay-user>[user]</span>.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#panel-services">View Services</a>
+            <a class="btn btn--outline btn--lg" href="#panel-faq">Safety &amp; FAQ</a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat"><strong data-counter="orders">0</strong><span>Orders delivered</span></div>
+            <div class="stat"><strong data-counter="customers">0</strong><span>Steam customers</span></div>
+            <div class="stat"><strong data-counter="rating">0</strong><span>Client rating</span></div>
+          </div>
+        </div>
+        <div class="hero__aside">
+          <div class="steam-requirement">
+            <div class="steam-requirement__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#66c0f4" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 15c0-2 1.5-4 4-4s4 2 4 4"/></svg>
+            </div>
+            <div>
+              <strong>Steam Library Required</strong>
+              <p>We can <em>only</em> deliver if GTA V is owned on <strong>Steam</strong>. Rockstar Launcher and Epic Games versions are not supported ? no exceptions.</p>
+            </div>
+          </div>
+          <div class="notice-card">
+            <div class="notice-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div>
+              <strong>Risk Disclosure</strong>
+              <p>Modding violates Rockstar's Terms of Service. Ban risk exists. We recommend alt accounts. <a href="#panel-faq">Read full FAQ ?</a></p>
+            </div>
+          </div>
+          <div class="hero__card">
+            <span class="hero__card-badge">Most Popular</span>
+            <h3 class="grad-text">Ultimate Los Santos Bundle</h3>
+            <ul class="hero__card-list">
+              <li>Rank 8000</li>
+              <li>50 modded outfits</li>
+              <li>25 garage vehicles</li>
+              <li>$2B + all weapons</li>
+            </ul>
+            <div class="hero__card-price"><s>$229.99</s><strong>$149.99</strong></div>
+            <a class="btn btn--primary btn--full" href="#panel-bundles">View Bundle</a>
+          </div>
+        </div>
       </div>
-      <h1 class="hero__title" id="shop-name">[REDACTED]</h1>
-      <p class="hero__tagline">Premium GTA Online Services ? Instant Delivery, All Platforms</p>
-      <p class="hero__sub">Modded money, vehicles delivered to your garage, fully upgraded businesses & more. Safe session method. 24/7 support.</p>
-      <div class="hero__cta">
-        <a class="btn btn--accent btn--lg" href="#bundles">View Best Sellers</a>
-        <a class="btn btn--outline btn--lg" href="#how-it-works">How It Works</a>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div><strong>Steam Only</strong><span>Enhanced &amp; Legacy via Steam</span></div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><strong>Private Sessions</strong><span>Controlled delivery environment</span></div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><strong>10?30 Min Delivery</strong><span>Average single-item time</span></div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div><strong>24/7 Support</strong><span>Discord ticket system</span></div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div><strong>Refund Guarantee</strong><span>If we can't deliver</span></div>
+        </div>
       </div>
-      <div class="platform-pills" id="platform-pills">
-        <button class="platform-pill active" data-platform="all">All Platforms</button>
-        <button class="platform-pill" data-platform="PS5">PS5</button>
-        <button class="platform-pill" data-platform="Xbox">Xbox</button>
-        <button class="platform-pill" data-platform="PC">PC</button>
+
+      <div class="reviews-band">
+        <div class="section-intro section-intro--inline">
+          <h2>Client Testimonials</h2>
+          <p>Verified Steam customers</p>
+        </div>
+        <div class="reviews-grid" id="testimonials"></div>
       </div>
-    </div>
-    <div class="hero__featured" id="hero-featured"></div>
-  </header>
-
-  <section class="trust-strip">
-    <div class="trust-item"><span class="trust-icon">?</span><div><strong>Instant Delivery</strong><span>5?30 min avg.</span></div></div>
-    <div class="trust-item"><span class="trust-icon">??</span><div><strong>Secure Checkout</strong><span>SSL encrypted</span></div></div>
-    <div class="trust-item"><span class="trust-icon">???</span><div><strong>Safe Method</strong><span>Private sessions</span></div></div>
-    <div class="trust-item"><span class="trust-icon">??</span><div><strong>24/7 Support</strong><span>Discord & live chat</span></div></div>
-    <div class="trust-item"><span class="trust-icon">??</span><div><strong>Money Back</strong><span>If we can't deliver</span></div></div>
-  </section>
-
-  <div class="recent-orders" id="recent-orders" aria-live="polite"></div>
-
-  <section class="section-toolbar">
-    <div class="search-wrap">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="search" id="search" class="search" placeholder="Search services..." />
-    </div>
-    <nav class="filters" aria-label="Product categories">
-      <button class="filter active" data-filter="all">All</button>
-      <button class="filter" data-filter="money">Money</button>
-      <button class="filter" data-filter="vehicles">Vehicles</button>
-      <button class="filter" data-filter="businesses">Businesses</button>
-      <button class="filter" data-filter="outfits">Outfits</button>
-      <button class="filter" data-filter="boosts">Boosts</button>
-      <button class="filter" data-filter="heists">Heists</button>
-      <button class="filter" data-filter="bundles">Bundles</button>
-    </nav>
-    <select id="sort" class="sort-select">
-      <option value="featured">Featured</option>
-      <option value="price-asc">Price: Low ? High</option>
-      <option value="price-desc">Price: High ? Low</option>
-      <option value="name">Name A?Z</option>
-    </select>
-  </section>
-
-  <main class="catalog-wrap">
-    <section class="catalog-section" id="money" data-section="money">
-      <div class="section-head"><h2>Modded Money</h2><p>Cash & bank balance added directly to your account</p></div>
-      <div class="catalog" id="catalog-money"></div>
     </section>
-    <section class="catalog-section" id="vehicles" data-section="vehicles">
-      <div class="section-head"><h2>Modded Vehicles</h2><p>Delivered straight to your garage ? insured, maxed, ready to drive</p></div>
-      <div class="catalog" id="catalog-vehicles"></div>
+
+    <section class="page-panel" id="panel-services">
+      <div class="section-intro">
+        <h2>Service Catalog</h2>
+        <p>All services delivered on Steam through private modded sessions. Launcher/Epic not supported.</p>
+      </div>
+      <div class="cat-pills">
+        <button class="cat-pill active" data-cat="all">All Services</button>
+        <button class="cat-pill" data-cat="outfits">Outfits</button>
+        <button class="cat-pill" data-cat="cars">Vehicles</button>
+        <button class="cat-pill" data-cat="levels">Levels</button>
+        <button class="cat-pill" data-cat="bundles">Bundles</button>
+      </div>
+      <div class="section-block" data-cat-block="outfits">
+        <h3 class="section-label">Modded Outfits</h3>
+        <p class="section-desc">Custom clothing saved directly to your PC wardrobe</p>
+        <div class="grid" id="grid-outfits"></div>
+      </div>
+      <div class="section-block" data-cat-block="cars">
+        <h3 class="section-label grad-text">Modded Vehicles</h3>
+        <p class="section-desc">Upgraded vehicles delivered to your PC garage ? insured and ready</p>
+        <div class="grid" id="grid-cars"></div>
+      </div>
+      <div class="section-block" data-cat-block="levels">
+        <h3 class="section-label">Modded Levels</h3>
+        <p class="section-desc">Rank boosts and weapon unlocks for PC accounts</p>
+        <div class="grid" id="grid-levels"></div>
+      </div>
     </section>
-    <section class="catalog-section" id="businesses" data-section="businesses">
-      <div class="section-head"><h2>Businesses & Properties</h2><p>Full ownership with all upgrades, staff, and equipment</p></div>
-      <div class="catalog" id="catalog-businesses"></div>
+
+    <section class="page-panel" id="panel-bundles">
+      <div class="section-intro">
+        <h2>Value Bundles</h2>
+        <p>Curated PC packages ? save up to 35% compared to individual services.</p>
+      </div>
+      <div class="section-block"><div class="grid grid--bundles" id="grid-bundles"></div></div>
     </section>
-    <section class="catalog-section" id="catalog-other" data-section="other">
-      <div class="section-head"><h2>More Services</h2><p>Outfits, rank boosts, heist unlocks & combo bundles</p></div>
-      <div class="catalog" id="catalog-other"></div>
+
+    <section class="page-panel" id="panel-process">
+      <div class="section-intro">
+        <h2>Delivery Process</h2>
+        <p>From checkout to in-game delivery ? transparent, step-by-step.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline__step"><span class="timeline__num">01</span><h3>Select Services</h3><p>Browse outfits, vehicles, levels, or bundles. Add items to your cart and review totals.</p></div>
+        <div class="timeline__step"><span class="timeline__num">02</span><h3>Send Payment</h3><p>Checkout opens in a <strong>new tab</strong>. Pay <span data-pay-user>[user]</span> via LTC, Robux, or Robux gift card. Confirm Steam ownership.</p></div>
+        <div class="timeline__step"><span class="timeline__num">03</span><h3>Discord Ticket</h3><p>Receive an automated ticket with your order ID. A technician assigns your private PC session.</p></div>
+        <div class="timeline__step"><span class="timeline__num">04</span><h3>Live Fulfillment</h3><p>Join the session. Outfits saved, vehicles placed in garage, rank applied ? verified before you leave.</p></div>
+      </div>
     </section>
-    <section class="catalog-section" id="bundles" data-section="bundles">
-      <div class="section-head"><h2>Best Value Bundles</h2><p>Save big with our most popular combo packages</p></div>
-      <div class="catalog catalog--bundles" id="catalog-bundles"></div>
+
+    <section class="page-panel" id="panel-faq">
+      <div class="section-intro">
+        <h2>Frequently Asked Questions</h2>
+        <p>Honest answers about safety, bans, delivery, and PC requirements. Read before ordering.</p>
+      </div>
+      <div class="faq-wrap" id="faq-list"></div>
+    </section>
+
+    <section class="page-panel payments-section" id="panel-payments">
+      <div class="section-intro">
+        <h2>Payment Methods</h2>
+        <p>All payments go directly to <strong data-pay-user>[user]</strong>. No card processors ? manual verification on Discord.</p>
+      </div>
+      <div class="payments-grid" id="payments-grid"></div>
+    </section>
+
+    <section class="page-panel" id="panel-contact">
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Pre-sale questions, custom orders, or partnership inquiries. <strong>Steam accounts only.</strong></p>
+          <ul class="contact-list">
+            <li><span class="contact-list__label">Discord</span><span data-pay-user>[user]</span></li>
+            <li><span class="contact-list__label">Email</span><span>support@redacted.gg</span></li>
+            <li><span class="contact-list__label">Response</span><span>Under 15 minutes avg.</span></li>
+            <li><span class="contact-list__label">Platform</span><span>Steam only ? Enhanced &amp; Legacy</span></li>
+            <li><span class="contact-list__label">Payments</span><span>LTC ? Robux ? Gift Card</span></li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label>Rockstar Social Club ID<input type="text" required placeholder="Your exact in-game name" /></label>
+          <label>Steam Edition
+            <select required>
+              <option value="">Select edition?</option>
+              <option>Steam ? Enhanced</option>
+              <option>Steam ? Legacy</option>
+            </select>
+          </label>
+          <label class="steam-check" style="margin:0">
+            <input type="checkbox" required />
+            <span>I own GTA V on <strong>Steam</strong> (not Launcher/Epic)</span>
+          </label>
+          <label>Discord Username<input type="text" required placeholder="username" /></label>
+          <label>Message<textarea required rows="4" placeholder="Describe what you need?"></textarea></label>
+          <button class="btn btn--primary" type="submit">Submit Inquiry</button>
+        </form>
+      </div>
     </section>
   </main>
 
-  <section class="how-it-works" id="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step"><span class="step__num">01</span><h3>Choose Your Service</h3><p>Pick money, vehicles, businesses, or a bundle. Add to cart.</p></div>
-      <div class="step"><span class="step__num">02</span><h3>Secure Checkout</h3><p>Pay via card, PayPal, or crypto. Order confirmation sent instantly.</p></div>
-      <div class="step"><span class="step__num">03</span><h3>Join Session</h3><p>We DM you on Discord. Join our private modded session.</p></div>
-      <div class="step"><span class="step__num">04</span><h3>Receive Delivery</h3><p>Money hits your account. Cars appear in garage. Businesses unlock.</p></div>
-    </div>
-  </section>
-
-  <section class="faq" id="faq">
-    <h2>FAQ</h2>
-    <div class="faq__grid">
-      <details class="faq__item"><summary>How fast is delivery?</summary><p>Most orders complete in 5?30 minutes. Large bundles may take up to 1 hour during peak hours.</p></details>
-      <details class="faq__item"><summary>Where do modded cars go?</summary><p>All vehicles are delivered directly to a garage of your choice ? MOC, Agency, or any owned property garage.</p></details>
-      <details class="faq__item"><summary>What platforms do you support?</summary><p>PS5, PS4, Xbox Series X|S, Xbox One, and PC (Legacy & Enhanced).</p></details>
-      <details class="faq__item"><summary>Is this safe?</summary><p>We use private sessions and established methods. Thousands of completed orders with no issues.</p></details>
-      <details class="faq__item"><summary>What's in the business packages?</summary><p>Full property purchase, all upgrades, equipment, staff, and max supplies/product where applicable.</p></details>
-      <details class="faq__item"><summary>Can I customize my order?</summary><p>Yes ? note your platform, Rockstar ID, and any preferences at checkout. Support handles the rest.</p></details>
-    </div>
-  </section>
-
-  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
-    <div class="cart-drawer__backdrop" id="cart-backdrop"></div>
-    <div class="cart-drawer__panel">
-      <header class="cart__header">
-        <h2>Your Cart</h2>
-        <button class="cart__close" id="cart-close" type="button" aria-label="Close cart">?</button>
-      </header>
-      <ul class="cart__items" id="cart-items">
-        <li class="cart__empty">Your cart is empty</li>
-      </ul>
-      <footer class="cart__footer">
-        <div class="cart__promo">
-          <input type="text" placeholder="Promo code" id="promo-input" />
-          <button class="btn btn--ghost btn--sm" id="promo-btn" type="button">Apply</button>
-        </div>
-        <div class="cart__row"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
-        <div class="cart__row cart__row--discount" id="discount-row" hidden><span>Discount</span><span id="cart-discount">-$0.00</span></div>
-        <div class="cart__total"><span>Total</span><span id="cart-total">$0.00</span></div>
-        <button class="btn btn--accent btn--full" id="checkout-btn" type="button" disabled>Secure Checkout</button>
-        <p class="cart__secure">?? 256-bit SSL ? PCI compliant</p>
-      </footer>
-    </div>
-  </aside>
-
-  <div class="modal" id="checkout-modal" aria-hidden="true">
-    <div class="modal__backdrop"></div>
-    <div class="modal__panel">
-      <button class="modal__close" id="modal-close" type="button">?</button>
-      <div id="checkout-step-1" class="checkout-step">
-        <h2>Checkout</h2>
-        <p class="modal__sub">Enter your details for delivery</p>
-        <form id="checkout-form" class="checkout-form">
-          <label>Rockstar ID / Gamertag<input type="text" required placeholder="e.g. xX_LS_PlUG_Xx" /></label>
-          <label>Platform
-            <select required>
-              <option value="">Select platform</option>
-              <option>PS5</option><option>PS4</option>
-              <option>Xbox Series X|S</option><option>Xbox One</option>
-              <option>PC ? Enhanced</option><option>PC ? Legacy</option>
-            </select>
-          </label>
-          <label>Discord Username<input type="text" required placeholder="username" /></label>
-          <label>Email<input type="email" required placeholder="you@email.com" /></label>
-          <label>Delivery Notes <span class="optional">(optional)</span><textarea placeholder="Preferred garage, business order, etc."></textarea></label>
-          <button class="btn btn--accent btn--full" type="submit">Continue to Payment</button>
-        </form>
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <strong data-shop-name>[REDACTED]</strong>
+        <p>Professional GTA V Steam modding services. Payments to <span data-pay-user>[user]</span>. Not affiliated with Rockstar, Take-Two, Valve, or Roblox.</p>
       </div>
-      <div id="checkout-step-2" class="checkout-step" hidden>
-        <h2>Payment</h2>
-        <p class="modal__sub">Select payment method</p>
-        <div class="payment-methods">
-          <button class="payment-method active" type="button">?? Card</button>
-          <button class="payment-method" type="button">PayPal</button>
-          <button class="payment-method" type="button">? Crypto</button>
-        </div>
-        <div class="checkout-summary" id="checkout-summary"></div>
-        <button class="btn btn--accent btn--full" id="place-order" type="button">Place Order ? <span id="modal-total">$0.00</span></button>
+      <div class="footer__col">
+        <strong>Services</strong>
+        <a href="#panel-services">Outfits</a>
+        <a href="#panel-services">Vehicles</a>
+        <a href="#panel-services">Levels</a>
+        <a href="#panel-bundles">Bundles</a>
       </div>
-      <div id="checkout-step-3" class="checkout-step checkout-step--done" hidden>
-        <div class="order-success">
-          <span class="order-success__icon">?</span>
-          <h2>Order Placed!</h2>
-          <p>Order <strong id="order-id">#RDX-00000</strong> confirmed.</p>
-          <p class="order-success__note">Check Discord for your session invite. Avg. wait: <strong>5?15 min</strong>.</p>
-          <p class="order-success__joke" id="order-joke"></p>
-          <button class="btn btn--accent" id="order-done" type="button">Continue Shopping</button>
+      <div class="footer__col">
+        <strong>Company</strong>
+        <a href="#panel-process">Delivery Process</a>
+        <a href="#panel-faq">FAQ &amp; Safety</a>
+        <a href="#panel-contact">Contact</a>
+      </div>
+      <div class="footer__col">
+        <strong>Legal</strong>
+        <a href="tos.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#panel-faq">Refund Policy</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>? <span data-year></span> <span data-shop-name>[REDACTED]</span>. All rights reserved.</p>
+      <p class="footer__disclaimer">Use of modding services may violate Rockstar's EULA. Purchase at your own risk.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+===== checkout.html =====
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Checkout ? GTA V Steam Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/legal.css" />
+  <style>
+    body { min-height: 100vh; }
+    .checkout-page { max-width: 1080px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .checkout-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--c-border); }
+    .checkout-header h1 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; }
+    .checkout-header .eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); }
+    .checkout-grid { display: grid; grid-template-columns: 1fr 360px; gap: 2rem; align-items: start; }
+    .checkout-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: calc(var(--radius) + 2px); padding: 1.5rem; margin-bottom: 1rem; }
+    .checkout-card h2 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; margin-bottom: 1.15rem; }
+    .order-line { display: flex; justify-content: space-between; font-size: 0.8125rem; padding: 0.55rem 0; border-bottom: 1px solid var(--c-border); color: var(--c-muted); gap: 1rem; }
+    .order-line strong { color: var(--c-text); font-family: var(--font-mono); white-space: nowrap; }
+    .order-total { display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 600; margin-top: 1rem; font-family: var(--font-mono); padding-top: 0.75rem; border-top: 1px solid var(--c-border); }
+    .pay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.25rem; }
+    .pay-opt { padding: 0.85rem 0.5rem; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface-2); cursor: pointer; text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--c-muted); transition: 0.15s; font-family: var(--font-body); }
+    .pay-opt small { display: block; font-size: 0.62rem; font-weight: 400; margin-top: 0.2rem; opacity: 0.8; }
+    .pay-opt.active { border-color: color-mix(in srgb, var(--c-accent) 45%, var(--c-border)); color: var(--c-accent); background: color-mix(in srgb, var(--c-accent) 6%, var(--c-surface-2)); }
+    .risk-note { font-size: 0.72rem; color: var(--c-muted); line-height: 1.55; padding: 0.85rem; background: color-mix(in srgb, var(--c-warn) 5%, var(--c-surface-2)); border: 1px solid color-mix(in srgb, var(--c-warn) 15%, var(--c-border)); border-radius: var(--radius); margin-bottom: 1rem; }
+    .success-view { text-align: center; padding: 4rem 1rem; display: none; }
+    .success-view.show { display: block; }
+    .success-icon { width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--c-success) 12%, transparent); border: 1px solid color-mix(in srgb, var(--c-success) 30%, transparent); color: var(--c-success); font-size: 1.75rem; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .empty-cart { text-align: center; padding: 5rem 1rem; }
+    .tos-agree { font-size: 0.75rem; color: var(--c-muted); margin-top: 0.85rem; text-align: center; }
+    .tos-agree a { color: var(--c-accent); }
+    @media (max-width: 768px) { .checkout-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="checkout-page">
+    <header class="checkout-header">
+      <div>
+        <p class="eyebrow">Manual Payment ? Steam Only</p>
+        <h1 id="shop-label">[REDACTED]</h1>
+      </div>
+      <span class="steam-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        Steam
+      </span>
+    </header>
+
+    <div id="empty-state" class="empty-cart" hidden>
+      <h2>No active order</h2>
+      <p>Your cart is empty. Add services from the store first.</p>
+      <a class="btn btn--primary" href="index.html" style="margin-top:1.25rem;display:inline-flex">Return to store</a>
+    </div>
+
+    <div id="checkout-view">
+      <div class="checkout-grid">
+        <div>
+          <div class="checkout-card">
+            <h2>Steam Account Details</h2>
+            <p class="risk-note"><strong>Steam only.</strong> We cannot deliver on Rockstar Launcher or Epic. By proceeding you accept our <a href="tos.html">Terms of Service</a> and acknowledge ban risk.</p>
+            <form id="pay-form" class="contact-form" style="padding:0;background:none;border:none">
+              <label class="steam-check">
+                <input type="checkbox" id="steam-confirm" required />
+                <span>I confirm GTA V is in my <strong>Steam library</strong> (not Launcher/Epic) and I accept the <a href="tos.html" target="_blank">Terms of Service</a>.</span>
+              </label>
+              <label>Rockstar Social Club ID<input type="text" name="rockstar" required placeholder="Exact display name" /></label>
+              <label>Steam Edition
+                <select name="edition" required>
+                  <option value="">Select edition?</option>
+                  <option>Steam ? Enhanced</option>
+                  <option>Steam ? Legacy</option>
+                </select>
+              </label>
+              <label>Discord Username<input type="text" name="discord" required placeholder="For session invite" /></label>
+              <label>Email <span style="font-weight:400;color:var(--c-muted)">(optional)</span><input type="email" name="email" placeholder="Receipt copy" /></label>
+              <label>Delivery Notes <span style="font-weight:400;color:var(--c-muted)">(optional)</span>
+                <textarea name="notes" rows="2" placeholder="Garage preference, vehicle list?"></textarea>
+              </label>
+            </form>
+          </div>
+
+          <div class="checkout-card" style="margin-bottom:0">
+            <h2>Send Payment to <span data-pay-user>[user]</span></h2>
+            <div class="pay-grid" id="pay-methods">
+              <button type="button" class="pay-opt active" data-pay="ltc">? Litecoin<small>LTC</small></button>
+              <button type="button" class="pay-opt" data-pay="robux">Robux<small>Direct transfer</small></button>
+              <button type="button" class="pay-opt" data-pay="giftcard">Gift Card<small>Robux code</small></button>
+            </div>
+
+            <div class="pay-detail active" id="detail-ltc">
+              <div class="pay-instructions">
+                <h3>Litecoin (LTC) Instructions</h3>
+                <div class="pay-row"><span>Send to wallet</span><span><code id="ltc-addr">ltc1q[user]placeholder</code><button type="button" class="copy-btn" data-copy="ltc-addr">Copy</button></span></div>
+                <div class="pay-row"><span>Amount (USD)</span><strong id="ltc-usd">$0.00</strong></div>
+                <div class="pay-row"><span>Network</span><strong>Litecoin mainnet only</strong></div>
+                <div class="pay-row"><span>Confirmations</span><strong>3 required</strong></div>
+                <p style="font-size:0.72rem;color:var(--c-muted);margin-top:0.65rem">Use your own LTC?USD rate at time of send. Include order ID in memo if your wallet supports it.</p>
+              </div>
+            </div>
+
+            <div class="pay-detail" id="detail-robux">
+              <div class="pay-instructions">
+                <h3>Robux Transfer</h3>
+                <div class="pay-row"><span>Roblox account</span><span><code id="rbx-user">[user]</code><button type="button" class="copy-btn" data-copy="rbx-user">Copy</button></span></div>
+                <div class="pay-row"><span>Method</span><strong>Game Pass or direct purchase</strong></div>
+                <div class="robux-calc" id="robux-amount">0 R$ required (~$0.00 USD)</div>
+                <p style="font-size:0.72rem;color:var(--c-muted);margin-top:0.65rem">Purchase our listed Game Pass or send the exact Robux amount. DM proof on Discord.</p>
+              </div>
+            </div>
+
+            <div class="pay-detail" id="detail-giftcard">
+              <div class="pay-instructions">
+                <h3>Robux Gift Card</h3>
+                <p style="font-size:0.8rem;color:var(--c-muted);margin-bottom:0.75rem">Redeem a Robux gift card and send the <strong>code</strong> to <span data-pay-user>[user]</span> on Discord, or enter below:</p>
+                <label style="display:flex;flex-direction:column;gap:0.35rem;font-size:0.78rem;font-weight:600;color:var(--c-muted)">
+                  Gift Card Code
+                  <input type="text" id="gift-code" placeholder="XXXX-XXXX-XXXX" style="padding:0.6rem 0.8rem;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);color:var(--c-text);font-family:var(--font-mono)" />
+                </label>
+                <div class="robux-calc" id="gift-robux" style="margin-top:0.75rem">Minimum card value: <span id="gift-min-rbx">0</span> R$</div>
+              </div>
+            </div>
+
+            <label style="display:flex;flex-direction:column;gap:0.35rem;font-size:0.78rem;font-weight:600;color:var(--c-muted);margin-bottom:1rem">
+              Transaction ID / Payment Proof
+              <input type="text" id="payment-proof" required placeholder="LTC tx hash, Robux receipt, or gift card code" style="padding:0.6rem 0.8rem;background:var(--c-surface-2);border:1px solid var(--c-border);border-radius:var(--radius);color:var(--c-text);font-family:var(--font-mono);font-size:0.8rem" />
+            </label>
+
+            <button class="btn btn--primary btn--full" id="place-order" type="button">I've Sent Payment ? Submit Order</button>
+            <p class="tos-agree">Payments go directly to <strong data-pay-user>[user]</strong>. By submitting you agree to our <a href="tos.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+          </div>
+        </div>
+
+        <div class="checkout-card" style="position:sticky;top:1.5rem;margin-bottom:0">
+          <h2>Order Summary</h2>
+          <div id="order-lines"></div>
+          <div class="order-total"><span>Total</span><span id="order-total">$0.00</span></div>
+          <p style="font-size:0.72rem;color:var(--c-muted);margin-top:1rem;line-height:1.55">Delivery starts after payment is verified. Avg. wait: 5?20 min on Discord.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--c-border)">
+            <p style="font-size:0.7rem;color:var(--c-muted)"><strong style="color:var(--c-text)">Accepted:</strong> LTC ? Robux ? Robux Gift Card</p>
+            <p style="font-size:0.7rem;color:var(--c-muted);margin-top:0.35rem"><strong style="color:#66c0f4">Steam only</strong> ? no Launcher/Epic</p>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div id="success-view" class="success-view">
+      <div class="success-icon">?</div>
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:0.5rem">Order Submitted</h2>
+      <p>Order <strong id="order-ref" style="font-family:var(--font-mono)">#LS-000000</strong> is pending payment verification.</p>
+      <p style="color:var(--c-muted);margin:0.75rem 0 0.5rem;font-size:0.9rem"><span data-pay-user>[user]</span> will confirm your payment on Discord.</p>
+      <p style="font-size:0.8rem;color:var(--c-muted)">Have your Steam client open and ready.</p>
+      <a class="btn btn--outline" href="index.html" style="margin-top:1.5rem">Return to store</a>
     </div>
   </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/config.js"></script>
+  <script>
+    const ROBUX_PER_USD = GTA_CONFIG.payments.robuxPerUsd;
+    const theme = JSON.parse(localStorage.getItem("gta-services-theme") || "{}");
+    const presets = {
+      obsidian:{ "--c-bg":"#050608","--c-surface":"#0b0d12","--c-surface-2":"#12151c","--c-border":"rgba(255,255,255,0.07)","--c-text":"#f4f4f5","--c-muted":"#8b919e","--c-accent":"#c4a052","--c-accent-2":"#5b8def","--c-grad-a":"#d4b86a","--c-grad-b":"#f0e6c8","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      steam:{ "--c-bg":"#0e1419","--c-surface":"#1b2838","--c-surface-2":"#2a475e","--c-border":"rgba(102,192,244,0.15)","--c-text":"#e5f0f8","--c-muted":"#8ba3b8","--c-accent":"#66c0f4","--c-accent-2":"#1a9fff","--c-grad-a":"#66c0f4","--c-grad-b":"#c7e8ff","--c-success":"#57cbde","--c-warn":"#f59e0b" },
+      emerald:{ "--c-bg":"#060b08","--c-surface":"#0e1612","--c-surface-2":"#152019","--c-border":"rgba(52,211,153,0.12)","--c-text":"#ecfdf5","--c-muted":"#6ee7b7","--c-accent":"#10b981","--c-accent-2":"#34d399","--c-grad-a":"#10b981","--c-grad-b":"#6ee7b7","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      midnight:{ "--c-bg":"#05060a","--c-surface":"#0c0e16","--c-surface-2":"#141828","--c-border":"rgba(99,102,241,0.14)","--c-text":"#e8eaf6","--c-muted":"#9ca3af","--c-accent":"#6366f1","--c-accent-2":"#818cf8","--c-grad-a":"#6366f1","--c-grad-b":"#a5b4fc","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      crimson:{ "--c-bg":"#0a0606","--c-surface":"#140e0e","--c-surface-2":"#1f1414","--c-border":"rgba(239,68,68,0.12)","--c-text":"#fef2f2","--c-muted":"#a8a29e","--c-accent":"#dc2626","--c-accent-2":"#f87171","--c-grad-a":"#dc2626","--c-grad-b":"#fca5a5","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      arctic:{ "--c-bg":"#f0f4f8","--c-surface":"#ffffff","--c-surface-2":"#e8eef4","--c-border":"rgba(15,23,42,0.1)","--c-text":"#0f172a","--c-muted":"#64748b","--c-accent":"#0ea5e9","--c-accent-2":"#6366f1","--c-grad-a":"#0ea5e9","--c-grad-b":"#38bdf8","--c-success":"#10b981","--c-warn":"#d97706" },
+      vice:{ "--c-bg":"#0f0a14","--c-surface":"#1a1420","--c-surface-2":"#241c2e","--c-border":"rgba(255,45,155,0.14)","--c-text":"#fce4f3","--c-muted":"#9b7a9b","--c-accent":"#ff2d9b","--c-accent-2":"#00f0ff","--c-grad-a":"#ff2d9b","--c-grad-b":"#b24dff","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      litecoin:{ "--c-bg":"#0a0c10","--c-surface":"#12151c","--c-surface-2":"#1a1f28","--c-border":"rgba(180,190,200,0.12)","--c-text":"#eef0f4","--c-muted":"#8a919c","--c-accent":"#b8c0cc","--c-accent-2":"#345d9d","--c-grad-a":"#b8c0cc","--c-grad-b":"#6b8fc7","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      robux:{ "--c-bg":"#0c0a0f","--c-surface":"#16121c","--c-surface-2":"#201a28","--c-border":"rgba(0,200,100,0.12)","--c-text":"#f0fdf4","--c-muted":"#86a89a","--c-accent":"#00c864","--c-accent-2":"#e2231a","--c-grad-a":"#00c864","--c-grad-b":"#7dffb8","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      losSantos:{ "--c-bg":"#0a0f0a","--c-surface":"#141a14","--c-surface-2":"#1c241c","--c-border":"rgba(57,255,20,0.12)","--c-text":"#e8f5e8","--c-muted":"#6b8f6b","--c-accent":"#39ff14","--c-accent-2":"#00d4ff","--c-grad-a":"#39ff14","--c-grad-b":"#00d4ff","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      goldRush:{ "--c-bg":"#0f0c08","--c-surface":"#1a1610","--c-surface-2":"#221c14","--c-border":"rgba(255,215,0,0.12)","--c-text":"#fff8e8","--c-muted":"#8a7a5a","--c-accent":"#ffd700","--c-accent-2":"#ff8c00","--c-grad-a":"#ffd700","--c-grad-b":"#ff6b00","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      void:{ "--c-bg":"#000000","--c-surface":"#0a0a0a","--c-surface-2":"#141414","--c-border":"rgba(255,255,255,0.06)","--c-text":"#fafafa","--c-muted":"#737373","--c-accent":"#ffffff","--c-accent-2":"#a3a3a3","--c-grad-a":"#ffffff","--c-grad-b":"#d4d4d4","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      sunset:{ "--c-bg":"#12080c","--c-surface":"#1c1016","--c-surface-2":"#281820","--c-border":"rgba(251,146,60,0.14)","--c-text":"#fff1f2","--c-muted":"#a18a8e","--c-accent":"#fb923c","--c-accent-2":"#f43f5e","--c-grad-a":"#fb923c","--c-grad-b":"#fbbf24","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      ocean:{ "--c-bg":"#040d12","--c-surface":"#0a1929","--c-surface-2":"#0f2740","--c-border":"rgba(56,189,248,0.12)","--c-text":"#e0f2fe","--c-muted":"#7da8c0","--c-accent":"#38bdf8","--c-accent-2":"#0284c7","--c-grad-a":"#38bdf8","--c-grad-b":"#7dd3fc","--c-success":"#34d399","--c-warn":"#f59e0b" },
+      royal:{ "--c-bg":"#0a0612","--c-surface":"#140f1e","--c-surface-2":"#1e172c","--c-border":"rgba(167,139,250,0.14)","--c-text":"#f5f3ff","--c-muted":"#9b8ab8","--c-accent":"#a78bfa","--c-accent-2":"#7c3aed","--c-grad-a":"#a78bfa","--c-grad-b":"#c4b5fd","--c-success":"#34d399","--c-warn":"#f59e0b" },
+    };
+    const p = presets[theme.preset] || presets.steam;
+    Object.entries(p).forEach(([k,v]) => document.documentElement.style.setProperty(k,v));
+    document.documentElement.style.setProperty("--radius", `${theme.radius||8}px`);
+    document.documentElement.style.setProperty("--font-body", '"Inter",sans-serif');
+    document.documentElement.style.setProperty("--font-display", '"Sora",sans-serif');
+    document.documentElement.style.setProperty("--font-mono", '"JetBrains Mono",monospace');
 
-  <footer class="footer">
-    <div class="footer__grid">
-      <div>
-        <strong id="footer-name">[REDACTED]</strong>
-        <p>Premium GTA Online services since 2019. Not affiliated with Rockstar Games or Take-Two Interactive.</p>
-      </div>
-      <div>
-        <strong>Support</strong>
-        <p>Discord ? Live Chat ? support@redacted.gg</p>
-      </div>
-      <div>
-        <strong>Legal</strong>
-        <p>Terms ? Privacy ? Refund Policy</p>
-      </div>
-    </div>
-    <p class="footer__demo">Demo storefront ? built as a joke/template. No real transactions occur.</p>
-    <p class="footer__copy">? <span id="year"></span> <span id="footer-name-2">[REDACTED]</span>. All rights reserved.</p>
-  </footer>
+    const handles = theme.paymentHandles || GTA_CONFIG.payments.handles;
+    document.getElementById("ltc-addr").textContent = handles.ltcWallet;
+    document.getElementById("rbx-user").textContent = handles.robloxUser;
+    document.querySelectorAll("[data-pay-user]").forEach(el => el.textContent = handles.paymentUser);
+    document.getElementById("shop-label").textContent = theme.shopName || "[REDACTED]";
 
-  <script src="app.js"></script>
+    const data = JSON.parse(sessionStorage.getItem("gta-services-checkout") || "null");
+
+    if (!data || !data.cart?.length) {
+      document.getElementById("empty-state").hidden = false;
+      document.getElementById("checkout-view").hidden = true;
+    } else {
+      const total = data.total;
+      const rbx = Math.ceil(total * ROBUX_PER_USD);
+      document.getElementById("order-total").textContent = `$${total.toFixed(2)}`;
+      document.getElementById("ltc-usd").textContent = `$${total.toFixed(2)}`;
+      document.getElementById("robux-amount").textContent = `${rbx.toLocaleString()} R$ required (~$${total.toFixed(2)} USD)`;
+      document.getElementById("gift-min-rbx").textContent = rbx.toLocaleString();
+      document.getElementById("order-lines").innerHTML = data.cart.map(i =>
+        `<div class="order-line"><span>${i.name}</span><strong>$${i.price.toFixed(2)}</strong></div>`
+      ).join("");
+
+      document.querySelectorAll(".pay-opt").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".pay-opt").forEach(b => b.classList.remove("active"));
+          document.querySelectorAll(".pay-detail").forEach(d => d.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(`detail-${btn.dataset.pay}`).classList.add("active");
+        });
+      });
+
+      document.querySelectorAll(".copy-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const text = document.getElementById(btn.dataset.copy).textContent;
+          navigator.clipboard?.writeText(text);
+          btn.textContent = "Copied!";
+          setTimeout(() => btn.textContent = "Copy", 1500);
+        });
+      });
+
+      document.getElementById("place-order").addEventListener("click", () => {
+        const form = document.getElementById("pay-form");
+        const proof = document.getElementById("payment-proof").value.trim();
+        if (!form.reportValidity() || !proof) {
+          if (!proof) document.getElementById("payment-proof").focus();
+          return;
+        }
+        const ref = `#LS-${Math.floor(100000 + Math.random() * 900000)}`;
+        document.getElementById("checkout-view").hidden = true;
+        document.getElementById("success-view").classList.add("show");
+        document.getElementById("order-ref").textContent = ref;
+        sessionStorage.removeItem("gta-services-cart");
+        sessionStorage.removeItem("gta-services-checkout");
+      });
+    }
+  </script>
 </body>
 </html>
-===== styles.css =====
+
+===== tos.html =====
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service ? [REDACTED]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/legal.css" />
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <header class="legal-header">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">?</span>
+      <div class="brand__text"><span class="brand__name" data-shop-name>[REDACTED]</span><span class="brand__sub">Terms of Service</span></div>
+    </a>
+    <a class="btn btn--outline btn--sm" href="index.html">? Back to store</a>
+  </header>
+
+  <article class="legal-doc">
+    <p class="legal-updated">Last updated: July 7, 2026</p>
+    <h1>Terms of Service</h1>
+    <p class="legal-lead">By accessing <span data-shop-name>[REDACTED]</span> or placing an order, you agree to these Terms of Service in full.</p>
+
+    <section>
+      <h2>1. Service Description</h2>
+      <p><span data-shop-name>[REDACTED]</span> provides third-party modification services for Grand Theft Auto V Online on <strong>PC via Steam only</strong>. Services include but are not limited to modded outfits, garage-delivered vehicles, rank modifications, and bundled packages.</p>
+      <p>We are <strong>not</strong> affiliated with Rockstar Games, Take-Two Interactive, Valve Corporation, or Steam. GTA V and GTA Online are trademarks of their respective owners.</p>
+    </section>
+
+    <section>
+      <h2>2. Steam Requirement</h2>
+      <p>Services are available <strong>exclusively</strong> to customers who own GTA V on <strong>Steam</strong> (Enhanced or Legacy PC edition launched through Steam).</p>
+      <ul>
+        <li>Rockstar Games Launcher copies are <strong>not supported</strong>.</li>
+        <li>Epic Games Store copies are <strong>not supported</strong>.</li>
+        <li>Console platforms are <strong>not supported</strong>.</li>
+      </ul>
+      <p>Orders placed without a valid Steam-linked Social Club account may be cancelled without refund of processing fees. You must confirm Steam ownership at checkout.</p>
+    </section>
+
+    <section>
+      <h2>3. Eligibility &amp; Account Responsibility</h2>
+      <p>You must be at least 18 years old (or the age of majority in your jurisdiction) to purchase services. You are solely responsible for your Rockstar Social Club account, Steam account, and any consequences arising from their use.</p>
+      <p>We strongly recommend using a secondary ("alt") account. We are not liable for suspensions, bans, resets, or loss of progress on any account.</p>
+    </section>
+
+    <section>
+      <h2>4. Risk Acknowledgment</h2>
+      <p>Modding GTA Online violates Rockstar's Terms of Service and End User License Agreement. <strong>Ban risk always exists.</strong> By purchasing, you confirm that you:</p>
+      <ul>
+        <li>Understand modding may result in temporary or permanent account action;</li>
+        <li>Accept full personal responsibility for any enforcement by Rockstar;</li>
+        <li>Will not hold <span data-shop-name>[REDACTED]</span> liable for bans, resets, or asset removal;</li>
+        <li>Have read our FAQ regarding safety and ban probability.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Payment Methods</h2>
+      <p>We accept payment via the following methods, sent directly to our designated accounts operated by <strong data-pay-user>[user]</strong>:</p>
+      <ul>
+        <li><strong>Litecoin (LTC)</strong> ? sent to the wallet address displayed at checkout;</li>
+        <li><strong>Robux</strong> ? Game Pass or direct transfer to our Roblox account <strong data-roblox-user>[user]</strong>;</li>
+        <li><strong>Robux Gift Card</strong> ? codes delivered via Discord or checkout notes.</li>
+      </ul>
+      <p>All payments are final once confirmed on-chain or verified in Roblox. Incorrect payment amounts, wrong networks, or payments to incorrect addresses are your responsibility unless otherwise agreed in writing with support.</p>
+      <p>Robux amounts are calculated at the rate displayed at checkout (~85 R$ per $1 USD, subject to change).</p>
+    </section>
+
+    <section>
+      <h2>6. Delivery</h2>
+      <p>Delivery occurs via private Discord-coordinated sessions. Typical turnaround is 10?120 minutes depending on order size and queue volume. We are not responsible for delays caused by incorrect Steam edition selection, offline status, or failure to join the assigned session within 24 hours.</p>
+    </section>
+
+    <section>
+      <h2>7. Refunds</h2>
+      <p>Full refunds are issued if we cannot deliver your order. Partial refunds may be issued for incomplete delivery at our discretion. Refund requests must be submitted within 48 hours of payment via Discord or email.</p>
+      <p>Chargebacks initiated without prior contact may result in permanent service denial and forfeiture of any pending delivery.</p>
+    </section>
+
+    <section>
+      <h2>8. Prohibited Conduct</h2>
+      <p>You may not: resell our services without authorization; submit fraudulent payment proofs; harass staff; attempt to reverse-engineer our methods; or misrepresent your platform (e.g., claiming Steam ownership when using Launcher).</p>
+    </section>
+
+    <section>
+      <h2>9. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, <span data-shop-name>[REDACTED]</span> and <span data-pay-user>[user]</span> shall not be liable for indirect, incidental, special, or consequential damages including lost profits, account bans, or data loss. Total liability shall not exceed the amount you paid for the specific order in dispute.</p>
+    </section>
+
+    <section>
+      <h2>10. Changes</h2>
+      <p>We may update these Terms at any time. Continued use of the site after changes constitutes acceptance. Material changes will be noted on this page with an updated date.</p>
+    </section>
+
+    <section>
+      <h2>11. Contact</h2>
+      <p>Questions: Discord <span data-pay-user>[user]</span> ? support@redacted.gg</p>
+    </section>
+  </article>
+
+  <footer class="footer footer--legal">
+    <p>? <span data-year></span> <span data-shop-name>[REDACTED]</span> ? <a href="privacy.html">Privacy Policy</a> ? <a href="index.html">Store</a></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    const t = JSON.parse(localStorage.getItem("gta-services-theme")||"{}");
+    if (t.preset && GTATheme.PRESETS[t.preset]) Object.entries(GTATheme.PRESETS[t.preset]).forEach(([k,v]) => document.documentElement.style.setProperty(k,v));
+    document.querySelectorAll("[data-shop-name]").forEach(el => el.textContent = t.shopName || "[REDACTED]");
+    const h = t.paymentHandles || GTA_CONFIG.payments.handles;
+    document.querySelectorAll("[data-pay-user]").forEach(el => el.textContent = h.paymentUser);
+    document.querySelectorAll("[data-roblox-user]").forEach(el => el.textContent = h.robloxUser);
+    document.querySelector("[data-year]").textContent = new Date().getFullYear();
+    document.title = `Terms of Service ? ${t.shopName || "[REDACTED]"}`;
+  </script>
+</body>
+</html>
+
+===== privacy.html =====
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy ? [REDACTED]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/legal.css" />
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <header class="legal-header">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">?</span>
+      <div class="brand__text"><span class="brand__name" data-shop-name>[REDACTED]</span><span class="brand__sub">Privacy Policy</span></div>
+    </a>
+    <a class="btn btn--outline btn--sm" href="index.html">? Back to store</a>
+  </header>
+
+  <article class="legal-doc">
+    <p class="legal-updated">Last updated: July 7, 2026</p>
+    <h1>Privacy Policy</h1>
+    <p class="legal-lead">This policy describes how <span data-shop-name>[REDACTED]</span> collects, uses, and protects information when you use our website and services.</p>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <p>When you place an order or contact us, we may collect:</p>
+      <ul>
+        <li>Rockstar Social Club display name;</li>
+        <li>Steam edition (Enhanced or Legacy);</li>
+        <li>Discord username;</li>
+        <li>Email address (optional, for receipts);</li>
+        <li>Order details (services purchased, amounts, timestamps);</li>
+        <li>Payment confirmation data (LTC transaction ID, Robux transfer proof, gift card codes);</li>
+        <li>Delivery notes you voluntarily provide.</li>
+      </ul>
+      <p>We <strong>never</strong> collect Rockstar passwords, Steam passwords, 2FA codes, or full payment card numbers.</p>
+    </section>
+
+    <section>
+      <h2>2. How We Use Information</h2>
+      <p>Your data is used solely to:</p>
+      <ul>
+        <li>Process and fulfill orders;</li>
+        <li>Verify Steam eligibility and payment;</li>
+        <li>Coordinate Discord delivery sessions;</li>
+        <li>Provide customer support and refunds;</li>
+        <li>Prevent fraud and abuse.</li>
+      </ul>
+      <p>We do not sell your personal information to third parties.</p>
+    </section>
+
+    <section>
+      <h2>3. Payment Data</h2>
+      <p>Payments are sent directly to accounts operated by <strong data-pay-user>[user]</strong> via Litecoin, Robux, or Robux gift cards. We do not process card payments or store banking credentials.</p>
+      <p>LTC wallet addresses and Roblox usernames displayed at checkout are provided for manual payment. Blockchain transactions are public by nature ? your LTC address and transaction hashes are visible on the Litecoin network.</p>
+    </section>
+
+    <section>
+      <h2>4. Local Storage &amp; Cookies</h2>
+      <p>Our website uses browser <code>localStorage</code> to save theme preferences, shop customization, and <code>sessionStorage</code> for cart/checkout data. No third-party advertising cookies are used. Data stays on your device until cleared or checkout completes.</p>
+    </section>
+
+    <section>
+      <h2>5. Data Retention</h2>
+      <p>Order records are retained for up to 12 months for support and dispute resolution. Payment proofs may be deleted sooner upon request after order completion. Discord message history is governed by Discord's own privacy policy.</p>
+    </section>
+
+    <section>
+      <h2>6. Data Sharing</h2>
+      <p>We may share information only when:</p>
+      <ul>
+        <li>Required by law or valid legal process;</li>
+        <li>Necessary to prevent fraud or protect our rights;</li>
+        <li>You explicitly consent (e.g., sharing your Rockstar ID with an assigned technician for delivery).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Security</h2>
+      <p>We use HTTPS where hosted, minimize data collection, and restrict staff access to order information. No system is 100% secure ? transmit sensitive gift card codes only through Discord DMs or our checkout form.</p>
+    </section>
+
+    <section>
+      <h2>8. Your Rights</h2>
+      <p>You may request deletion of your order data by contacting <span data-pay-user>[user]</span> on Discord or support@redacted.gg. We will honor deletion requests within 30 days unless retention is required for legal or dispute purposes.</p>
+    </section>
+
+    <section>
+      <h2>9. Minors</h2>
+      <p>Our services are not directed at individuals under 18. We do not knowingly collect data from minors. GTA V is rated Mature ? parental discretion applies.</p>
+    </section>
+
+    <section>
+      <h2>10. Changes</h2>
+      <p>This policy may be updated periodically. The "Last updated" date reflects the most recent revision. Material changes will be posted on this page.</p>
+    </section>
+
+    <section>
+      <h2>11. Contact</h2>
+      <p>Privacy inquiries: Discord <span data-pay-user>[user]</span> ? support@redacted.gg</p>
+    </section>
+  </article>
+
+  <footer class="footer footer--legal">
+    <p>? <span data-year></span> <span data-shop-name>[REDACTED]</span> ? <a href="tos.html">Terms of Service</a> ? <a href="index.html">Store</a></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    const t = JSON.parse(localStorage.getItem("gta-services-theme")||"{}");
+    if (t.preset && GTATheme.PRESETS[t.preset]) Object.entries(GTATheme.PRESETS[t.preset]).forEach(([k,v]) => document.documentElement.style.setProperty(k,v));
+    document.querySelectorAll("[data-shop-name]").forEach(el => el.textContent = t.shopName || "[REDACTED]");
+    const h = t.paymentHandles || GTA_CONFIG.payments.handles;
+    document.querySelectorAll("[data-pay-user]").forEach(el => el.textContent = h.paymentUser);
+    document.querySelector("[data-year]").textContent = new Date().getFullYear();
+    document.title = `Privacy Policy ? ${t.shopName || "[REDACTED]"}`;
+  </script>
+</body>
+</html>
+
+===== css\main.css =====
 :root {
-  --bg: #080c10;
-  --surface: #111820;
-  --surface-2: #1a2330;
-  --accent: #00e676;
-  --accent-2: #ff4081;
-  --text: #f0f4f8;
-  --muted: #6b7c8f;
-  --gradient-start: #00e676;
-  --gradient-end: #00b0ff;
-  --font-heading: "Bebas Neue", Impact, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --radius: 12px;
-  --glow: 0.35;
-  --border: rgba(0, 230, 118, 0.12);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --c-bg: #050608;
+  --c-surface: #0b0d12;
+  --c-surface-2: #12151c;
+  --c-surface-3: #181c26;
+  --c-border: rgba(255, 255, 255, 0.07);
+  --c-border-hover: rgba(255, 255, 255, 0.14);
+  --c-border-hover: rgba(255, 255, 255, 0.14);
+  --c-text: #f4f4f5;
+  --c-muted: #8b919e;
+  --c-accent: #c4a052;
+  --c-accent-2: #5b8def;
+  --c-grad-a: #d4b86a;
+  --c-grad-b: #f0e6c8;
+  --c-success: #34d399;
+  --c-warn: #f59e0b;
+  --radius: 8px;
+  --font-scale: 1;
+  --glow: 0.3;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Sora", var(--font-body);
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.45);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: calc(16px * var(--font-scale)); -webkit-font-smoothing: antialiased; }
 
 body {
   font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
+  background: var(--c-bg);
+  color: var(--c-text);
+  line-height: 1.65;
   min-height: 100vh;
-  line-height: 1.55;
-  overflow-x: hidden;
 }
 
-body::before {
-  content: "";
+.grid-bg {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse 70% 45% at 50% -10%, color-mix(in srgb, var(--accent) 8%, transparent), transparent),
-    radial-gradient(ellipse 50% 35% at 100% 80%, color-mix(in srgb, var(--accent-2) 5%, transparent), transparent);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
   pointer-events: none;
   z-index: 0;
 }
 
-.scanlines {
-  position: fixed; inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
-  pointer-events: none; z-index: 9998; opacity: 1; transition: opacity 0.3s;
-}
-.scanlines.hidden { opacity: 0; }
-
-.vignette {
-  position: fixed; inset: 0;
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
-  pointer-events: none; z-index: 9997;
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 35% at 50% -5%, color-mix(in srgb, var(--c-accent) 7%, transparent), transparent);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Promo bar */
-.promo-bar {
-  position: relative; z-index: 100;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 20%, var(--surface)), color-mix(in srgb, var(--accent-2) 15%, var(--surface)));
-  border-bottom: 1px solid var(--border);
-  font-size: 0.8rem;
+.grad-text {
+  background: linear-gradient(135deg, var(--c-grad-a) 0%, var(--c-grad-b) 50%, var(--c-accent-2) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: grad-flow 8s ease infinite;
 }
-.promo-bar__inner {
-  max-width: 1280px; margin: 0 auto;
-  padding: 0.55rem 1.5rem;
-  display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
-}
-.promo-bar__tag {
-  background: var(--accent); color: #000;
-  font-weight: 700; font-size: 0.65rem; letter-spacing: 0.1em;
-  padding: 0.2rem 0.5rem; border-radius: 4px;
-}
-.promo-bar__text strong { color: var(--accent); }
-.promo-bar__live { color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
-.pulse-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  animation: pulse 2s ease infinite;
-}
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+body.no-grad-anim .grad-text { animation: none; }
+@keyframes grad-flow { 0%, 100% { background-position: 0% center; } 50% { background-position: 100% center; } }
 
-/* Navbar */
-.navbar {
-  position: sticky; top: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.85rem 1.5rem;
-  background: color-mix(in srgb, var(--surface) 85%, transparent);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+a { color: var(--c-accent); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--c-grad-b); }
+
+/* Top strip */
+.top-strip {
+  position: relative;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
+  font-size: 0.75rem;
+  color: var(--c-muted);
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
 }
-.navbar__brand {
+.top-strip__left { display: flex; align-items: center; gap: 0.65rem; }
+.top-strip__sep { opacity: 0.3; }
+.top-strip__ticker { color: var(--c-text); font-weight: 500; letter-spacing: -0.01em; }
+.top-strip__support .status-live { color: var(--c-success); font-weight: 600; }
+.top-strip__support .status-live::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--c-success); border-radius: 50%; margin-right: 5px; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.pc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  background: color-mix(in srgb, var(--c-accent-2) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-accent-2) 25%, transparent);
+  border-radius: 4px;
+  color: var(--c-accent-2);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.9rem 2rem;
+  background: color-mix(in srgb, var(--c-bg) 80%, transparent);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--c-text);
+  flex-shrink: 0;
+}
+.brand__mark {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(145deg, var(--c-surface-3), var(--c-surface));
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 2px);
+  color: var(--c-accent);
+}
+.brand__name { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; line-height: 1.2; }
+.brand__sub { display: block; font-size: 0.68rem; color: var(--c-muted); font-weight: 500; letter-spacing: 0.02em; }
+
+.nav { display: flex; gap: 0.15rem; }
+.nav-link {
+  padding: 0.5rem 0.9rem;
+  text-decoration: none;
+  color: var(--c-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: calc(var(--radius) - 2px);
+  transition: color 0.15s, background 0.15s;
+  letter-spacing: -0.01em;
+}
+.nav-link:hover { color: var(--c-text); background: var(--c-surface-2); }
+.nav-link.active { color: var(--c-text); background: var(--c-surface-2); box-shadow: inset 0 0 0 1px var(--c-border); }
+
+.header__actions { display: flex; gap: 0.5rem; align-items: center; }
+.icon-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  color: var(--c-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.icon-btn:hover { border-color: var(--c-border-hover); color: var(--c-text); }
+
+.cart-btn {
   display: flex; align-items: center; gap: 0.5rem;
-  text-decoration: none; color: var(--text);
-  font-family: var(--font-heading); font-size: 1.4rem; letter-spacing: 0.06em;
+  padding: 0.5rem 0.9rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  color: var(--c-text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.navbar__logo { color: var(--accent); }
-.navbar__links { display: flex; gap: 1.5rem; }
-.navbar__links a {
-  color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500;
-  transition: color 0.2s;
-}
-.navbar__links a:hover { color: var(--accent); }
-.navbar__actions { display: flex; align-items: center; gap: 0.75rem; }
-.navbar__cart-btn {
-  position: relative; background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: calc(var(--radius) / 2); padding: 0.5rem 0.65rem;
-  color: var(--text); cursor: pointer; display: flex; align-items: center;
-}
-.navbar__cart-count {
-  position: absolute; top: -6px; right: -6px;
-  background: var(--accent); color: #000; font-size: 0.65rem; font-weight: 700;
-  width: 18px; height: 18px; border-radius: 50%;
+.cart-btn:hover { border-color: color-mix(in srgb, var(--c-accent) 40%, var(--c-border)); }
+.cart-btn__count {
+  background: var(--c-accent);
+  color: #0a0a0a;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 20px; height: 20px;
+  border-radius: 100px;
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Customizer */
-.customizer {
-  position: fixed; top: 0; left: 0; bottom: 0; z-index: 500;
-  width: 300px; transform: translateX(0); transition: transform 0.3s;
-}
-.customizer.collapsed { transform: translateX(-100%); }
-.customizer__panel {
-  height: 100%; overflow-y: auto;
-  background: var(--surface); border-right: 1px solid var(--border);
-  padding: 1.25rem; box-shadow: var(--shadow);
-}
-.customizer__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.customizer__header h2 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--accent); letter-spacing: 0.05em; }
-.customizer__section { margin-bottom: 0.8rem; }
-.customizer__label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem; }
-.customizer__select, .customizer__input {
-  width: 100%; padding: 0.45rem 0.6rem; background: var(--surface-2);
-  border: 1px solid var(--border); border-radius: calc(var(--radius) / 2);
-  color: var(--text); font-family: var(--font-body); font-size: 0.85rem;
-}
-.customizer__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-bottom: 0.8rem; }
-.customizer__field label { display: block; font-size: 0.65rem; color: var(--muted); margin-bottom: 0.2rem; }
-.customizer__field input[type="color"] { width: 100%; height: 30px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
-.customizer__section input[type="range"] { width: 100%; accent-color: var(--accent); }
-.customizer__check { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 0.3rem; cursor: pointer; }
-
-/* Hero */
-.hero {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto;
-  padding: 3rem 1.5rem 2rem;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;
-}
-.hero__trust {
-  font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem;
-  display: flex; gap: 0.5rem; flex-wrap: wrap;
-}
-.hero__title {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  letter-spacing: 0.06em; line-height: 0.95;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--accent-2));
-  background-size: 200% 200%;
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease infinite;
-}
-body.no-anim-gradient .hero__title,
-body.no-anim-gradient .product__name,
-body.no-anim-gradient .hero-card__name { animation: none; background-size: 100% 100%; }
-@keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-
-.hero__tagline { font-size: 1.15rem; font-weight: 600; margin-top: 0.5rem; }
-.hero__sub { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; max-width: 520px; }
-.hero__cta { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
-.platform-pills { display: flex; gap: 0.4rem; margin-top: 1.25rem; flex-wrap: wrap; }
-.platform-pill {
-  padding: 0.35rem 0.75rem; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 999px; color: var(--muted); font-size: 0.75rem; font-weight: 500;
-  cursor: pointer; font-family: var(--font-body); transition: all 0.2s;
-}
-.platform-pill:hover, .platform-pill.active {
-  border-color: var(--accent); color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
-}
-
-.hero__featured { display: flex; flex-direction: column; gap: 1rem; }
-.hero-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1.25rem; position: relative;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.hero-card:hover { border-color: color-mix(in srgb, var(--accent) 40%, transparent); box-shadow: 0 0 calc(20px * var(--glow)) color-mix(in srgb, var(--accent) 15%, transparent); }
-.hero-card__badge {
-  position: absolute; top: 0.75rem; right: 0.75rem;
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
-  background: var(--accent); color: #000; padding: 0.15rem 0.45rem; border-radius: 4px;
-}
-.hero-card__emoji { font-size: 2rem; }
-.hero-card__name {
-  font-family: var(--font-heading); font-size: 1.3rem; letter-spacing: 0.04em; margin: 0.35rem 0;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-card__price { font-family: "JetBrains Mono", monospace; font-weight: 600; color: var(--accent); margin-bottom: 0.75rem; }
-.hero-card__price s { color: var(--muted); font-weight: 400; font-size: 0.85em; margin-left: 0.35rem; }
-
-/* Trust strip */
-.trust-strip {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto 1rem;
-  padding: 0 1.5rem;
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
-}
-.trust-item {
-  display: flex; align-items: center; gap: 0.65rem;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 0.85rem 1rem;
-}
-.trust-icon { font-size: 1.4rem; }
-.trust-item strong { display: block; font-size: 0.8rem; }
-.trust-item span { font-size: 0.7rem; color: var(--muted); }
-
-.recent-orders {
-  text-align: center; font-size: 0.78rem; color: var(--muted);
-  padding: 0.5rem 1.5rem 1rem; position: relative; z-index: 1;
-}
-.recent-orders em { color: var(--accent); font-style: normal; }
-
-/* Toolbar */
-.section-toolbar {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto;
-  padding: 0 1.5rem 1.5rem;
-  display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
-}
-.search-wrap {
-  display: flex; align-items: center; gap: 0.5rem;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: calc(var(--radius) / 2); padding: 0.5rem 0.85rem; flex: 1; min-width: 200px; max-width: 320px;
-}
-.search-wrap svg { color: var(--muted); flex-shrink: 0; }
-.search {
-  background: none; border: none; color: var(--text); font-family: var(--font-body);
-  font-size: 0.85rem; width: 100%; outline: none;
-}
-.search::placeholder { color: var(--muted); }
-.filters { display: flex; flex-wrap: wrap; gap: 0.4rem; flex: 2; }
-.filter {
-  padding: 0.4rem 0.85rem; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 999px; color: var(--muted); font-size: 0.78rem; font-weight: 500;
-  cursor: pointer; font-family: var(--font-body); transition: all 0.2s;
-}
-.filter:hover { border-color: var(--accent); color: var(--text); }
-.filter.active {
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
-  border-color: var(--accent); color: var(--accent);
-}
-.sort-select {
-  padding: 0.45rem 0.75rem; background: var(--surface); border: 1px solid var(--border);
-  border-radius: calc(var(--radius) / 2); color: var(--text); font-size: 0.8rem;
-  font-family: var(--font-body); cursor: pointer;
-}
-
-/* Catalog */
-.catalog-wrap {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto;
-  padding: 0 1.5rem 3rem;
-}
-.catalog-section { margin-bottom: 3rem; }
-.section-head { margin-bottom: 1.25rem; }
-.section-head h2 {
-  font-family: var(--font-heading); font-size: 2rem; letter-spacing: 0.05em;
-  background: linear-gradient(90deg, var(--text), var(--muted));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.section-head p { color: var(--muted); font-size: 0.85rem; margin-top: 0.2rem; }
-
-.catalog {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 1.15rem;
-}
-.catalog--bundles .product { border-color: color-mix(in srgb, var(--accent) 25%, transparent); }
-
-.product {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 1.2rem;
-  display: flex; flex-direction: column; gap: 0.5rem;
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-.product:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-  box-shadow: 0 10px 36px rgba(0,0,0,0.35), 0 0 calc(18px * var(--glow)) color-mix(in srgb, var(--accent) 12%, transparent);
-}
-.product--featured { border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
-.product__top { display: flex; justify-content: space-between; align-items: flex-start; }
-.product__emoji { font-size: 2.2rem; line-height: 1; }
-.product__badge {
-  font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-  padding: 0.2rem 0.45rem; border-radius: 4px;
-}
-.product__badge--hot { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
-.product__badge--new { background: color-mix(in srgb, #00b0ff 20%, transparent); color: #00b0ff; }
-.product__badge--sale { background: color-mix(in srgb, var(--accent-2) 25%, transparent); color: var(--accent-2); }
-
-.product__name {
-  font-family: var(--font-heading); font-size: 1.45rem; letter-spacing: 0.03em; line-height: 1.1;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-  background-size: 200% auto;
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s linear infinite;
-}
-.product__desc { font-size: 0.82rem; color: var(--muted); }
-.product__includes {
-  list-style: none; font-size: 0.72rem; color: var(--muted);
-  display: flex; flex-direction: column; gap: 0.2rem; flex: 1;
-}
-.product__includes li::before { content: "? "; color: var(--accent); }
-.product__delivery { font-size: 0.72rem; color: var(--accent); font-weight: 500; }
-.product__meta { margin-top: 0.15rem; }
-.product__pricing { display: flex; align-items: baseline; gap: 0.5rem; }
-.product__price {
-  font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 1.15rem; color: var(--accent);
-}
-.product__old { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--muted); text-decoration: line-through; }
-
 /* Buttons */
 .btn {
-  padding: 0.6rem 1.15rem; border-radius: calc(var(--radius) / 2);
-  font-family: var(--font-body); font-weight: 600; font-size: 0.85rem;
-  cursor: pointer; border: none; transition: all 0.2s; text-decoration: none;
-  display: inline-flex; align-items: center; justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: transform 0.12s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
 }
-.btn--accent {
-  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 75%, #000));
-  color: #000;
+.btn--primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c-accent) 95%, #fff), var(--c-accent));
+  color: #0c0c0c;
+  box-shadow: var(--shadow-sm), 0 0 calc(20px * var(--glow)) color-mix(in srgb, var(--c-accent) 25%, transparent);
 }
-.btn--accent:hover:not(:disabled) {
-  box-shadow: 0 0 calc(22px * var(--glow)) color-mix(in srgb, var(--accent) 45%, transparent);
-  transform: translateY(-1px);
-}
-.btn--accent:disabled { opacity: 0.4; cursor: not-allowed; }
-.btn--outline {
-  background: transparent; border: 1px solid var(--border); color: var(--text);
-}
-.btn--outline:hover { border-color: var(--accent); color: var(--accent); }
-.btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
-.btn--ghost:hover { border-color: var(--accent); color: var(--text); }
-.btn--sm { padding: 0.4rem 0.75rem; font-size: 0.78rem; }
-.btn--lg { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+.btn--primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: var(--shadow-md), 0 0 calc(28px * var(--glow)) color-mix(in srgb, var(--c-accent) 35%, transparent); }
+.btn--primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.btn--outline { background: transparent; border: 1px solid var(--c-border); color: var(--c-text); }
+.btn--outline:hover { border-color: var(--c-border-hover); background: var(--c-surface); }
+.btn--ghost { background: transparent; border: 1px solid var(--c-border); color: var(--c-muted); }
+.btn--ghost:hover { color: var(--c-text); border-color: var(--c-border-hover); }
+.btn--sm { padding: 0.45rem 0.85rem; font-size: 0.75rem; }
+.btn--lg { padding: 0.8rem 1.6rem; font-size: 0.9rem; }
 .btn--full { width: 100%; }
 
-/* How it works */
-.how-it-works {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto; padding: 3rem 1.5rem;
-  border-top: 1px solid var(--border);
+/* Theme panel */
+.theme-panel {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 320px;
+  background: var(--c-surface);
+  border-left: 1px solid var(--c-border);
+  padding: 1.5rem;
+  z-index: 300;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
 }
-.how-it-works h2 {
-  font-family: var(--font-heading); font-size: 2rem; letter-spacing: 0.05em;
-  text-align: center; margin-bottom: 2rem;
-}
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-.step {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 1.25rem;
-}
-.step__num {
-  font-family: var(--font-heading); font-size: 2rem; color: var(--accent);
-  opacity: 0.5; line-height: 1;
-}
-.step h3 { font-size: 0.95rem; margin: 0.5rem 0 0.35rem; }
-.step p { font-size: 0.8rem; color: var(--muted); }
+.theme-panel.open { transform: translateX(0); }
+.theme-panel__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.theme-panel__head h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; }
 
-/* FAQ */
-.faq {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem 4rem;
+.field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; font-size: 0.75rem; font-weight: 500; color: var(--c-muted); }
+.field input, .field select {
+  padding: 0.55rem 0.75rem;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  transition: border-color 0.15s;
 }
-.faq h2 { font-family: var(--font-heading); font-size: 2rem; letter-spacing: 0.05em; text-align: center; margin-bottom: 1.5rem; }
-.faq__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-.faq__item {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 0.85rem 1rem;
-}
-.faq__item summary { font-weight: 600; font-size: 0.88rem; cursor: pointer; list-style: none; }
-.faq__item summary::-webkit-details-marker { display: none; }
-.faq__item p { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+.field input:focus, .field select:focus { outline: none; border-color: color-mix(in srgb, var(--c-accent) 50%, var(--c-border)); }
+.field input[type="range"] { padding: 0; accent-color: var(--c-accent); }
+.check { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--c-muted); margin-bottom: 1.25rem; cursor: pointer; }
+.check input { accent-color: var(--c-accent); }
 
-/* Cart drawer */
-.cart-drawer { position: fixed; inset: 0; z-index: 400; pointer-events: none; }
-.cart-drawer.open { pointer-events: auto; }
-.cart-drawer__backdrop {
-  position: absolute; inset: 0; background: rgba(0,0,0,0.6);
-  opacity: 0; transition: opacity 0.3s;
-}
-.cart-drawer.open .cart-drawer__backdrop { opacity: 1; }
-.cart-drawer__panel {
-  position: absolute; top: 0; right: 0; bottom: 0; width: 380px; max-width: 100%;
-  background: var(--surface); border-left: 1px solid var(--border);
+/* Cart */
+.cart-panel { position: fixed; inset: 0; z-index: 250; pointer-events: none; }
+.cart-panel.open { pointer-events: auto; }
+.cart-panel__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.65); opacity: 0; transition: opacity 0.28s; backdrop-filter: blur(2px); }
+.cart-panel.open .cart-panel__backdrop { opacity: 1; }
+.cart-panel__sheet {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 420px; max-width: 100%;
+  background: var(--c-surface);
+  border-left: 1px solid var(--c-border);
   display: flex; flex-direction: column;
-  transform: translateX(100%); transition: transform 0.3s;
-  box-shadow: -8px 0 32px rgba(0,0,0,0.4);
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
 }
-.cart-drawer.open .cart-drawer__panel { transform: translateX(0); }
+.cart-panel.open .cart-panel__sheet { transform: translateX(0); }
+.cart-panel__head { display: flex; justify-content: space-between; align-items: flex-start; padding: 1.35rem 1.5rem; border-bottom: 1px solid var(--c-border); }
+.cart-panel__head h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.02em; }
+.cart-panel__sub { font-size: 0.75rem; color: var(--c-muted); margin-top: 0.15rem; }
+.cart-list { list-style: none; flex: 1; overflow-y: auto; padding: 0.75rem 1.25rem; }
+.cart-empty { text-align: center; color: var(--c-muted); font-size: 0.85rem; padding: 3rem 1rem; }
+.cart-line { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--c-border); }
+.cart-line__name { display: block; font-size: 0.8125rem; font-weight: 600; letter-spacing: -0.01em; }
+.cart-line__price { font-size: 0.75rem; color: var(--c-muted); font-family: var(--font-mono); }
+.cart-line__rm { background: none; border: none; color: var(--c-muted); cursor: pointer; font-size: 1.2rem; line-height: 1; padding: 0.1rem; transition: color 0.15s; }
+.cart-line__rm:hover { color: #f87171; }
+.cart-panel__foot { padding: 1.25rem 1.5rem; border-top: 1px solid var(--c-border); background: var(--c-surface-2); }
+.cart-total-row { display: flex; justify-content: space-between; font-size: 1rem; margin-bottom: 1rem; font-family: var(--font-mono); font-weight: 500; }
+.cart-note { font-size: 0.7rem; color: var(--c-muted); text-align: center; margin: 0.6rem 0; }
 
-.cart__header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border);
-}
-.cart__header h2 { font-family: var(--font-heading); font-size: 1.35rem; letter-spacing: 0.05em; }
-.cart__close { background: none; border: none; color: var(--muted); font-size: 1.6rem; cursor: pointer; line-height: 1; }
-.cart__close:hover { color: var(--text); }
-.cart__items { list-style: none; flex: 1; overflow-y: auto; padding: 0.75rem 1rem; min-height: 100px; }
-.cart__empty { font-size: 0.85rem; color: var(--muted); text-align: center; padding: 2rem 0.5rem; }
-.cart__item {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.65rem 0; border-bottom: 1px solid var(--border); gap: 0.5rem;
-}
-.cart__item-info { flex: 1; min-width: 0; }
-.cart__item-name {
-  display: block; font-size: 0.82rem; font-weight: 600;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.cart__item-price { font-size: 0.75rem; color: var(--muted); font-family: "JetBrains Mono", monospace; }
-.cart__item-remove { background: none; border: none; color: var(--accent-2); cursor: pointer; font-size: 1.1rem; padding: 0.2rem; flex-shrink: 0; }
-.cart__footer { padding: 1rem 1.25rem; border-top: 1px solid var(--border); }
-.cart__promo { display: flex; gap: 0.4rem; margin-bottom: 0.75rem; }
-.cart__promo input {
-  flex: 1; padding: 0.45rem 0.65rem; background: var(--surface-2);
-  border: 1px solid var(--border); border-radius: calc(var(--radius) / 2);
-  color: var(--text); font-size: 0.8rem; font-family: var(--font-body);
-}
-.cart__row { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; }
-.cart__row--discount { color: var(--accent-2); }
-.cart__total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.05rem; margin: 0.5rem 0 0.85rem; font-family: "JetBrains Mono", monospace; }
-.cart__secure { font-size: 0.68rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
+/* Layout */
+main { position: relative; z-index: 1; }
+.page-panel { max-width: 1200px; margin: 0 auto; padding: 3.5rem 2rem 4rem; scroll-margin-top: 5.5rem; }
 
-/* Modal */
-.modal { position: fixed; inset: 0; z-index: 600; pointer-events: none; display: flex; align-items: center; justify-content: center; }
-.modal.open { pointer-events: auto; }
-.modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.7); opacity: 0; transition: opacity 0.3s; }
-.modal.open .modal__backdrop { opacity: 1; }
-.modal__panel {
-  position: relative; width: 480px; max-width: calc(100% - 2rem); max-height: 90vh; overflow-y: auto;
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1.75rem; box-shadow: var(--shadow);
-  transform: scale(0.95) translateY(10px); opacity: 0; transition: all 0.3s;
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: start; margin-bottom: 3.5rem; }
+.hero__labels { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.25rem; }
+.label-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 100px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  color: var(--c-muted);
 }
-.modal.open .modal__panel { transform: scale(1) translateY(0); opacity: 1; }
-.modal__close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--muted); font-size: 1.5rem; cursor: pointer; }
-.modal__close:hover { color: var(--text); }
-.modal h2 { font-family: var(--font-heading); font-size: 1.75rem; letter-spacing: 0.04em; }
-.modal__sub { color: var(--muted); font-size: 0.85rem; margin: 0.25rem 0 1.25rem; }
+.label-pill--steam { color: #66c0f4; border-color: color-mix(in srgb, #66c0f4 30%, var(--c-border)); background: color-mix(in srgb, #66c0f4 8%, var(--c-surface)); }
 
-.checkout-form { display: flex; flex-direction: column; gap: 0.85rem; }
-.checkout-form label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.8rem; font-weight: 500; }
-.checkout-form input, .checkout-form select, .checkout-form textarea {
-  padding: 0.55rem 0.7rem; background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: calc(var(--radius) / 2); color: var(--text); font-family: var(--font-body); font-size: 0.85rem;
-}
-.checkout-form textarea { min-height: 70px; resize: vertical; }
-.optional { font-weight: 400; color: var(--muted); }
-
-.payment-methods { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-.payment-method {
-  flex: 1; padding: 0.65rem; background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: calc(var(--radius) / 2); color: var(--muted); cursor: pointer; font-family: var(--font-body); font-size: 0.8rem;
-}
-.payment-method.active { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface-2)); }
-
-.checkout-summary { background: var(--surface-2); border-radius: calc(var(--radius) / 2); padding: 0.85rem; margin-bottom: 1rem; }
-.summary-row { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 0.3rem 0; color: var(--muted); }
-.summary-row--total { font-weight: 700; color: var(--text); border-top: 1px solid var(--border); margin-top: 0.35rem; padding-top: 0.5rem; }
-
-.order-success { text-align: center; padding: 1rem 0; }
-.order-success__icon {
-  display: inline-flex; width: 64px; height: 64px; border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 20%, transparent);
-  color: var(--accent); font-size: 2rem; align-items: center; justify-content: center;
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   margin-bottom: 1rem;
 }
-.order-success__note { color: var(--muted); font-size: 0.85rem; margin: 0.75rem 0; }
-.order-success__joke { font-size: 0.78rem; color: var(--accent-2); font-style: italic; margin-bottom: 1.25rem; }
+.lead { color: var(--c-muted); font-size: 1.05rem; line-height: 1.7; max-width: 540px; margin-bottom: 1.75rem; }
+.hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 
-/* Toast */
-.toast {
-  position: fixed; bottom: 2rem; left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background: var(--surface); border: 1px solid var(--accent);
-  color: var(--text); padding: 0.8rem 1.4rem; border-radius: var(--radius);
-  font-size: 0.88rem; z-index: 2000; opacity: 0;
-  transition: transform 0.3s, opacity 0.3s; pointer-events: none;
-  box-shadow: 0 0 calc(24px * var(--glow)) color-mix(in srgb, var(--accent) 18%, transparent);
+.hero__stats { display: flex; gap: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--c-border); }
+.stat strong { display: block; font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em; color: var(--c-text); line-height: 1.1; }
+.stat span { font-size: 0.7rem; color: var(--c-muted); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 500; }
+
+.hero__aside { display: flex; flex-direction: column; gap: 1rem; }
+
+.notice-card {
+  display: flex;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  background: color-mix(in srgb, var(--c-warn) 6%, var(--c-surface));
+  border: 1px solid color-mix(in srgb, var(--c-warn) 20%, var(--c-border));
+  border-radius: var(--radius);
 }
-.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.notice-card__icon { color: var(--c-warn); flex-shrink: 0; margin-top: 2px; }
+.notice-card strong { display: block; font-size: 0.85rem; margin-bottom: 0.25rem; }
+.notice-card p { font-size: 0.78rem; color: var(--c-muted); line-height: 1.55; }
+.notice-card a { font-weight: 500; }
+
+.hero__card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+.hero__card-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  background: color-mix(in srgb, var(--c-accent) 15%, var(--c-surface-3));
+  border: 1px solid color-mix(in srgb, var(--c-accent) 30%, transparent);
+  color: var(--c-accent);
+  border-radius: 4px;
+}
+.hero__card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+.hero__card-list { list-style: none; font-size: 0.8rem; color: var(--c-muted); margin-bottom: 1.15rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.hero__card-list li::before { content: "? "; color: var(--c-accent); }
+.hero__card-price { font-family: var(--font-mono); margin-bottom: 1.15rem; }
+.hero__card-price s { color: var(--c-muted); font-size: 0.85rem; margin-right: 0.5rem; }
+.hero__card-price strong { font-size: 1.4rem; font-weight: 600; color: var(--c-accent); }
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 4rem;
+  padding: 1.25rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 4px);
+}
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+.feature__icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  color: var(--c-accent);
+  flex-shrink: 0;
+}
+.feature strong { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 0.1rem; }
+.feature span { font-size: 0.72rem; color: var(--c-muted); line-height: 1.4; }
+
+/* Sections */
+.section-intro { margin-bottom: 2rem; }
+.section-intro--inline { margin-bottom: 1.5rem; }
+.section-intro h2 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em; }
+.section-intro p { color: var(--c-muted); font-size: 0.95rem; margin-top: 0.35rem; }
+
+.cat-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2.5rem; }
+.cat-pill {
+  padding: 0.45rem 1rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 100px;
+  color: var(--c-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: 0.15s;
+  letter-spacing: -0.01em;
+}
+.cat-pill:hover { border-color: var(--c-border-hover); color: var(--c-text); }
+.cat-pill.active { background: var(--c-surface-2); border-color: color-mix(in srgb, var(--c-accent) 35%, var(--c-border)); color: var(--c-text); }
+
+.section-block { margin-bottom: 3rem; }
+.section-block.hidden { display: none; }
+.section-label { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.section-desc { font-size: 0.82rem; color: var(--c-muted); margin-bottom: 1.25rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.grid--bundles .card { border-color: color-mix(in srgb, var(--c-accent) 18%, var(--c-border)); }
+
+/* Cards */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 2px);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--c-border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.card__head { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+.card__cat {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--c-muted);
+  padding: 0.2rem 0.5rem;
+  background: var(--c-surface-2);
+  border-radius: 4px;
+}
+.card__tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--c-accent) 12%, transparent);
+  color: var(--c-accent);
+  border: 1px solid color-mix(in srgb, var(--c-accent) 25%, transparent);
+}
+.card__tag--sale { background: color-mix(in srgb, var(--c-accent-2) 10%, transparent); color: var(--c-accent-2); border-color: color-mix(in srgb, var(--c-accent-2) 25%, transparent); }
+.card__title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; }
+.card__delivery { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--c-muted); font-weight: 500; }
+.card__delivery-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-success); flex-shrink: 0; }
+.card__list { list-style: none; font-size: 0.75rem; color: var(--c-muted); flex: 1; display: flex; flex-direction: column; gap: 0.25rem; line-height: 1.45; }
+.card__list li { padding-left: 0.85rem; position: relative; }
+.card__list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 4px; height: 4px; border-radius: 50%; background: var(--c-accent); opacity: 0.7; }
+.card__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; padding-top: 0.85rem; border-top: 1px solid var(--c-border); }
+.card__price { font-family: var(--font-mono); }
+.card__price s { font-size: 0.75rem; color: var(--c-muted); margin-right: 0.4rem; }
+.card__price strong { font-size: 1.05rem; font-weight: 600; color: var(--c-text); }
+
+/* Timeline */
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.timeline__step {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 2px);
+  padding: 1.35rem;
+  position: relative;
+}
+.timeline__num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--c-accent);
+  margin-bottom: 0.85rem;
+  display: block;
+}
+.timeline__step h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+.timeline__step p { font-size: 0.8rem; color: var(--c-muted); line-height: 1.55; }
+
+/* FAQ */
+.faq-wrap { display: flex; flex-direction: column; gap: 2rem; }
+.faq-category__title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-accent);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--c-border);
+}
+.faq-category__items { display: flex; flex-direction: column; gap: 0.5rem; }
+.faq-item {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.faq-item[open] { border-color: var(--c-border-hover); }
+.faq-item summary {
+  padding: 1rem 1.15rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  list-style: none;
+  letter-spacing: -0.01em;
+  transition: background 0.15s;
+}
+.faq-item summary:hover { background: var(--c-surface-2); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; float: right; color: var(--c-muted); font-weight: 400; }
+.faq-item[open] summary::after { content: "?"; }
+.faq-item p {
+  padding: 0 1.15rem 1.1rem;
+  font-size: 0.8125rem;
+  color: var(--c-muted);
+  line-height: 1.65;
+  border-top: 1px solid var(--c-border);
+  padding-top: 0.85rem;
+  margin-top: 0;
+}
+
+/* Reviews */
+.reviews-band { padding-top: 1rem; }
+.reviews-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.review {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 2px);
+  padding: 1.25rem;
+}
+.review__stars { color: var(--c-accent); font-size: 0.8rem; letter-spacing: 0.05em; margin-bottom: 0.65rem; }
+.review p { font-size: 0.8125rem; color: var(--c-muted); line-height: 1.6; margin-bottom: 0.75rem; }
+.review footer { font-size: 0.72rem; color: var(--c-text); font-weight: 500; }
+.review footer strong { color: var(--c-text); }
+
+/* Contact */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
+.contact-info h2 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+.contact-info > p { color: var(--c-muted); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6; }
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+.contact-list li { display: flex; gap: 1rem; font-size: 0.875rem; padding: 0.65rem 0; border-bottom: 1px solid var(--c-border); }
+.contact-list__label { font-weight: 600; color: var(--c-muted); min-width: 90px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.75rem;
+}
+.contact-form label { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: var(--c-muted); letter-spacing: 0.01em; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  padding: 0.6rem 0.8rem;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  transition: border-color 0.15s;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--c-accent) 40%, var(--c-border));
+}
+.contact-form textarea { resize: vertical; min-height: 100px; }
 
 /* Footer */
 .footer {
-  position: relative; z-index: 1;
-  border-top: 1px solid var(--border);
-  padding: 2.5rem 1.5rem 2rem;
-  background: color-mix(in srgb, var(--surface) 50%, var(--bg));
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--c-border);
+  padding: 3rem 2rem 2rem;
+  background: var(--c-surface);
 }
 .footer__grid {
-  max-width: 1280px; margin: 0 auto 1.5rem;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2.5rem;
 }
-.footer__grid strong { display: block; margin-bottom: 0.35rem; font-size: 0.9rem; }
-.footer__grid p { font-size: 0.8rem; color: var(--muted); }
-.footer__demo { text-align: center; font-size: 0.72rem; color: var(--accent-2); opacity: 0.8; margin-bottom: 0.5rem; }
-.footer__copy { text-align: center; font-size: 0.75rem; color: var(--muted); }
+.footer__brand strong { font-family: var(--font-display); font-size: 1rem; display: block; margin-bottom: 0.5rem; }
+.footer__brand p { font-size: 0.8rem; color: var(--c-muted); line-height: 1.6; max-width: 300px; }
+.footer__col { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer__col strong { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: 0.35rem; }
+.footer__col a { font-size: 0.8125rem; color: var(--c-muted); text-decoration: none; transition: color 0.15s; }
+.footer__col a:hover { color: var(--c-text); }
+.footer__bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer__bottom p { font-size: 0.75rem; color: var(--c-muted); }
+.footer__disclaimer { font-size: 0.7rem !important; color: color-mix(in srgb, var(--c-warn) 80%, var(--c-muted)) !important; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--c-surface-3);
+  border: 1px solid var(--c-border-hover);
+  color: var(--c-text);
+  padding: 0.75rem 1.35rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  z-index: 500;
+  opacity: 0;
+  transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
 /* Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
+  .features { grid-template-columns: repeat(3, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .nav { display: none; }
   .hero { grid-template-columns: 1fr; }
-  .hero__featured { flex-direction: row; }
-  .trust-strip { grid-template-columns: repeat(3, 1fr); }
-  .steps { grid-template-columns: repeat(2, 1fr); }
-  .navbar__links { display: none; }
+  .features { grid-template-columns: 1fr 1fr; }
+  .contact-wrap { grid-template-columns: 1fr; }
+  .top-strip { flex-direction: column; text-align: center; padding: 0.6rem 1rem; }
+  .header { padding: 0.85rem 1rem; }
+  .page-panel { padding: 2.5rem 1rem 3rem; }
 }
 
-@media (max-width: 640px) {
-  .hero__featured { flex-direction: column; }
-  .trust-strip { grid-template-columns: 1fr 1fr; }
-  .steps, .faq__grid { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .features, .timeline, .reviews-grid { grid-template-columns: 1fr; }
+  .hero__stats { flex-direction: column; gap: 1.25rem; }
   .footer__grid { grid-template-columns: 1fr; }
-  .section-toolbar { flex-direction: column; align-items: stretch; }
-  .search-wrap { max-width: none; }
+  .footer__bottom { flex-direction: column; text-align: center; }
 }
-===== app.js =====
-const PRODUCTS = [
-  // ??? MONEY ???
-  { id: 101, name: "Modded Money ? $30M", desc: "$30 million added to your bank. Clean transfer via private session.", price: 4.99, category: "money", emoji: "??", badge: null, delivery: "5?10 min", includes: ["$30M bank balance", "Safe session method"], featured: false },
-  { id: 102, name: "Modded Money ? $150M", desc: "One-fifty million straight to Maze Bank. Most popular tier.", price: 9.99, oldPrice: 14.99, category: "money", emoji: "??", badge: "hot", delivery: "5?15 min", includes: ["$150M bank balance", "Priority queue"], featured: true },
-  { id: 103, name: "Modded Money ? $500M", desc: "Half a billion. Buy anything in Los Santos. Twice.", price: 19.99, oldPrice: 29.99, category: "money", emoji: "??", badge: "sale", delivery: "10?20 min", includes: ["$500M bank balance", "Priority support"], featured: true },
-  { id: 104, name: "Modded Money ? $1B", desc: "Billionaire status. Orbital cannon ammo for days.", price: 34.99, category: "money", emoji: "??", badge: null, delivery: "15?25 min", includes: ["$1B bank balance"], featured: false },
-  { id: 105, name: "Modded Money ? $2B", desc: "Max cash. The ultimate money package for serious ballers.", price: 59.99, oldPrice: 79.99, category: "money", emoji: "??", badge: "sale", delivery: "20?30 min", includes: ["$2B bank balance", "VIP delivery"], featured: false },
 
-  // ??? VEHICLES (garage delivery) ???
-  { id: 201, name: "1 Modded Supercar", desc: "Choose any supercar ? delivered insured & maxed to your garage.", price: 7.99, category: "vehicles", emoji: "???", badge: null, delivery: "10?15 min", includes: ["1 vehicle of choice", "Full mods & chrome", "Delivered to your garage"], featured: false },
-  { id: 202, name: "5 Modded Cars ? Garage Drop", desc: "Five custom vehicles parked in your garage. Mix & match classes.", price: 24.99, oldPrice: 34.99, category: "vehicles", emoji: "??", badge: "hot", delivery: "15?25 min", includes: ["5 modded vehicles", "Your garage of choice", "Insured & maxed"], featured: true },
-  { id: 203, name: "10 Modded Cars ? Garage Drop", desc: "Fill half your garage with modded rides. Supercars, bikes, armored.", price: 39.99, category: "vehicles", emoji: "??", badge: null, delivery: "20?35 min", includes: ["10 modded vehicles", "Any garage slot", "Custom specs on request"], featured: false },
-  { id: 204, name: "25 Modded Cars ? Full Garage", desc: "Entire garage filled. Oppressors, Deluxos, Kriegers ? your pick list.", price: 79.99, oldPrice: 109.99, category: "vehicles", emoji: "??", badge: "sale", delivery: "30?60 min", includes: ["25 modded vehicles", "Full garage fill", "Priority 1-on-1 session"], featured: true },
-  { id: 205, name: "Modded Deluxo", desc: "Flying car with missiles. Delivered to garage ? ready to grief.", price: 12.99, category: "vehicles", emoji: "??", badge: "hot", delivery: "10 min", includes: ["Deluxo MK II", "Missiles + countermeasures", "Garage delivery"], featured: false },
-  { id: 206, name: "Modded Oppressor MK II", desc: "The classic. Homing missiles, chaff, flares. Garage delivery.", price: 14.99, category: "vehicles", emoji: "???", badge: null, delivery: "10 min", includes: ["Oppressor MK II", "Fully upgraded", "Garage delivery"], featured: false },
-  { id: 207, name: "Armored Pack ? Insurgent + Nightshark", desc: "Two fully armored beasts. Survive any lobby.", price: 18.99, category: "vehicles", emoji: "???", badge: null, delivery: "15 min", includes: ["Insurgent Pick-Up Custom", "Nightshark", "Both to garage"], featured: false },
-  { id: 208, name: "Supercar Mega Pack", desc: "Krieger, Tezeract, Ignus, Torero XO ? premium garage drop.", price: 29.99, category: "vehicles", emoji: "?", badge: "new", delivery: "20 min", includes: ["4 top-tier supercars", "Chrome & custom paint", "Garage delivery"], featured: false },
+===== css\legal.css =====
+.legal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--c-border);
+  background: color-mix(in srgb, var(--c-bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
-  // ??? BUSINESSES ???
-  { id: 301, name: "MC Business Bundle", desc: "Cocaine, Meth, Weed, Counterfeit + Document Forgery. All upgraded.", price: 34.99, category: "businesses", emoji: "??", badge: null, delivery: "25?40 min", includes: ["4 MC businesses", "All equipment upgrades", "Staff hired & supplied"], featured: false },
-  { id: 302, name: "CEO Office + 5 Large Warehouses", desc: "Maze Bank Tower office with 5 maxed crate warehouses.", price: 29.99, category: "businesses", emoji: "??", badge: null, delivery: "20?35 min", includes: ["CEO office (your choice)", "5 large warehouses", "Special cargo unlocked"], featured: false },
-  { id: 303, name: "Bunker ? Fully Upgraded", desc: "Bunker with all upgrades, research unlocked, max supplies.", price: 24.99, category: "businesses", emoji: "??", badge: null, delivery: "20?30 min", includes: ["Bunker property", "All facility upgrades", "Manufacturing + research"], featured: false },
-  { id: 304, name: "Nightclub + All Technicians", desc: "Max popularity nightclub with every technician hired & assigned.", price: 27.99, category: "businesses", emoji: "??", badge: "hot", delivery: "25?35 min", includes: ["Nightclub property", "All 5 technicians", "Max popularity + storage"], featured: false },
-  { id: 305, name: "Agency + Auto Shop + Salvage", desc: "Dr. Dre ready agency, full auto shop, salvage yard unlocked.", price: 44.99, category: "businesses", emoji: "??", badge: null, delivery: "35?50 min", includes: ["Agency (all upgrades)", "Auto Shop + custom works", "Salvage Yard"], featured: false },
-  { id: 306, name: "Hangar + Aircraft Fleet", desc: "LSIA hangar stocked with modded planes & helicopters.", price: 32.99, category: "businesses", emoji: "??", badge: null, delivery: "25?40 min", includes: ["Hangar property", "5 aircraft in hangar", "All hangar upgrades"], featured: false },
-  { id: 307, name: "ALL BUSINESSES + MAX UPGRADES", desc: "Everything. Every business, every upgrade, every property. One session.", price: 149.99, oldPrice: 249.99, category: "businesses", emoji: "??", badge: "sale", delivery: "60?90 min", includes: ["All MC + CEO businesses", "Bunker, Nightclub, Agency", "Hangar, Arcade, Facility", "Every upgrade maxed"], featured: true },
+.legal-doc {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
 
-  // ??? OUTFITS ???
-  { id: 401, name: "Modded Outfits ? 20 Pack", desc: "20 custom outfits saved to your wardrobe. Male or female.", price: 9.99, category: "outfits", emoji: "??", badge: null, delivery: "10?15 min", includes: ["20 outfit slots", "CEO / street / tactical styles"], featured: false },
-  { id: 402, name: "Modded Outfits ? 50 Pack", desc: "Full wardrobe overhaul. Rare pieces & unreleased combos.", price: 19.99, category: "outfits", emoji: "??", badge: "new", delivery: "15?20 min", includes: ["50 outfit slots", "Custom request notes"], featured: false },
+.legal-updated {
+  font-size: 0.75rem;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
 
-  // ??? BOOSTS ???
-  { id: 501, name: "Rank Boost ? Level 120", desc: "Unlock everything rank-gated. Weapons, vehicles, heists.", price: 14.99, category: "boosts", emoji: "??", badge: null, delivery: "15?25 min", includes: ["Rank 120", "All unlocks"], featured: false },
-  { id: 502, name: "Rank Boost ? Level 500", desc: "High rank with max stats. Flex on the lobby.", price: 29.99, category: "boosts", emoji: "??", badge: null, delivery: "20?30 min", includes: ["Rank 500", "Max stats"], featured: false },
-  { id: 503, name: "Unlock All Weapons", desc: "Every weapon MK II'd. Railgun, minigun, all attachments.", price: 11.99, category: "boosts", emoji: "??", badge: null, delivery: "10?15 min", includes: ["All weapons unlocked", "MK II variants"], featured: false },
+.legal-doc h1 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
 
-  // ??? HEISTS ???
-  { id: 601, name: "Cayo Perico ? All Unlocks", desc: "All setups done. Panther statue ready. Elite challenge capable.", price: 24.99, category: "heists", emoji: "???", badge: "hot", delivery: "20?30 min", includes: ["All setups complete", "Hard mode unlocked", "Solo doable"], featured: false },
-  { id: 602, name: "Casino Heist ? All Approaches", desc: "Big Con, Silent & Sneaky, Aggressive ? all preps done.", price: 22.99, category: "heists", emoji: "??", badge: null, delivery: "20?30 min", includes: ["All 3 approaches", "All setups done"], featured: false },
-  { id: 603, name: "Doomsday Heist ? Complete", desc: "Acts I, II, III finished. Facility included.", price: 34.99, category: "heists", emoji: "??", badge: null, delivery: "30?45 min", includes: ["All 3 acts", "Facility unlock"], featured: false },
+.legal-lead {
+  font-size: 1.05rem;
+  color: var(--c-muted);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--c-border);
+}
 
-  // ??? BUNDLES ???
-  { id: 701, name: "Starter Pack", desc: "$150M + 5 garage cars + Rank 120. Perfect for new modded accounts.", price: 29.99, oldPrice: 49.99, category: "bundles", emoji: "??", badge: "sale", delivery: "30?45 min", includes: ["$150M modded money", "5 modded cars to garage", "Rank 120 boost"], featured: true },
-  { id: 702, name: "CEO Lifestyle Bundle", desc: "$500M + CEO office + warehouses + 10 garage cars + outfits.", price: 69.99, oldPrice: 99.99, category: "bundles", emoji: "??", badge: "hot", delivery: "45?60 min", includes: ["$500M", "CEO office + 5 warehouses", "10 modded cars", "20 outfits"], featured: true },
-  { id: 703, name: "Ultimate Los Santos Pack", desc: "The everything package. Money, cars, all businesses, rank 500.", price: 199.99, oldPrice: 349.99, category: "bundles", emoji: "??", badge: "sale", delivery: "90?120 min", includes: ["$2B modded money", "25 modded cars", "ALL businesses maxed", "Rank 500 + all weapons", "All heists unlocked"], featured: true },
-  { id: 704, name: "Vehicle + Money Combo", desc: "$500M bank + 10 modded cars to your garage. Best seller.", price: 49.99, oldPrice: 69.99, category: "bundles", emoji: "??", badge: "hot", delivery: "35?50 min", includes: ["$500M", "10 modded garage cars"], featured: true },
-];
+.legal-doc section { margin-bottom: 2rem; }
 
-const SHOP_NAMES = [
-  "Los Santos Plug Co.",
-  "Vinewood Mod Emporium",
-  "Deluxo Dreams LLC",
-  "Oppressor Outlet",
-  "Maze Bank Services",
-  "Lester's Discount Modz",
-  "Cayo Quick Cash",
-  "Chrome & Crime Shop",
-  "Phantom Wallet Co.",
-  "Midnight Money Drops",
-  "Krieger Kustoms",
-  "FN MODZ Official",
-  "LS Underground",
-  "Garage Drop Services",
-];
+.legal-doc h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.02em;
+}
 
-const THEME_PRESETS = {
-  "pro-dark": { bg: "#080c10", surface: "#111820", accent: "#00e676", accent2: "#ff4081", text: "#f0f4f8", muted: "#6b7c8f", gradStart: "#00e676", gradEnd: "#00b0ff" },
-  "los-santos": { bg: "#0a0f0a", surface: "#141a14", accent: "#39ff14", accent2: "#ff2d6a", text: "#e8f5e8", muted: "#6b8f6b", gradStart: "#39ff14", gradEnd: "#00d4ff" },
-  "vice": { bg: "#0f0a14", surface: "#1a1420", accent: "#ff2d9b", accent2: "#00f0ff", text: "#fce4f3", muted: "#9b7a9b", gradStart: "#ff2d9b", gradEnd: "#b24dff" },
-  "midnight": { bg: "#060810", surface: "#0e1218", accent: "#4a9eff", accent2: "#7b61ff", text: "#d4e4ff", muted: "#5a6a8a", gradStart: "#4a9eff", gradEnd: "#7b61ff" },
-  "gold-rush": { bg: "#0f0c08", surface: "#1a1610", accent: "#ffd700", accent2: "#ff8c00", text: "#fff8e8", muted: "#8a7a5a", gradStart: "#ffd700", gradEnd: "#ff6b00" },
-  "chrome": { bg: "#0a0a0c", surface: "#141418", accent: "#c0c0c0", accent2: "#00d4ff", text: "#e8e8f0", muted: "#6a6a7a", gradStart: "#e8e8f0", gradEnd: "#00d4ff" },
-  "blood": { bg: "#0f0808", surface: "#1a1010", accent: "#ff3333", accent2: "#8b0000", text: "#ffe8e8", muted: "#8a5a5a", gradStart: "#ff3333", gradEnd: "#ff6666" },
+.legal-doc p, .legal-doc li {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
+}
+
+.legal-doc ul {
+  margin: 0.5rem 0 0.75rem 1.25rem;
+}
+
+.legal-doc strong { color: var(--c-text); font-weight: 600; }
+.legal-doc code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  background: var(--c-surface-2);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.footer--legal {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--c-border);
+}
+
+.footer--legal p { font-size: 0.78rem; color: var(--c-muted); }
+.footer--legal a { color: var(--c-muted); margin: 0 0.5rem; }
+.footer--legal a:hover { color: var(--c-accent); }
+
+/* Payment section */
+.payments-section { margin-bottom: 4rem; }
+.payments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.pay-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pay-card:hover {
+  border-color: var(--c-border-hover);
+  box-shadow: var(--shadow-md);
+}
+.pay-card__icon {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+.pay-card__icon--ltc { background: color-mix(in srgb, #345d9d 20%, var(--c-surface-2)); color: #6b8fc7; border: 1px solid color-mix(in srgb, #345d9d 30%, transparent); }
+.pay-card__icon--rbx { background: color-mix(in srgb, #00c864 15%, var(--c-surface-2)); color: #00c864; border: 1px solid color-mix(in srgb, #00c864 25%, transparent); }
+.pay-card__icon--gift { background: color-mix(in srgb, #e2231a 12%, var(--c-surface-2)); color: #f87171; border: 1px solid color-mix(in srgb, #e2231a 25%, transparent); }
+.pay-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+.pay-card p { font-size: 0.8rem; color: var(--c-muted); line-height: 1.55; margin-bottom: 0.85rem; }
+.pay-card__dest {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 0.55rem 0.7rem;
+  word-break: break-all;
+  color: var(--c-accent);
+}
+
+.steam-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  background: color-mix(in srgb, #66c0f4 12%, var(--c-surface));
+  border: 1px solid color-mix(in srgb, #66c0f4 28%, var(--c-border));
+  border-radius: 100px;
+  color: #66c0f4;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.steam-requirement {
+  display: flex;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  background: color-mix(in srgb, #66c0f4 6%, var(--c-surface));
+  border: 1px solid color-mix(in srgb, #66c0f4 18%, var(--c-border));
+  border-radius: calc(var(--radius) + 2px);
+  margin-bottom: 2rem;
+}
+.steam-requirement__icon { color: #66c0f4; flex-shrink: 0; }
+.steam-requirement strong { display: block; font-size: 0.88rem; margin-bottom: 0.25rem; }
+.steam-requirement p { font-size: 0.8rem; color: var(--c-muted); line-height: 1.55; }
+
+.theme-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.swatch {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.swatch:hover { transform: scale(1.1); }
+.swatch.active { border-color: var(--c-text); box-shadow: 0 0 0 2px var(--c-bg); }
+
+.theme-panel__divider {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-muted);
+  margin: 1.25rem 0 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--c-border);
+}
+
+/* Checkout payment panels */
+.pay-detail { display: none; margin-bottom: 1rem; }
+.pay-detail.active { display: block; }
+.pay-instructions {
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 1.15rem;
+  margin-bottom: 1rem;
+}
+.pay-instructions h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.65rem; }
+.pay-row { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.45rem 0; font-size: 0.8rem; border-bottom: 1px solid var(--c-border); }
+.pay-row:last-child { border-bottom: none; }
+.pay-row span { color: var(--c-muted); }
+.pay-row strong, .pay-row code { font-family: var(--font-mono); font-size: 0.75rem; color: var(--c-text); word-break: break-all; text-align: right; }
+.copy-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.65rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  color: var(--c-muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  margin-left: 0.35rem;
+}
+.copy-btn:hover { color: var(--c-accent); border-color: var(--c-accent); }
+.robux-calc {
+  font-size: 0.85rem;
+  padding: 0.75rem;
+  background: color-mix(in srgb, var(--c-accent) 8%, var(--c-surface-2));
+  border-radius: var(--radius);
+  margin-top: 0.65rem;
+  font-family: var(--font-mono);
+}
+.steam-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.85rem;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.steam-check input { margin-top: 3px; accent-color: #66c0f4; }
+.steam-check span { color: var(--c-muted); line-height: 1.5; }
+
+@media (max-width: 768px) {
+  .payments-grid { grid-template-columns: 1fr; }
+}
+
+===== js\config.js =====
+window.GTA_CONFIG = {
+  platform: "Steam",
+  platformNote: "Steam library only ? Rockstar Launcher & Epic are not supported",
+
+  payments: {
+    robuxPerUsd: 85,
+    ltcConfirmations: 3,
+    handles: {
+      paymentUser: "[user]",
+      ltcWallet: "ltc1q[user]placeholder",
+      robloxUser: "[user]",
+      discord: "[user]",
+    },
+  },
+
+  getHandles() {
+    try {
+      const theme = JSON.parse(localStorage.getItem("gta-services-theme") || "{}");
+      return { ...this.payments.handles, ...theme.paymentHandles };
+    } catch {
+      return { ...this.payments.handles };
+    }
+  },
 };
 
-const RECENT_NAMES = ["xXDarkRiderXx", "LS_MoneyKing", "CayoGrinder99", "ModdedMike", "VinewoodVibes", "OppressorDad", "GTABoss420", "NightclubAFK", "ChromeDeluxo", "BunkerBoi"];
-const RECENT_ITEMS = ["Modded Money ? $150M", "5 Modded Cars ? Garage Drop", "ALL BUSINESSES + MAX UPGRADES", "Ultimate Los Santos Pack", "Modded Deluxo", "CEO Lifestyle Bundle"];
+===== js\products.js =====
+window.GTA_DATA = {
+  PLATFORM: "Steam",
+  EDITIONS: ["Steam ? Enhanced", "Steam ? Legacy"],
 
-const JOKE_LINES = [
-  "jk it's a demo shop lmao nothing's actually happening ??",
-  "your order has been sent to the void. for now.",
-  "Lester is typing... jk we don't have Lester",
-  "delivery ETA: whenever we feel like it (never)",
-];
+  PRODUCTS: [
+    { id: "out-10", name: "Modded Outfits ? 10 Pack", category: "outfits", price: 8.99, oldPrice: null, delivery: "10?15 min", popular: false, includes: ["10 saved outfit slots", "Male or female character", "CEO & streetwear styles", "PC wardrobe delivery"] },
+    { id: "out-25", name: "Modded Outfits ? 25 Pack", category: "outfits", price: 14.99, oldPrice: 19.99, delivery: "15?20 min", popular: true, includes: ["25 outfit slots", "Rare clothing combinations", "Custom color requests", "PC session delivery"] },
+    { id: "out-50", name: "Modded Outfits ? 50 Pack", category: "outfits", price: 24.99, oldPrice: 34.99, delivery: "20?30 min", popular: false, includes: ["50 outfit slots", "Full wardrobe overhaul", "Priority private session", "PC only"] },
+    { id: "out-ceo", name: "CEO & Executive Wardrobe", category: "outfits", price: 11.99, oldPrice: null, delivery: "10?15 min", popular: false, includes: ["15 executive outfits", "Agency-ready looks", "Matching accessories"] },
+    { id: "out-tac", name: "Tactical & Military Outfits", category: "outfits", price: 12.99, oldPrice: null, delivery: "10?20 min", popular: false, includes: ["12 tactical sets", "Heist-ready gear", "Saved to PC wardrobe"] },
 
-let cart = [];
-let currentFilter = "all";
-let currentPlatform = "all";
-let searchQuery = "";
-let sortMode = "featured";
-let discount = 0;
-let randomShopName = SHOP_NAMES[Math.floor(Math.random() * SHOP_NAMES.length)];
+    { id: "car-1", name: "1 Modded Vehicle ? Garage Delivery", category: "cars", price: 6.99, oldPrice: null, delivery: "10 min", popular: false, includes: ["Any vehicle of your choice", "Fully upgraded & insured", "Delivered to PC garage"] },
+    { id: "car-5", name: "5 Modded Cars ? Garage Drop", category: "cars", price: 22.99, oldPrice: 29.99, delivery: "15?25 min", popular: true, includes: ["5 custom vehicles", "Garage of your choice", "Max performance mods", "PC delivery"] },
+    { id: "car-10", name: "10 Modded Cars ? Garage Drop", category: "cars", price: 38.99, oldPrice: null, delivery: "25?35 min", popular: false, includes: ["10 modded vehicles", "Supercars, bikes, armored", "Custom spec sheet on request"] },
+    { id: "car-25", name: "25 Cars ? Full Garage Fill", category: "cars", price: 74.99, oldPrice: 99.99, delivery: "45?60 min", popular: true, includes: ["25 vehicles to garage", "Priority 1-on-1 session", "PC Enhanced & Legacy"] },
+    { id: "car-deluxo", name: "Modded Deluxo MK II", category: "cars", price: 11.99, oldPrice: null, delivery: "10 min", popular: true, includes: ["Missiles + countermeasures", "Custom paint / chrome", "Garage delivery"] },
+    { id: "car-oppressor", name: "Modded Oppressor MK II", category: "cars", price: 13.99, oldPrice: null, delivery: "10 min", popular: false, includes: ["Homing missiles equipped", "Chaff & flares", "Garage delivery"] },
+    { id: "car-armored", name: "Armored Vehicle Duo", category: "cars", price: 17.99, oldPrice: null, delivery: "15 min", popular: false, includes: ["Insurgent Pick-Up Custom", "Nightshark", "Both delivered to garage"] },
 
-const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => document.querySelectorAll(sel);
+    { id: "lvl-50", name: "Modded Level ? Rank 50", category: "levels", price: 7.99, oldPrice: null, delivery: "10?15 min", popular: false, includes: ["Rank 50 applied", "Early unlocks", "Private PC session"] },
+    { id: "lvl-120", name: "Modded Level ? Rank 120", category: "levels", price: 13.99, oldPrice: null, delivery: "15?20 min", popular: true, includes: ["Rank 120", "All rank-gated unlocks", "Weapons & vehicle access"] },
+    { id: "lvl-200", name: "Modded Level ? Rank 200", category: "levels", price: 19.99, oldPrice: 24.99, delivery: "20?25 min", popular: false, includes: ["Rank 200", "High-level cosmetics", "Stats preserved"] },
+    { id: "lvl-500", name: "Modded Level ? Rank 500", category: "levels", price: 34.99, oldPrice: null, delivery: "25?35 min", popular: false, includes: ["Rank 500", "Priority queue", "PC session delivery"] },
+    { id: "lvl-8000", name: "Modded Level ? Rank 8000", category: "levels", price: 59.99, oldPrice: 79.99, delivery: "30?45 min", popular: true, includes: ["Rank 8000", "VIP private session", "PC Enhanced & Legacy"] },
+    { id: "lvl-weapons", name: "Unlock All Weapons MK II", category: "levels", price: 10.99, oldPrice: null, delivery: "10?15 min", popular: false, includes: ["Every weapon unlocked", "MK II variants", "All attachments"] },
 
-function applyTheme(vars) {
-  const root = document.documentElement;
-  root.style.setProperty("--bg", vars.bg);
-  root.style.setProperty("--surface", vars.surface);
-  root.style.setProperty("--surface-2", adjustBrightness(vars.surface, 1.12));
-  root.style.setProperty("--accent", vars.accent);
-  root.style.setProperty("--accent-2", vars.accent2);
-  root.style.setProperty("--text", vars.text);
-  root.style.setProperty("--muted", vars.muted);
-  root.style.setProperty("--gradient-start", vars.gradStart);
-  root.style.setProperty("--gradient-end", vars.gradEnd);
-  root.style.setProperty("--border", hexToRgba(vars.accent, 0.12));
+    { id: "bnd-starter", name: "Starter Bundle", category: "bundles", price: 24.99, oldPrice: 39.99, delivery: "30?40 min", popular: true, includes: ["Rank 120", "10 modded outfits", "3 garage cars", "$100M modded cash"] },
+    { id: "bnd-street", name: "Street King Bundle", category: "bundles", price: 49.99, oldPrice: 69.99, delivery: "45?60 min", popular: true, includes: ["Rank 200", "25 outfits", "10 garage cars", "$500M modded cash"] },
+    { id: "bnd-ceo", name: "CEO Empire Bundle", category: "bundles", price: 79.99, oldPrice: 119.99, delivery: "60?90 min", popular: false, includes: ["Rank 500", "50 outfits", "15 garage cars", "$1B modded cash"] },
+    { id: "bnd-ultimate", name: "Ultimate Los Santos Bundle", category: "bundles", price: 149.99, oldPrice: 229.99, delivery: "90?120 min", popular: true, includes: ["Rank 8000", "50 outfits", "25 garage cars", "$2B modded cash", "All weapons unlocked"] },
+    { id: "bnd-garage", name: "Garage + Style Bundle", category: "bundles", price: 34.99, oldPrice: 49.99, delivery: "35?50 min", popular: false, includes: ["10 modded cars", "25 outfits", "Rank 120"] },
+    { id: "bnd-quick", name: "Quick Boost Bundle", category: "bundles", price: 18.99, oldPrice: 27.99, delivery: "20?30 min", popular: false, includes: ["Rank 120", "5 outfits", "1 Deluxo to garage"] },
+  ],
+
+  FAQ: [
+    {
+      cat: "Safety & Bans",
+      items: [
+        { q: "Is this bannable?", a: "Any modification to GTA Online carries inherent risk. Rockstar's Terms of Service prohibit unauthorized modifications. While we use private-session methods designed to minimize exposure, we cannot guarantee zero risk. Thousands of PC orders have been completed, but you should understand that a ban is always possible when modding." },
+        { q: "Can I get banned using your service?", a: "Ban risk exists with any modding service. We mitigate this through private sessions, controlled delivery rates, and established PC methods. Suspicious activity reports from other players can still trigger reviews. We recommend not discussing modded content in public lobbies after delivery." },
+        { q: "What is your ban rate?", a: "We do not publish exact statistics as Rockstar does not disclose ban reasons. Anecdotally, the vast majority of PC customers complete orders without issue. Rank and money services carry higher perceived risk than outfits and garage vehicles. We disclose all risks upfront so you can make an informed decision." },
+        { q: "Is this against Rockstar's Terms of Service?", a: "Yes. Modded services violate Rockstar Games' User Agreement and GTA Online Terms of Service. By purchasing, you acknowledge you understand this and accept personal responsibility for any account action Rockstar may take." },
+        { q: "Will I lose my account permanently?", a: "Rockstar typically issues temporary suspensions (30 days) for first offenses, though permanent bans are possible ? especially for repeat violations or egregious cases. We never recommend modding on an account you cannot afford to lose." },
+        { q: "Does Rockstar detect modded money or ranks?", a: "Rockstar employs automated systems that flag abnormal balance changes and stat anomalies. We use delivery methods intended to stay within thresholds that avoid instant flags, but detection systems change without notice. No modding service can claim 100% undetectability." },
+      ],
+    },
+    {
+      cat: "Account & Security",
+      items: [
+        { q: "Do you need my Rockstar password?", a: "Never. We only require your Rockstar Social Club display name and PC edition (Enhanced or Legacy). All delivery happens in a controlled session you join ? we never request login credentials, 2FA codes, or email access." },
+        { q: "Is my payment information safe?", a: "We do not accept credit cards. Payments go directly to our designated accounts via Litecoin, Robux, or Robux gift cards. We never ask for banking logins. Gift card codes should be sent via Discord DM when possible." },
+        { q: "Can I use a modded account alongside my main?", a: "We strongly recommend using a secondary PC account (alt) for modded services. This isolates risk from your primary profile, characters, and purchased content." },
+      ],
+    },
+    {
+      cat: "Steam Requirement",
+      items: [
+        { q: "Why Steam only?", a: "Our delivery tools and private session methods are built exclusively for the Steam PC client. We cannot inject, sync, or verify deliveries on Rockstar Games Launcher or Epic Games Store versions. If you bought GTA V outside of Steam, we cannot help you." },
+        { q: "I own it on Rockstar Launcher ? can you still do it?", a: "No. This is a hard requirement with no exceptions. You must own GTA V in your Steam library and launch the game through Steam for us to deliver any service." },
+        { q: "Do you support console?", a: "No. PlayStation and Xbox are not supported under any circumstances." },
+        { q: "Steam Enhanced vs Legacy?", a: "Enhanced is the current Steam build. Legacy is the older Steam branch still available. Check Steam ? Library ? GTA V ? Properties. Select the correct edition at checkout." },
+        { q: "Where do modded cars go?", a: "Vehicles are placed directly into a garage on your Steam account ? Agency, MOC, CEO office, or any owned property. Specify your garage in checkout notes." },
+        { q: "How long does delivery take?", a: "Single items: 10?20 minutes after payment verification. Bundles: 30?120 minutes. Discord ticket updates throughout." },
+        { q: "What do I need before ordering?", a: "GTA V in your Steam library, Rockstar Social Club linked, Discord, and Litecoin/Robux ready to pay [user]. Have Steam open when we contact you." },
+      ],
+    },
+    {
+      cat: "Payments",
+      items: [
+        { q: "What payment methods do you accept?", a: "Litecoin (LTC), direct Robux transfer, and Robux gift cards. All payments go to [user]. We do not accept PayPal, credit cards, or bank transfers." },
+        { q: "How do I pay with Litecoin?", a: "At checkout you'll see our LTC wallet address. Send the exact USD equivalent in LTC to that address, then submit your transaction hash as payment proof. 3 confirmations required before delivery starts." },
+        { q: "How do I pay with Robux?", a: "Purchase our listed Game Pass or send the calculated Robux amount to our Roblox account [user]. The checkout page shows the exact R$ amount (~85 R$ per $1 USD). Screenshot proof required." },
+        { q: "How do Robux gift cards work?", a: "Buy a Robux gift card covering your order total. Enter the code at checkout or DM it to [user] on Discord. Delivery begins once the code is verified." },
+        { q: "When does delivery start?", a: "Only after [user] manually verifies your payment on Discord. Submit your order with payment proof ? don't expect instant delivery before confirmation." },
+      ],
+    },
+    {
+      cat: "Orders & Support",
+      items: [
+        { q: "What is your refund policy?", a: "Full refund if we cannot deliver your order. Partial refunds are considered if delivery was incomplete. Chargebacks without contacting support first may result in a permanent ban from our services." },
+        { q: "Can I customize bundle contents?", a: "Yes. Add notes at checkout for specific vehicles, outfit preferences, or garage slots. Our team accommodates reasonable custom requests at no extra charge." },
+        { q: "How do I contact support?", a: "Discord is our primary channel ? average response under 15 minutes. Email support is available for order disputes and refund requests. Both are staffed 24/7." },
+      ],
+    },
+  ],
+
+  TESTIMONIALS: [
+    { name: "Marcus T.", edition: "Steam Enhanced", text: "Paid in LTC, bundle delivered in under an hour. They actually checked I was on Steam before starting. Legit.", stars: 5 },
+    { name: "Jess_K", edition: "Steam Legacy", text: "Legacy Steam build ? paid with Robux gift card. Support walked me through everything. Super professional.", stars: 5 },
+    { name: "Dre_LosSantos", edition: "Steam Enhanced", text: "Third order. Sent Robux to [user], cars showed up modded in Agency garage. Fastest Steam service out there.", stars: 5 },
+    { name: "NightclubCEO", edition: "Steam Enhanced", text: "Ultimate bundle via LTC. Took 90 min but they delivered everything. Only shop that enforces Steam properly.", stars: 5 },
+  ],
+};
+
+===== js\theme.js =====
+const PRESETS = {
+  obsidian: { "--c-bg":"#050608","--c-surface":"#0b0d12","--c-surface-2":"#12151c","--c-border":"rgba(255,255,255,0.07)","--c-text":"#f4f4f5","--c-muted":"#8b919e","--c-accent":"#c4a052","--c-accent-2":"#5b8def","--c-grad-a":"#d4b86a","--c-grad-b":"#f0e6c8","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  steam: { "--c-bg":"#0e1419","--c-surface":"#1b2838","--c-surface-2":"#2a475e","--c-border":"rgba(102,192,244,0.15)","--c-text":"#e5f0f8","--c-muted":"#8ba3b8","--c-accent":"#66c0f4","--c-accent-2":"#1a9fff","--c-grad-a":"#66c0f4","--c-grad-b":"#c7e8ff","--c-success":"#57cbde","--c-warn":"#f59e0b" },
+  emerald: { "--c-bg":"#060b08","--c-surface":"#0e1612","--c-surface-2":"#152019","--c-border":"rgba(52,211,153,0.12)","--c-text":"#ecfdf5","--c-muted":"#6ee7b7","--c-accent":"#10b981","--c-accent-2":"#34d399","--c-grad-a":"#10b981","--c-grad-b":"#6ee7b7","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  midnight: { "--c-bg":"#05060a","--c-surface":"#0c0e16","--c-surface-2":"#141828","--c-border":"rgba(99,102,241,0.14)","--c-text":"#e8eaf6","--c-muted":"#9ca3af","--c-accent":"#6366f1","--c-accent-2":"#818cf8","--c-grad-a":"#6366f1","--c-grad-b":"#a5b4fc","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  crimson: { "--c-bg":"#0a0606","--c-surface":"#140e0e","--c-surface-2":"#1f1414","--c-border":"rgba(239,68,68,0.12)","--c-text":"#fef2f2","--c-muted":"#a8a29e","--c-accent":"#dc2626","--c-accent-2":"#f87171","--c-grad-a":"#dc2626","--c-grad-b":"#fca5a5","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  arctic: { "--c-bg":"#f0f4f8","--c-surface":"#ffffff","--c-surface-2":"#e8eef4","--c-border":"rgba(15,23,42,0.1)","--c-text":"#0f172a","--c-muted":"#64748b","--c-accent":"#0ea5e9","--c-accent-2":"#6366f1","--c-grad-a":"#0ea5e9","--c-grad-b":"#38bdf8","--c-success":"#10b981","--c-warn":"#d97706" },
+  vice: { "--c-bg":"#0f0a14","--c-surface":"#1a1420","--c-surface-2":"#241c2e","--c-border":"rgba(255,45,155,0.14)","--c-text":"#fce4f3","--c-muted":"#9b7a9b","--c-accent":"#ff2d9b","--c-accent-2":"#00f0ff","--c-grad-a":"#ff2d9b","--c-grad-b":"#b24dff","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  litecoin: { "--c-bg":"#0a0c10","--c-surface":"#12151c","--c-surface-2":"#1a1f28","--c-border":"rgba(180,190,200,0.12)","--c-text":"#eef0f4","--c-muted":"#8a919c","--c-accent":"#b8c0cc","--c-accent-2":"#345d9d","--c-grad-a":"#b8c0cc","--c-grad-b":"#6b8fc7","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  robux: { "--c-bg":"#0c0a0f","--c-surface":"#16121c","--c-surface-2":"#201a28","--c-border":"rgba(0,200,100,0.12)","--c-text":"#f0fdf4","--c-muted":"#86a89a","--c-accent":"#00c864","--c-accent-2":"#e2231a","--c-grad-a":"#00c864","--c-grad-b":"#7dffb8","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  losSantos: { "--c-bg":"#0a0f0a","--c-surface":"#141a14","--c-surface-2":"#1c241c","--c-border":"rgba(57,255,20,0.12)","--c-text":"#e8f5e8","--c-muted":"#6b8f6b","--c-accent":"#39ff14","--c-accent-2":"#00d4ff","--c-grad-a":"#39ff14","--c-grad-b":"#00d4ff","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  goldRush: { "--c-bg":"#0f0c08","--c-surface":"#1a1610","--c-surface-2":"#221c14","--c-border":"rgba(255,215,0,0.12)","--c-text":"#fff8e8","--c-muted":"#8a7a5a","--c-accent":"#ffd700","--c-accent-2":"#ff8c00","--c-grad-a":"#ffd700","--c-grad-b":"#ff6b00","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  void: { "--c-bg":"#000000","--c-surface":"#0a0a0a","--c-surface-2":"#141414","--c-border":"rgba(255,255,255,0.06)","--c-text":"#fafafa","--c-muted":"#737373","--c-accent":"#ffffff","--c-accent-2":"#a3a3a3","--c-grad-a":"#ffffff","--c-grad-b":"#d4d4d4","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  sunset: { "--c-bg":"#12080c","--c-surface":"#1c1016","--c-surface-2":"#281820","--c-border":"rgba(251,146,60,0.14)","--c-text":"#fff1f2","--c-muted":"#a18a8e","--c-accent":"#fb923c","--c-accent-2":"#f43f5e","--c-grad-a":"#fb923c","--c-grad-b":"#fbbf24","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  ocean: { "--c-bg":"#040d12","--c-surface":"#0a1929","--c-surface-2":"#0f2740","--c-border":"rgba(56,189,248,0.12)","--c-text":"#e0f2fe","--c-muted":"#7da8c0","--c-accent":"#38bdf8","--c-accent-2":"#0284c7","--c-grad-a":"#38bdf8","--c-grad-b":"#7dd3fc","--c-success":"#34d399","--c-warn":"#f59e0b" },
+  royal: { "--c-bg":"#0a0612","--c-surface":"#140f1e","--c-surface-2":"#1e172c","--c-border":"rgba(167,139,250,0.14)","--c-text":"#f5f3ff","--c-muted":"#9b8ab8","--c-accent":"#a78bfa","--c-accent-2":"#7c3aed","--c-grad-a":"#a78bfa","--c-grad-b":"#c4b5fd","--c-success":"#34d399","--c-warn":"#f59e0b" },
+};
+
+const PRESET_LABELS = {
+  obsidian: "Obsidian Gold", steam: "Steam Blue", emerald: "Emerald", midnight: "Midnight",
+  crimson: "Crimson", arctic: "Arctic Light", vice: "Vice Pink", litecoin: "Litecoin Silver",
+  robux: "Robux Green", losSantos: "Los Santos", goldRush: "Gold Rush", void: "Void Mono",
+  sunset: "Sunset", ocean: "Ocean Deep", royal: "Royal Purple",
+};
+
+const STORAGE_KEY = "gta-services-theme";
+
+function loadTheme() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch { return null; }
 }
 
-function adjustBrightness(hex, factor) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `#${[r, g, b].map((c) => Math.min(255, Math.round(c * factor)).toString(16).padStart(2, "0")).join("")}`;
+function applyVars(vars) {
+  Object.entries(vars).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
 }
 
-function hexToRgba(hex, alpha) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
-
-function getShopName() {
-  const mode = $("#shop-name-mode").value;
-  if (mode === "redacted") return "[REDACTED]";
-  if (mode === "random") return randomShopName;
-  return $("#shop-name-custom").value.trim() || "[REDACTED]";
-}
-
-function updateShopName() {
-  const name = getShopName();
-  ["#shop-name", "#nav-name", "#footer-name", "#footer-name-2"].forEach((sel) => {
-    const el = $(sel);
-    if (el) el.textContent = name;
+function applyExtras(state) {
+  document.documentElement.style.setProperty("--radius", `${state.radius || 8}px`);
+  document.documentElement.style.setProperty("--font-scale", `${(state.fontScale || 100) / 100}`);
+  document.documentElement.style.setProperty("--glow", `${(state.glow || 30) / 100}`);
+  document.body.classList.toggle("no-grad-anim", !state.animGrad);
+  document.body.classList.toggle("theme-light", state.preset === "arctic");
+  ["radius-val","font-val","glow-val"].forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = [state.radius||8, state.fontScale||100, state.glow||30][i];
   });
-  document.title = `${name} ? GTA Online Services`;
+  document.querySelectorAll("[data-pay-user]").forEach((el) => {
+    el.textContent = state.paymentHandles?.paymentUser || "[user]";
+  });
+  document.querySelectorAll("[data-ltc-wallet]").forEach((el) => {
+    el.textContent = state.paymentHandles?.ltcWallet || "ltc1q[user]placeholder";
+  });
+  document.querySelectorAll("[data-roblox-user]").forEach((el) => {
+    el.textContent = state.paymentHandles?.robloxUser || "[user]";
+  });
+  window.renderPayments?.();
 }
 
-function getFilteredProducts() {
-  let list = [...PRODUCTS];
+function getDefaultHandles() {
+  return { paymentUser: "[user]", ltcWallet: "ltc1q[user]placeholder", robloxUser: "[user]", discord: "[user]" };
+}
 
-  if (currentFilter !== "all") {
-    list = list.filter((p) => p.category === currentFilter);
-  }
+window.GTATheme = {
+  PRESETS,
+  PRESET_LABELS,
 
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    list = list.filter((p) =>
-      p.name.toLowerCase().includes(q) ||
-      p.desc.toLowerCase().includes(q) ||
-      p.includes?.some((i) => i.toLowerCase().includes(q))
-    );
-  }
+  initTheme() {
+    this.populatePresetSelect();
+    const saved = loadTheme();
+    if (saved) this.applyThemeState(saved);
+    else this.applyPreset("steam");
+    this.bindThemeUI();
+    applyExtras(loadTheme() || { preset: "steam", paymentHandles: getDefaultHandles() });
+  },
 
-  switch (sortMode) {
-    case "price-asc": list.sort((a, b) => a.price - b.price); break;
-    case "price-desc": list.sort((a, b) => b.price - a.price); break;
-    case "name": list.sort((a, b) => a.name.localeCompare(b.name)); break;
-    default: list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
-  }
+  populatePresetSelect() {
+    const sel = document.getElementById("theme-preset");
+    if (!sel || sel.options.length > 1) return;
+    sel.innerHTML = Object.entries(PRESET_LABELS).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+  },
 
-  return list;
+  saveTheme(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    applyExtras(state);
+  },
+
+  applyPreset(name) {
+    const preset = PRESETS[name];
+    if (!preset) return;
+    applyVars(preset);
+    const prev = loadTheme() || {};
+    const state = {
+      preset: name,
+      shopName: document.getElementById("shop-name-input")?.value || "[REDACTED]",
+      radius: document.getElementById("radius-range")?.value || "8",
+      fontScale: document.getElementById("font-range")?.value || "100",
+      glow: document.getElementById("glow-range")?.value || "30",
+      animGrad: document.getElementById("anim-grad")?.checked ?? true,
+      paymentHandles: prev.paymentHandles || getDefaultHandles(),
+    };
+    this.saveTheme(state);
+    this.updateShopName(state.shopName);
+    this.renderSwatches(name);
+  },
+
+  applyThemeState(state) {
+    if (state.preset && PRESETS[state.preset]) applyVars(PRESETS[state.preset]);
+    applyExtras(state);
+    this.updateShopName(state.shopName || "[REDACTED]");
+    const map = { "theme-preset": state.preset||"steam", "shop-name-input": state.shopName||"[REDACTED]",
+      "pay-user-input": state.paymentHandles?.paymentUser, "ltc-wallet-input": state.paymentHandles?.ltcWallet,
+      "roblox-user-input": state.paymentHandles?.robloxUser, "discord-user-input": state.paymentHandles?.discord };
+    Object.entries(map).forEach(([id, val]) => { const el = document.getElementById(id); if (el && val) el.value = val; });
+    this.renderSwatches(state.preset);
+  },
+
+  updateShopName(name) {
+    const display = name.trim() || "[REDACTED]";
+    document.querySelectorAll("[data-shop-name]").forEach((el) => (el.textContent = display));
+    document.title = `${display} ? GTA V Steam Services`;
+  },
+
+  renderSwatches(active) {
+    const wrap = document.getElementById("theme-swatches");
+    if (!wrap) return;
+    wrap.innerHTML = Object.entries(PRESETS).map(([k, p]) =>
+      `<button type="button" class="swatch ${k === active ? "active" : ""}" data-preset="${k}" title="${PRESET_LABELS[k]}"
+        style="background:linear-gradient(135deg,${p["--c-accent"]},${p["--c-bg"]})"></button>`
+    ).join("");
+    wrap.querySelectorAll(".swatch").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById("theme-preset").value = btn.dataset.preset;
+        this.applyPreset(btn.dataset.preset);
+      });
+    });
+  },
+
+  bindThemeUI() {
+    const panel = document.getElementById("theme-panel");
+    document.getElementById("theme-open")?.addEventListener("click", () => panel?.classList.add("open"));
+    document.getElementById("theme-close")?.addEventListener("click", () => panel?.classList.remove("open"));
+    document.getElementById("theme-preset")?.addEventListener("change", (e) => this.applyPreset(e.target.value));
+
+    document.getElementById("shop-name-input")?.addEventListener("input", (e) => {
+      const state = { ...loadTheme(), shopName: e.target.value };
+      this.updateShopName(e.target.value);
+      this.saveTheme(state);
+    });
+
+    ["pay-user-input","ltc-wallet-input","roblox-user-input","discord-user-input"].forEach((id) => {
+      document.getElementById(id)?.addEventListener("input", () => {
+        const state = loadTheme() || { preset: "steam" };
+        state.paymentHandles = {
+          paymentUser: document.getElementById("pay-user-input")?.value || "[user]",
+          ltcWallet: document.getElementById("ltc-wallet-input")?.value || "ltc1q[user]placeholder",
+          robloxUser: document.getElementById("roblox-user-input")?.value || "[user]",
+          discord: document.getElementById("discord-user-input")?.value || "[user]",
+        };
+        this.saveTheme(state);
+      });
+    });
+
+    ["radius-range","font-range","glow-range"].forEach((id) => {
+      document.getElementById(id)?.addEventListener("input", () => {
+        const state = loadTheme() || { preset: "steam" };
+        state.radius = document.getElementById("radius-range").value;
+        state.fontScale = document.getElementById("font-range").value;
+        state.glow = document.getElementById("glow-range").value;
+        this.saveTheme(state);
+      });
+    });
+
+    document.getElementById("anim-grad")?.addEventListener("change", (e) => {
+      this.saveTheme({ ...loadTheme(), animGrad: e.target.checked });
+    });
+
+    document.getElementById("theme-reset")?.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      ["shop-name-input","pay-user-input","ltc-wallet-input","roblox-user-input","discord-user-input"].forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) el.value = ["[REDACTED]","[user]","ltc1q[user]placeholder","[user]","[user]"][i];
+      });
+      this.applyPreset("steam");
+    });
+  },
+};
+
+===== js\cart.js =====
+const CART_KEY = "gta-services-cart";
+let listeners = [];
+
+function persist(cart) {
+  sessionStorage.setItem(CART_KEY, JSON.stringify(cart));
+  listeners.forEach((fn) => fn(cart));
+}
+
+window.GTACart = {
+  getCart() {
+    try {
+      return JSON.parse(sessionStorage.getItem(CART_KEY)) || [];
+    } catch {
+      return [];
+    }
+  },
+
+  onCartChange(fn) {
+    listeners.push(fn);
+    fn(this.getCart());
+  },
+
+  addToCart(product) {
+    const cart = this.getCart();
+    cart.push({ ...product, cartId: `${product.id}-${Date.now()}` });
+    persist(cart);
+  },
+
+  removeFromCart(cartId) {
+    persist(this.getCart().filter((i) => i.cartId !== cartId));
+  },
+
+  clearCart() {
+    persist([]);
+  },
+
+  cartTotal(cart = this.getCart()) {
+    return cart.reduce((s, i) => s + i.price, 0);
+  },
+
+  openCheckoutExternal() {
+    const cart = this.getCart();
+    if (!cart.length) return false;
+
+    const payload = {
+      cart,
+      total: this.cartTotal(cart),
+      shopName: document.querySelector("[data-shop-name]")?.textContent || "[REDACTED]",
+      ts: Date.now(),
+    };
+
+    sessionStorage.setItem("gta-services-checkout", JSON.stringify(payload));
+    window.open("checkout.html", "_blank", "noopener,noreferrer");
+    return true;
+  },
+};
+
+===== js\app.js =====
+const { PRODUCTS, FAQ, TESTIMONIALS } = window.GTA_DATA;
+const cartApi = window.GTACart;
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+let activeTab = "home";
+let activeCategory = "all";
+
+function formatPrice(n) {
+  return `$${n.toFixed(2)}`;
+}
+
+function savings(p) {
+  if (!p.oldPrice) return 0;
+  return Math.round((1 - p.price / p.oldPrice) * 100);
 }
 
 function productCard(p) {
-  const savings = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+  const save = savings(p);
   return `
-    <article class="product ${p.featured ? "product--featured" : ""}" data-id="${p.id}">
-      <div class="product__top">
-        <span class="product__emoji">${p.emoji}</span>
-        ${p.badge ? `<span class="product__badge product__badge--${p.badge}">${p.badge === "sale" ? `-${savings}%` : p.badge}</span>` : ""}
+    <article class="card" data-id="${p.id}">
+      <div class="card__head">
+        <span class="card__cat">${p.category}</span>
+        ${p.popular ? '<span class="card__tag">Popular</span>' : ""}
+        ${save ? `<span class="card__tag card__tag--sale">-${save}%</span>` : ""}
       </div>
-      <h3 class="product__name">${p.name}</h3>
-      <p class="product__desc">${p.desc}</p>
-      <ul class="product__includes">
-        ${p.includes.slice(0, 3).map((i) => `<li>${i}</li>`).join("")}
-      </ul>
-      <div class="product__delivery">? ${p.delivery}</div>
-      <div class="product__meta">
-        <div class="product__pricing">
-          ${p.oldPrice ? `<span class="product__old">$${p.oldPrice.toFixed(2)}</span>` : ""}
-          <span class="product__price">$${p.price.toFixed(2)}</span>
+      <h3 class="card__title grad-text">${p.name}</h3>
+      <p class="card__delivery"><span class="card__delivery-dot"></span>${p.delivery} ? Steam</p>
+      <ul class="card__list">${p.includes.map((i) => `<li>${i}</li>`).join("")}</ul>
+      <div class="card__foot">
+        <div class="card__price">
+          ${p.oldPrice ? `<s>${formatPrice(p.oldPrice)}</s>` : ""}
+          <strong>${formatPrice(p.price)}</strong>
         </div>
+        <button class="btn btn--primary btn--sm" data-add="${p.id}">Add to Cart</button>
       </div>
-      <button class="btn btn--accent btn--full" data-add="${p.id}">Add to Cart</button>
     </article>
   `;
 }
 
-function renderCatalogs() {
-  const filtered = getFilteredProducts();
-  const byCat = {
-    money: filtered.filter((p) => p.category === "money"),
-    vehicles: filtered.filter((p) => p.category === "vehicles"),
-    businesses: filtered.filter((p) => p.category === "businesses"),
-    bundles: filtered.filter((p) => p.category === "bundles"),
-    other: filtered.filter((p) => ["outfits", "boosts", "heists"].includes(p.category)),
+function renderProducts() {
+  let list = [...PRODUCTS];
+  if (activeCategory !== "all") list = list.filter((p) => p.category === activeCategory);
+
+  const grids = {
+    outfits: "#grid-outfits",
+    cars: "#grid-cars",
+    levels: "#grid-levels",
+    bundles: "#grid-bundles",
   };
 
-  const showAll = currentFilter === "all" && !searchQuery;
-
-  const sections = [
-    { id: "catalog-money", key: "money", section: "[data-section='money']" },
-    { id: "catalog-vehicles", key: "vehicles", section: "[data-section='vehicles']" },
-    { id: "catalog-businesses", key: "businesses", section: "[data-section='businesses']" },
-    { id: "catalog-bundles", key: "bundles", section: "[data-section='bundles']" },
-    { id: "catalog-other", key: "other", section: "[data-section='other']" },
-  ];
-
-  sections.forEach(({ id, key, section }) => {
-    const el = $(`#${id}`);
-    const sec = $(section);
-    const items = byCat[key];
-    if (!el) return;
-
-    if (items.length === 0) {
-      el.innerHTML = "";
-      if (sec) sec.style.display = showAll ? "none" : "none";
-      return;
-    }
-
-    el.innerHTML = items.map(productCard).join("");
-    if (sec) sec.style.display = "block";
-    bindAddButtons(el);
-  });
-
-  if (currentFilter !== "all" || searchQuery) {
-    sections.forEach(({ key, section }) => {
-      const sec = $(section);
-      if (sec) sec.style.display = byCat[key].length ? "block" : "none";
+  if (activeCategory === "all") {
+    Object.entries(grids).forEach(([cat, sel]) => {
+      const el = $(sel);
+      if (!el) return;
+      const items = list.filter((p) => p.category === cat);
+      el.innerHTML = items.map(productCard).join("");
+      el.closest(".section-block")?.classList.toggle("hidden", !items.length);
     });
-  }
-
-  renderHeroFeatured();
-}
-
-function bindAddButtons(container) {
-  container.querySelectorAll("[data-add]").forEach((btn) => {
-    btn.addEventListener("click", () => addToCart(Number(btn.dataset.add)));
-  });
-}
-
-function renderHeroFeatured() {
-  const featured = PRODUCTS.filter((p) => p.featured).slice(0, 2);
-  const el = $("#hero-featured");
-  if (!el) return;
-  el.innerHTML = featured.map((p) => `
-    <div class="hero-card">
-      <span class="hero-card__badge">${p.badge === "sale" ? "SALE" : "BEST SELLER"}</span>
-      <span class="hero-card__emoji">${p.emoji}</span>
-      <h3 class="hero-card__name">${p.name}</h3>
-      <p class="hero-card__price">$${p.price.toFixed(2)}${p.oldPrice ? ` <s>$${p.oldPrice.toFixed(2)}</s>` : ""}</p>
-      <button class="btn btn--accent btn--sm" data-add="${p.id}">Add to Cart</button>
-    </div>
-  `).join("");
-  bindAddButtons(el);
-}
-
-function addToCart(id) {
-  const product = PRODUCTS.find((p) => p.id === id);
-  if (!product) return;
-  cart.push({ ...product, cartId: Date.now() + Math.random() });
-  updateCart();
-  openCart();
-  showToast(`${product.name} added to cart`);
-}
-
-function removeFromCart(cartId) {
-  cart = cart.filter((item) => item.cartId !== cartId);
-  updateCart();
-}
-
-function updateCart() {
-  const count = cart.length;
-  $("#nav-cart-count").textContent = count;
-  const itemsEl = $("#cart-items");
-  const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-  const discountAmt = subtotal * discount;
-  const total = subtotal - discountAmt;
-
-  if (count === 0) {
-    itemsEl.innerHTML = `<li class="cart__empty">Your cart is empty</li>`;
-    $("#checkout-btn").disabled = true;
-    $("#discount-row").hidden = true;
   } else {
-    itemsEl.innerHTML = cart.map((item) => `
-      <li class="cart__item">
-        <div class="cart__item-info">
-          <span class="cart__item-name">${item.name}</span>
-          <span class="cart__item-price">$${item.price.toFixed(2)}</span>
-        </div>
-        <button class="cart__item-remove" data-remove="${item.cartId}" aria-label="Remove">?</button>
-      </li>
-    `).join("");
-    $("#checkout-btn").disabled = false;
-    itemsEl.querySelectorAll("[data-remove]").forEach((btn) => {
-      btn.addEventListener("click", () => removeFromCart(Number(btn.dataset.remove)));
+    Object.entries(grids).forEach(([cat, sel]) => {
+      const el = $(sel);
+      const block = el?.closest(".section-block");
+      if (!block) return;
+      if (cat === activeCategory) {
+        el.innerHTML = list.map(productCard).join("");
+        block.classList.remove("hidden");
+      } else {
+        block.classList.add("hidden");
+      }
     });
-
-    if (discount > 0) {
-      $("#discount-row").hidden = false;
-      $("#cart-discount").textContent = `-$${discountAmt.toFixed(2)}`;
-    } else {
-      $("#discount-row").hidden = true;
-    }
   }
 
-  $("#cart-subtotal").textContent = `$${subtotal.toFixed(2)}`;
-  $("#cart-total").textContent = `$${total.toFixed(2)}`;
-  $("#modal-total").textContent = `$${total.toFixed(2)}`;
+  $$("[data-add]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const p = PRODUCTS.find((x) => x.id === btn.dataset.add);
+      if (p) {
+        cartApi.addToCart(p);
+        toast(`Added: ${p.name}`);
+        openCart();
+      }
+    });
+  });
+}
+
+function renderFAQ() {
+  const el = $("#faq-list");
+  if (!el) return;
+  el.innerHTML = FAQ.map(
+    (section) => `
+    <div class="faq-category">
+      <h3 class="faq-category__title">${section.cat}</h3>
+      <div class="faq-category__items">
+        ${section.items.map((f, i) => `
+          <details class="faq-item" ${section.cat === "Safety & Bans" && i === 0 ? "open" : ""}>
+            <summary>${f.q}</summary>
+            <p>${f.a}</p>
+          </details>
+        `).join("")}
+      </div>
+    </div>`
+  ).join("");
+}
+
+function renderTestimonials() {
+  const el = $("#testimonials");
+  if (!el) return;
+  el.innerHTML = TESTIMONIALS.map(
+    (t) => `
+    <blockquote class="review">
+      <div class="review__stars">${"?".repeat(t.stars)}${"?".repeat(5 - t.stars)}</div>
+      <p>"${t.text}"</p>
+      <footer><strong>${t.name}</strong> ? ${t.edition}</footer>
+    </blockquote>`
+  ).join("");
+}
+
+function renderCartUI(cart) {
+  const count = cart.length;
+  $$("[data-cart-count]").forEach((el) => (el.textContent = count));
+  const total = cartApi.cartTotal(cart);
+  $$("[data-cart-total]").forEach((el) => (el.textContent = formatPrice(total)));
+
+  const list = $("#cart-list");
+  const checkoutBtn = $("#cart-checkout");
+  if (!list) return;
+
+  if (!count) {
+    list.innerHTML = `<li class="cart-empty">No items yet</li>`;
+    if (checkoutBtn) checkoutBtn.disabled = true;
+    return;
+  }
+
+  list.innerHTML = cart
+    .map(
+      (i) => `
+    <li class="cart-line">
+      <div>
+        <span class="cart-line__name grad-text">${i.name}</span>
+        <span class="cart-line__price">${formatPrice(i.price)}</span>
+      </div>
+      <button class="cart-line__rm" data-rm="${i.cartId}" aria-label="Remove">?</button>
+    </li>`
+    )
+    .join("");
+
+  if (checkoutBtn) checkoutBtn.disabled = false;
+  $$("[data-rm]").forEach((b) =>
+    b.addEventListener("click", () => cartApi.removeFromCart(b.dataset.rm))
+  );
+}
+
+function toast(msg) {
+  const t = $("#toast");
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => t.classList.remove("show"), 2800);
 }
 
 function openCart() {
-  $("#cart-drawer").classList.add("open");
-  $("#cart-drawer").setAttribute("aria-hidden", "false");
+  $("#cart-panel")?.classList.add("open");
 }
 
 function closeCart() {
-  $("#cart-drawer").classList.remove("open");
-  $("#cart-drawer").setAttribute("aria-hidden", "true");
+  $("#cart-panel")?.classList.remove("open");
 }
 
-function openCheckout() {
-  $("#checkout-modal").classList.add("open");
-  $("#checkout-modal").setAttribute("aria-hidden", "false");
-  $("#checkout-step-1").hidden = false;
-  $("#checkout-step-2").hidden = true;
-  $("#checkout-step-3").hidden = true;
-  closeCart();
+function setTab(tab) {
+  activeTab = tab;
+  $$(".nav-link").forEach((a) => a.classList.toggle("active", a.dataset.tab === tab));
 }
 
-function closeCheckout() {
-  $("#checkout-modal").classList.remove("open");
-  $("#checkout-modal").setAttribute("aria-hidden", "true");
-}
+function initNav() {
+  $$(".nav-link").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      setTab(a.dataset.tab);
+      $(`#panel-${a.dataset.tab}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 
-function showToast(msg) {
-  const toast = $("#toast");
-  toast.textContent = msg;
-  toast.classList.add("show");
-  clearTimeout(showToast._timer);
-  showToast._timer = setTimeout(() => toast.classList.remove("show"), 3000);
-}
+  $$(".cat-pill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $$(".cat-pill").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeCategory = btn.dataset.cat;
+      renderProducts();
+      $("#panel-services")?.scrollIntoView({ behavior: "smooth" });
+      setTab("services");
+    });
+  });
 
-function tickSaleTimer() {
-  const el = $("#sale-timer");
-  if (!el) return;
-  const parts = el.textContent.split(":").map(Number);
-  let s = parts[2] - 1;
-  let m = parts[1];
-  let h = parts[0];
-  if (s < 0) { s = 59; m--; }
-  if (m < 0) { m = 59; h--; }
-  if (h < 0) { h = 2; m = 47; s = 13; }
-  el.textContent = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-}
-
-function tickRecentOrder() {
-  const el = $("#recent-orders");
-  if (!el) return;
-  const name = RECENT_NAMES[Math.floor(Math.random() * RECENT_NAMES.length)];
-  const item = RECENT_ITEMS[Math.floor(Math.random() * RECENT_ITEMS.length)];
-  const mins = Math.floor(Math.random() * 12) + 1;
-  el.innerHTML = `<span class="recent-orders__text"><strong>${name}</strong> purchased <em>${item}</em> ? ${mins}m ago</span>`;
-}
-
-function saveTheme() {
-  const state = {
-    preset: $("#theme-preset").value,
-    shopNameMode: $("#shop-name-mode").value,
-    shopNameCustom: $("#shop-name-custom").value,
-    randomShopName,
-    colors: {
-      bg: $("#color-bg").value, surface: $("#color-surface").value,
-      accent: $("#color-accent").value, accent2: $("#color-accent2").value,
-      text: $("#color-text").value, muted: $("#color-muted").value,
-      gradStart: $("#gradient-start").value, gradEnd: $("#gradient-end").value,
+  const sections = ["home", "services", "bundles", "process", "faq", "payments", "contact"];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id?.replace("panel-", "");
+          if (sections.includes(id)) setTab(id);
+        }
+      });
     },
-    fontHeading: $("#font-heading").value,
-    fontBody: $("#font-body").value,
-    radius: $("#card-radius").value,
-    glow: $("#glow-intensity").value,
-    scanlines: $("#scanlines-toggle").checked,
-    animatedGradient: $("#animated-gradient").checked,
-  };
-  localStorage.setItem("redacted-shop-theme", JSON.stringify(state));
+    { rootMargin: "-25% 0px -60% 0px" }
+  );
+  sections.forEach((s) => {
+    const el = $(`#panel-${s}`);
+    if (el) observer.observe(el);
+  });
 }
 
-function loadTheme() {
-  try {
-    const raw = localStorage.getItem("redacted-shop-theme");
-    if (!raw) return false;
-    const state = JSON.parse(raw);
-    $("#theme-preset").value = state.preset || "pro-dark";
-    $("#shop-name-mode").value = state.shopNameMode || "redacted";
-    $("#shop-name-custom").value = state.shopNameCustom || "";
-    if (state.randomShopName) randomShopName = state.randomShopName;
-    if (state.colors) {
-      const map = { bg: "color-bg", surface: "color-surface", accent: "color-accent", accent2: "color-accent2", text: "color-text", muted: "color-muted", gradStart: "gradient-start", gradEnd: "gradient-end" };
-      Object.entries(state.colors).forEach(([k, v]) => { const el = $(`#${map[k]}`); if (el) el.value = v; });
-    }
-    $("#font-heading").value = state.fontHeading || "Bebas Neue";
-    $("#font-body").value = state.fontBody || "Inter";
-    $("#card-radius").value = state.radius ?? 12;
-    $("#glow-intensity").value = state.glow ?? 35;
-    $("#scanlines-toggle").checked = !!state.scanlines;
-    $("#animated-gradient").checked = state.animatedGradient !== false;
-    applyAllSettings();
-    return true;
-  } catch { return false; }
+function initCart() {
+  cartApi.onCartChange(renderCartUI);
+  $("#cart-open")?.addEventListener("click", openCart);
+  $("#cart-close")?.addEventListener("click", closeCart);
+  $("#cart-backdrop")?.addEventListener("click", closeCart);
+  $("#cart-checkout")?.addEventListener("click", () => {
+    if (cartApi.openCheckoutExternal()) toast("Opening secure checkout in new tab?");
+  });
+  $("#cart-clear")?.addEventListener("click", () => {
+    cartApi.clearCart();
+    toast("Cart cleared");
+  });
 }
 
-function applyAllSettings() {
-  applyTheme({
-    bg: $("#color-bg").value, surface: $("#color-surface").value,
-    accent: $("#color-accent").value, accent2: $("#color-accent2").value,
-    text: $("#color-text").value, muted: $("#color-muted").value,
-    gradStart: $("#gradient-start").value, gradEnd: $("#gradient-end").value,
+function initCounters() {
+  const targets = { orders: 14829, customers: 11240, rating: 4.9 };
+  $$("[data-counter]").forEach((el) => {
+    const key = el.dataset.counter;
+    const end = targets[key] || 0;
+    const isFloat = !Number.isInteger(end);
+    let cur = 0;
+    const step = end / 60;
+    const tick = () => {
+      cur = Math.min(cur + step, end);
+      el.textContent = isFloat ? cur.toFixed(1) : Math.floor(cur).toLocaleString();
+      if (cur < end) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   });
-  document.documentElement.style.setProperty("--font-heading", `"${$("#font-heading").value}", Impact, sans-serif`);
-  document.documentElement.style.setProperty("--font-body", `"${$("#font-body").value}", system-ui, sans-serif`);
-  document.documentElement.style.setProperty("--radius", `${$("#card-radius").value}px`);
-  document.documentElement.style.setProperty("--glow", $("#glow-intensity").value / 100);
-  $("#radius-val").textContent = $("#card-radius").value;
-  $("#glow-val").textContent = $("#glow-intensity").value;
-  $(".scanlines").classList.toggle("hidden", !$("#scanlines-toggle").checked);
-  document.body.classList.toggle("no-anim-gradient", !$("#animated-gradient").checked);
-  const mode = $("#shop-name-mode").value;
-  $("#shop-name-custom").hidden = mode !== "custom";
-  $("#reroll-name").hidden = mode !== "random";
-  updateShopName();
-  saveTheme();
 }
 
-function applyPreset(name) {
-  const preset = THEME_PRESETS[name];
-  if (!preset) return;
-  Object.entries({ bg: "color-bg", surface: "color-surface", accent: "color-accent", accent2: "color-accent2", text: "color-text", muted: "color-muted", gradStart: "gradient-start", gradEnd: "gradient-end" }).forEach(([k, id]) => {
-    $(`#${id}`).value = preset[k];
-  });
-  applyAllSettings();
-}
-
-function init() {
-  $("#year").textContent = new Date().getFullYear();
-  if (!loadTheme()) applyPreset("pro-dark");
-
-  renderCatalogs();
-  tickRecentOrder();
-
-  $$(".filter").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      $$(".filter").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentFilter = btn.dataset.filter;
-      renderCatalogs();
-    });
-  });
-
-  $$(".platform-pill").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      $$(".platform-pill").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentPlatform = btn.dataset.platform;
-      showToast(currentPlatform === "all" ? "Showing all platforms" : `Filtered for ${currentPlatform}`);
-    });
-  });
-
-  $("#search").addEventListener("input", (e) => {
-    searchQuery = e.target.value.trim();
-    renderCatalogs();
-  });
-
-  $("#sort").addEventListener("change", (e) => {
-    sortMode = e.target.value;
-    renderCatalogs();
-  });
-
-  $("#cart-toggle").addEventListener("click", openCart);
-  $("#cart-close").addEventListener("click", closeCart);
-  $("#cart-backdrop").addEventListener("click", closeCart);
-
-  $("#checkout-btn").addEventListener("click", openCheckout);
-  $("#modal-close").addEventListener("click", closeCheckout);
-  $(".modal__backdrop").addEventListener("click", closeCheckout);
-
-  $("#checkout-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    $("#checkout-step-1").hidden = true;
-    $("#checkout-step-2").hidden = false;
-    const subtotal = cart.reduce((s, i) => s + i.price, 0);
-    const total = subtotal - subtotal * discount;
-    $("#checkout-summary").innerHTML = cart.map((i) => `<div class="summary-row"><span>${i.name}</span><span>$${i.price.toFixed(2)}</span></div>`).join("") + `<div class="summary-row summary-row--total"><span>Total</span><span>$${total.toFixed(2)}</span></div>`;
-  });
-
-  $("#place-order").addEventListener("click", () => {
-    $("#checkout-step-2").hidden = true;
-    $("#checkout-step-3").hidden = false;
-    $("#order-id").textContent = `#RDX-${Math.floor(10000 + Math.random() * 90000)}`;
-    $("#order-joke").textContent = JOKE_LINES[Math.floor(Math.random() * JOKE_LINES.length)];
-    cart = [];
-    discount = 0;
-    updateCart();
-  });
-
-  $("#order-done").addEventListener("click", closeCheckout);
-
-  $("#promo-btn").addEventListener("click", () => {
-    const code = $("#promo-input").value.trim().toUpperCase();
-    if (code === "REDACTED" || code === "LSMODZ" || code === "DELUXO") {
-      discount = 0.15;
-      updateCart();
-      showToast("15% discount applied!");
-    } else if (code) {
-      showToast("Invalid promo code");
-    }
-  });
-
-  $$(".payment-method").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      $$(".payment-method").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-    });
-  });
-
-  $("#customizer-open").addEventListener("click", () => $("#customizer").classList.remove("collapsed"));
-  $("#customizer-close").addEventListener("click", () => $("#customizer").classList.add("collapsed"));
-
-  $("#theme-preset").addEventListener("change", (e) => { if (e.target.value !== "custom") applyPreset(e.target.value); });
-  ["color-bg", "color-surface", "color-accent", "color-accent2", "color-text", "color-muted", "gradient-start", "gradient-end"].forEach((id) => {
-    $(`#${id}`).addEventListener("input", () => { $("#theme-preset").value = "custom"; applyAllSettings(); });
-  });
-  ["font-heading", "font-body", "card-radius", "glow-intensity", "scanlines-toggle", "animated-gradient"].forEach((id) => {
-    $(`#${id}`).addEventListener("input", applyAllSettings);
-    $(`#${id}`).addEventListener("change", applyAllSettings);
-  });
-  $("#shop-name-mode").addEventListener("change", applyAllSettings);
-  $("#shop-name-custom").addEventListener("input", applyAllSettings);
-  $("#reroll-name").addEventListener("click", () => {
-    randomShopName = SHOP_NAMES[Math.floor(Math.random() * SHOP_NAMES.length)];
-    updateShopName();
-    saveTheme();
-    showToast(`Renamed to ${randomShopName}`);
-  });
-  $("#reset-theme").addEventListener("click", () => {
-    localStorage.removeItem("redacted-shop-theme");
-    $("#theme-preset").value = "pro-dark";
-    $("#shop-name-mode").value = "redacted";
-    applyPreset("pro-dark");
-    showToast("Theme reset");
-  });
-
-  setInterval(tickSaleTimer, 1000);
-  setInterval(tickRecentOrder, 8000);
+function initTicker() {
+  const items = [
+    "Rank 120 ? Steam Enhanced",
+    "10 Garage Cars ? Steam",
+    "Paid via LTC ? Ultimate Bundle",
+    "50 Outfits ? Robux payment",
+    "Rank 8000 ? Steam Legacy",
+  ];
+  const el = $("#live-ticker");
+  if (!el) return;
+  let i = 0;
   setInterval(() => {
-    const el = $("#live-count");
-    if (el && Math.random() > 0.6) el.textContent = 840 + Math.floor(Math.random() * 30);
-  }, 12000);
+    el.textContent = `Just completed: ${items[i++ % items.length]}`;
+  }, 4000);
 }
 
-init();
+function initContact() {
+  $("#contact-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    toast("Message sent ? we'll reply on Discord within 1 hour.");
+    e.target.reset();
+  });
+}
+
+function initYear() {
+  const y = new Date().getFullYear();
+  $$("[data-year]").forEach((el) => (el.textContent = y));
+}
+
+function renderPayments() {
+  const el = $("#payments-grid");
+  if (!el) return;
+  const h = window.GTA_CONFIG?.getHandles?.() || { paymentUser: "[user]", ltcWallet: "ltc1q[user]placeholder", robloxUser: "[user]" };
+  el.innerHTML = `
+    <div class="pay-card">
+      <div class="pay-card__icon pay-card__icon--ltc">?</div>
+      <h3>Litecoin (LTC)</h3>
+      <p>Send LTC directly to our wallet. Include your order ID. 3 confirmations required.</p>
+      <div class="pay-card__dest">${h.ltcWallet}</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-card__icon pay-card__icon--rbx">R$</div>
+      <h3>Robux Transfer</h3>
+      <p>Send Robux via Game Pass or direct transfer to our Roblox account.</p>
+      <div class="pay-card__dest">${h.robloxUser}</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-card__icon pay-card__icon--gift">GC</div>
+      <h3>Robux Gift Card</h3>
+      <p>Redeem a gift card and send the code to ${h.paymentUser} on Discord or at checkout.</p>
+      <div class="pay-card__dest">Code via Discord / checkout</div>
+    </div>`;
+}
+
+window.GTATheme.initTheme();
+renderPayments();
+renderProducts();
+renderFAQ();
+renderTestimonials();
+initNav();
+initCart();
+initCounters();
+initTicker();
+initContact();
+initYear();
+window.renderPayments = renderPayments;
+
