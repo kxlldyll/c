@@ -5,50 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite GTA Services</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">ELITE GTA</div>
+        <div class="logo">ELITE<span class="neon">GTA</span></div>
         <div class="nav-links">
             <a href="#features">Features</a>
             <a href="#services">Services</a>
             <a href="#faq">FAQ</a>
             <a href="#tos">ToS</a>
         </div>
-        <a href="#services" class="cta-btn">Get Access</a>
+        <a href="#services" class="cta-btn">ACCESS NOW</a>
     </nav>
 
     <section id="home" class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Dominate GTA Online</h1>
-            <p>Recoveries • Modded Outfits • Free Businesses • Undetected</p>
-            <a href="#services" class="main-btn">Choose Your Package</a>
+            <h1 class="neon-title">DOMINATE GTA ONLINE</h1>
+            <p>Premium Recoveries • Modded Outfits • Free Businesses • Undetected Tools</p>
+            <a href="#services" class="main-btn">CHOOSE PACKAGE</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>POWERFUL FEATURES</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Recoveries</h3>
+                <ul>
+                    <li>Buy All Businesses Free</li>
+                    <li>Money & RP Drops</li>
+                    <li>Full Account Recovery</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Customization</h3>
+                <ul>
+                    <li>Modded Outfits</li>
+                    <li>Unlock All</li>
+                    <li>God Mode + Protections</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Vehicles & World</h3>
+                <ul>
+                    <li>Vehicle Spawner</li>
+                    <li>Free Shopping</li>
+                    <li>Teleportation</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="services" class="services">
-        <h2>Pricing</h2>
+        <h2>PREMIUM PACKAGES</h2>
         <div class="pricing-grid">
             <div class="price-card">
                 <h3>Starter</h3>
                 <p class="price">$15</p>
-                <button class="btn" onclick="showModal('Starter - $15')">Buy Now</button>
+                <button class="btn" onclick="showModal('Starter - $15')">SELECT</button>
             </div>
             <div class="price-card popular">
+                <div class="badge">BEST VALUE</div>
                 <h3>Premium</h3>
                 <p class="price">$50</p>
-                <button class="btn" onclick="showModal('Premium - $50')">Buy Now</button>
+                <button class="btn" onclick="showModal('Premium - $50')">SELECT</button>
             </div>
             <div class="price-card">
                 <h3>Elite</h3>
                 <p class="price">$90</p>
-                <button class="btn" onclick="showModal('Elite - $90')">Buy Now</button>
+                <button class="btn" onclick="showModal('Elite - $90')">SELECT</button>
             </div>
         </div>
     </section>
 
-    <!-- FAQ, ToS, Modal same as before -->
+    <section id="faq" class="faq">
+        <h2>FAQ</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>Is it safe?</h3>
+                <p>Use in invite-only sessions. High ban risk in public lobbies.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Payment Methods</h3>
+                <p>Litecoin (LTC) • Robux • Robux Gift Cards</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tos" class="tos">
+        <h2>Terms of Service</h2>
+        <p><strong>Ban Risk:</strong> Using these services in GTA Online violates Rockstar's Terms of Service and can result in permanent account bans. We are not responsible for any losses or bans.</p>
+        <p>All sales are final. No refunds.</p>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2 id="modal-title"></h2>
+            <p>Payment Methods: <strong>LTC</strong> or <strong>Robux / Giftcard</strong></p>
+            <p><strong>Warning:</strong> High ban risk if used in public sessions.</p>
+            <button class="btn" onclick="alert('Contact us for payment details')">PROCEED TO PAYMENT</button>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
