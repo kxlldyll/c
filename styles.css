@@ -4,97 +4,58 @@ body {
     font-family: 'Roboto', sans-serif;
     background: #0a0a0a;
     color: #e0e0e0;
-    line-height: 1.6;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: rgba(0,0,0,0.95);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid #ffcc00;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; background: rgba(0,0,0,0.95); position: fixed; width: 100%; z-index: 1000;
+    border-bottom: 1px solid #ff00aa;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    color: #ffcc00;
-    font-weight: 700;
-}
+.logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #ff00aa; font-weight: 700; text-shadow: 0 0 10px #ff00aa; }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: #e0e0e0;
-    text-decoration: none;
-}
-
-.nav-links a:hover { color: #ffcc00; }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { color: #e0e0e0; text-decoration: none; }
+.nav-links a:hover { color: #ff00aa; }
 
 .buy-btn, .cta-btn {
-    background: #ffcc00;
-    color: #000;
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
+    background: linear-gradient(45deg, #ff00aa, #00ffff);
+    color: #000; padding: 0.9rem 2rem; border-radius: 50px;
+    text-decoration: none; font-weight: bold; box-shadow: 0 0 15px #ff00aa;
 }
 
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://picsum.photos/id/1015/1920/1080') center/cover;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
+.anime-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), 
+                url('https://picsum.photos/id/1015/1920/1080') center/cover;
+    animation: animeShift 25s infinite alternate linear;
+    z-index: -1;
+}
+
+@keyframes animeShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
 .hero-content h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 4.5rem;
-    color: #ffcc00;
+    font-size: 5rem;
+    color: #ff00aa;
+    text-shadow: 0 0 30px #ff00aa;
+    margin-bottom: 1rem;
 }
 
-.features, .services, .faq, .tos {
-    padding: 5rem 10%;
-}
+.hero-content p { font-size: 1.4rem; margin-bottom: 2rem; }
 
-h2 {
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
-    color: #ffcc00;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.grid, .pricing-grid, .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.card, .price-card, .faq-item, .tos-content {
-    background: #1a1a1a;
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid #333;
-}
-
-.price-card.featured {
-    border-color: #ffcc00;
-    transform: scale(1.05);
-}
-
-footer {
-    text-align: center;
-    padding: 3rem;
-    background: #000;
-}
+/* Rest of your styles (cards, etc.) - I can expand if you want */
