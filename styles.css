@@ -1,185 +1,280 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+} 
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background: #050508;
-    color: #e0e0e0;
+html {
+  scroll-behavior: smooth;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 6%;
-    background: rgba(13, 13, 20, 0.85);
-    backdrop-filter: blur(12px);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid #1f1f2e;
+body { 
+  font-family: 'Roboto', sans-serif; 
+  background: #000000; 
+  color: #a0a0a5; 
+  overflow-x: hidden; 
+} 
+
+.navbar { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 1.2rem 5%; 
+  background: rgba(0, 0, 0, 0.95); 
+  backdrop-filter: blur(12px); 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  border-bottom: 1px solid #1c1c1f; 
+} 
+
+.logo { 
+  font-family: 'Orbitron', sans-serif; 
+  font-size: 1.6rem; 
+  font-weight: 900; 
+  letter-spacing: 2px;
+  background: linear-gradient(180deg, #ffffff 0%, #666666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
+
+.navbar ul { 
+  display: flex; 
+  list-style: none; 
+  gap: 2.5rem; 
+  align-items: center;
+} 
+
+.navbar a { 
+  color: #8e8e93; 
+  text-decoration: none; 
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+} 
+
+.navbar a:hover { 
+  color: #ffffff; 
+} 
+
+.cart-trigger {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.85rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+.cart-trigger:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
-.neon { color: #00f0ff; }
-
-.nav-links a {
-    margin-left: 2.5rem;
-    color: #aaa;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover { color: #00f0ff; }
-
-.cta-btn {
-    background: #00f0ff;
-    color: #000;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.4s;
-}
-
-.cta-btn:hover {
-    background: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px #00f0ff;
-}
-
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(5,5,8,0.85), rgba(5,5,8,0.9)), url('https://i.pinimg.com/originals/0f/5e/0d/0f5e0d8c8b8f8e8f8e8f8e8f8e8f8e8f.jpg') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-}
-
-.hero-content h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 5.2rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 40px #00f0ff;
-    animation: neonPulse 2s infinite alternate;
-}
-
-@keyframes neonPulse {
-    from { text-shadow: 0 0 20px #00f0ff; }
-    to { text-shadow: 0 0 60px #00f0ff, 0 0 80px #00f0ff; }
-}
-
-.main-btn {
-    background: transparent;
-    color: #00f0ff;
-    border: 2px solid #00f0ff;
-    padding: 1.1rem 3rem;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.4s;
-}
-
-.main-btn:hover {
-    background: #00f0ff;
-    color: #000;
-    box-shadow: 0 0 30px #00f0ff;
-}
-
-.services, .features, .faq, .tos {
-    padding: 6rem 8%;
-}
-
-h2 {
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 4rem;
-    color: #00f0ff;
-}
-
-.grid, .pricing-grid, .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
-}
-
-.card, .price-card {
-    background: rgba(13, 13, 20, 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid #1f1f2e;
-    border-radius: 16px;
-    padding: 2.5rem;
-    transition: all 0.5s ease;
-}
-
-.card:hover, .price-card:hover {
-    transform: translateY(-12px);
-    border-color: #00f0ff;
-    box-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
-}
-
-.price-card.popular {
-    border-color: #ffcc00;
-    transform: scale(1.08);
-    box-shadow: 0 0 40px rgba(255, 204, 0, 0.3);
-}
+.hero { 
+  height: 100vh; 
+  background: radial-gradient(circle at center, #111115 0%, #000000 100%);
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  padding: 0 20px;
+  border-bottom: 1px solid #1c1c1f;
+} 
 
 .badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #ffcc00;
-    color: #000;
-    padding: 4px 14px;
-    font-size: 0.8rem;
-    border-radius: 20px;
-    font-weight: bold;
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #ffffff;
+  border: 1px solid #333336;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  background: #0a0a0c;
 }
 
-.btn {
-    width: 100%;
-    padding: 1rem;
-    background: transparent;
-    color: #00f0ff;
-    border: 2px solid #00f0ff;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s;
+.hero-content h1 { 
+  font-family: 'Orbitron', sans-serif; 
+  font-size: 5rem; 
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, #ffffff 30%, #555555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
+
+.hero-content p {
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+  font-size: 1.1rem;
 }
 
-.btn:hover {
-    background: #00f0ff;
-    color: #000;
+.cta-btn { 
+  background: transparent; 
+  color: #ffffff; 
+  padding: 0.9rem 2rem; 
+  border-radius: 4px; 
+  text-decoration: none; 
+  font-weight: bold; 
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border: 1px solid #ffffff;
+  transition: all 0.2s ease;
+} 
+
+.cta-btn:hover {
+  background: #ffffff;
+  color: #000000;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
+.services, .faq, .tos { 
+  padding: 8rem 10%; 
+  border-bottom: 1px solid #1c1c1f;
+} 
+
+h2 { 
+  text-align: center; 
+  font-family: 'Orbitron', sans-serif; 
+  font-size: 2.2rem; 
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 4rem; 
+  background: linear-gradient(180deg, #ffffff 40%, #777777 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
+
+.pricing-grid, .faq-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 2.5rem; 
+} 
+
+.price-card, .faq-item, .tos-content { 
+  background: #070708; 
+  padding: 3rem 2.5rem; 
+  border-radius: 8px; 
+  border: 1px solid #1c1c1f; 
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+} 
+
+.price-card:hover {
+  transform: translateY(-4px);
+  border-color: #44444a;
 }
 
-.modal-content {
-    background: rgba(13,13,20,0.95);
-    backdrop-filter: blur(16px);
-    padding: 3rem;
-    border-radius: 20px;
-    border: 1px solid #00f0ff;
-    max-width: 420px;
-    text-align: center;
+.price-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.price-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1c1c1f;
+}
+
+.price-tag {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.eta-tag {
+  font-size: 0.8rem;
+  color: #636366;
+}
+
+.product-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #8e8e93;
+}
+
+.feature-list {
+  list-style: none;
+  margin-bottom: 2.5rem;
+}
+
+.feature-list li {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: #d1d1d6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-list li::before {
+  content: "—";
+  color: #44444a;
+}
+
+.buy-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #333336;
+  color: #ffffff;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.buy-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.faq-item h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.faq-item p, .tos-content p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+footer { 
+  text-align: center; 
+  padding: 4rem 2rem; 
+  background: #000000; 
+  color: #44444a;
+  font-size: 0.8rem;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 3.2rem; }
+  .navbar ul { display: none; }
+  .services, .faq, .tos { padding: 5rem 5%; }
 }
