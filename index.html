@@ -3,46 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite GTA Services - Premium Mod Menu</title>
+    <title>Elite GTA Services</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">ELITE GTA SERVICES</div>
+            <div class="logo">ELITE GTA</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#tos">ToS</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#services" class="buy-btn">Get Access</a>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <div class="anime-bg"></div>
+        <div class="gif-bg"></div>
         <div class="hero-content">
             <h1>DOMINATE GTA ONLINE</h1>
-            <p>Premium Mod Services • Recoveries • Modded Outfits • Business Unlocks</p>
-            <a href="#services" class="cta-btn">Get Started Now</a>
+            <p>Recoveries • Modded Outfits • Free Businesses • Undetected</p>
+            <a href="#services" class="cta-btn">Get Access</a>
         </div>
     </section>
 
-    <!-- Rest of sections same as before, but with better styling -->
-
-    <section id="features" class="features">
-        <h2>Powerful Features</h2>
-        <div class="grid">
-            <div class="card">... (same as before) ...</div>
-            <!-- keep the rest -->
+    <section id="services" class="services">
+        <h2>Services & Pricing</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <p class="price">$15</p>
+                <button class="buy-btn" onclick="showModal('Starter - $15')">Buy</button>
+            </div>
+            <div class="price-card featured">
+                <h3>Premium</h3>
+                <p class="price">$50</p>
+                <button class="buy-btn" onclick="showModal('Premium - $50')">Buy</button>
+            </div>
+            <div class="price-card">
+                <h3>Elite</h3>
+                <p class="price">$90</p>
+                <button class="buy-btn" onclick="showModal('Elite - $90')">Buy</button>
+            </div>
         </div>
     </section>
 
-    <!-- Keep the other sections (services, faq, tos, footer) from previous version -->
+    <!-- FAQ, ToS, etc. -->
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2 id="modal-title"></h2>
+            <p>Payment Methods:</p>
+            <ul>
+                <li>Litecoin (LTC)</li>
+                <li>Robux / Robux Giftcard</li>
+            </ul>
+            <p><strong>Ban Risk:</strong> High if used in public sessions. Use invite-only.</p>
+            <button onclick="alert('Payment link would go here')">Confirm Payment</button>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
