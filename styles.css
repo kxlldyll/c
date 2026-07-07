@@ -1,61 +1,46 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background: #0a0a0a;
-    color: #e0e0e0;
-}
+body { font-family: 'Roboto', sans-serif; background: #0a0a0a; color: #e0e0e0; }
 
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 5%; background: rgba(0,0,0,0.95); position: fixed; width: 100%; z-index: 1000;
-    border-bottom: 1px solid #ff00aa;
 }
 
-.logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #ff00aa; font-weight: 700; text-shadow: 0 0 10px #ff00aa; }
+.logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #ff00aa; }
 
-.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { color: #e0e0e0; text-decoration: none; }
-.nav-links a:hover { color: #ff00aa; }
-
-.buy-btn, .cta-btn {
-    background: linear-gradient(45deg, #ff00aa, #00ffff);
-    color: #000; padding: 0.9rem 2rem; border-radius: 50px;
-    text-decoration: none; font-weight: bold; box-shadow: 0 0 15px #ff00aa;
-}
 
 .hero {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    height: 100vh; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; text-align: center;
 }
 
-.anime-bg {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), 
-                url('https://picsum.photos/id/1015/1920/1080') center/cover;
-    animation: animeShift 25s infinite alternate linear;
+.gif-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                url('https://i.imgur.com/0z5z5z5.gif') center/cover; /* replace with real gif url */
+    animation: bgMove 30s infinite linear;
     z-index: -1;
 }
 
-@keyframes animeShift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+@keyframes bgMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+
+.hero-content h1 { font-size: 4.5rem; color: #ff00aa; text-shadow: 0 0 20px #ff00aa; }
+
+.buy-btn, .cta-btn {
+    background: #ff00aa; color: white; padding: 1rem 2rem; border-radius: 50px; border: none; cursor: pointer;
 }
 
-.hero-content h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 5rem;
-    color: #ff00aa;
-    text-shadow: 0 0 30px #ff00aa;
-    margin-bottom: 1rem;
+.modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center;
 }
 
-.hero-content p { font-size: 1.4rem; margin-bottom: 2rem; }
+.modal-content {
+    background: #1a1a1a; padding: 2rem; border-radius: 15px; max-width: 400px; text-align: center;
+    border: 2px solid #ff00aa;
+}
 
-/* Rest of your styles (cards, etc.) - I can expand if you want */
+.close { float: right; font-size: 2rem; cursor: pointer; }
