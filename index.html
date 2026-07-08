@@ -11,10 +11,6 @@
       color: white;
       font-family: system-ui, -apple-system, sans-serif;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
       padding: 40px 20px;
     }
 
@@ -63,47 +59,102 @@
       display: block;
     }
 
-    .steam-note strong {
-      font-size: 1.25rem;
-      display: block;
-      margin-bottom: 12px;
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 60px auto 0;
     }
 
-    .buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
+    .product-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s;
     }
 
-    button {
-      padding: 16px 40px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 9999px;
-      transition: all 0.3s ease;
-      cursor: pointer;
+    .product-card:hover {
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: white;
+      transform: translateY(-8px);
     }
 
-    button:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.5);
-      transform: scale(1.05);
+    .product-card h3 {
+      font-size: 1.35rem;
+      margin: 16px 0 8px;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 12px 0;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: #111;
+      padding: 32px;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .rank-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .rank-btn {
+      background: #1f1f1f;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 1.15rem;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid #333;
+    }
+
+    .rank-btn:hover {
+      background: #2a2a2a;
+      border-color: #555;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background: #222;
+      border: none;
+      color: white;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div>
+  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <i class="fa-solid fa-crown crown"></i>
     
     <h1>GTA V Modding Services</h1>
     
     <p>Premium recoveries, modded outfits, custom tools — delivered safely and instantly.</p>
 
-    <!-- Steam Disclaimer -->
     <div class="steam-note">
       <i class="fab fa-steam-symbol"></i>
       <strong>Steam Only.</strong>
@@ -111,10 +162,62 @@
       Nothing is installed on your PC.
     </div>
 
-    <div class="buttons">
-      <button>Explore Services</button>
-      <button>View Products</button>
+    <!-- Products Grid -->
+    <div class="products-grid">
+      <div class="product-card">
+        <h3>Modded Outfits</h3>
+        <div class="price">$8</div>
+        <button onclick="alert('Added to cart')">Add</button>
+      </div>
+      <div class="product-card">
+        <h3>Modded Cars</h3>
+        <div class="price">$12</div>
+        <button onclick="alert('Added to cart')">Add</button>
+      </div>
+      <div class="product-card">
+        <h3>Rank Boost</h3>
+        <div class="price">$15+</div>
+        <button onclick="openRankModal()">Choose Rank</button>
+      </div>
+      <div class="product-card">
+        <h3>Modded Money</h3>
+        <div class="price">$10+</div>
+        <button onclick="alert('Added to cart')">Add</button>
+      </div>
     </div>
   </div>
+
+  <!-- Rank Boost Modal -->
+  <div id="rankModal" class="modal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 24px;">Rank Boost</h2>
+      <div class="rank-options">
+        <div class="rank-btn" onclick="selectRank(100)">100</div>
+        <div class="rank-btn" onclick="selectRank(300)">300</div>
+        <div class="rank-btn" onclick="selectRank(500)">500</div>
+        <div class="rank-btn" onclick="selectRank(700)">700</div>
+        <div class="rank-btn" onclick="selectRank(2000)">2000</div>
+        <div class="rank-btn" onclick="selectRank(4000)">4000</div>
+        <div class="rank-btn" onclick="selectRank(8000)">8000</div>
+        <div class="rank-btn" onclick="selectRank('Custom')">Custom</div>
+      </div>
+      <button onclick="closeRankModal()" class="close-btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function openRankModal() {
+      document.getElementById('rankModal').style.display = 'flex';
+    }
+
+    function closeRankModal() {
+      document.getElementById('rankModal').style.display = 'none';
+    }
+
+    function selectRank(rank) {
+      alert(`Rank boost selected: Level ${rank}`);
+      closeRankModal();
+    }
+  </script>
 </body>
 </html>
