@@ -10,7 +10,8 @@
     :root { --accent: 34 211 238; }
     .accent { color: rgb(var(--accent)); }
     .accent-bg { background-color: rgb(var(--accent)); }
-    .gradient-bg { background: linear-gradient(180deg, #0a0a0a, #1a1a1a); }
+    .gradient-text { background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .gradient-bg { background: linear-gradient(180deg, #0a0a0a, #1f2937); }
   </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -26,16 +27,17 @@
     <button onclick="toggleGradient()" class="bg-zinc-900 border border-gray-700 hover:border-white px-4 py-2 rounded-xl text-sm">Toggle Gradient</button>
   </div>
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-md border-b border-gray-800 z-40">
+  <!-- Sticky Navbar -->
+  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-md border-b border-gray-800 z-50">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="flex items-center gap-3">
         <i class="fas fa-crown text-3xl accent"></i>
         <span class="text-2xl font-bold tracking-tighter">Elite GTA V</span>
       </div>
       <div class="flex gap-8 text-sm">
-        <a href="#services" class="hover:text-white">Services</a>
-        <a href="#faq" class="hover:text-white">FAQ</a>
+        <a href="#services" class="hover:text-white transition">Packages</a>
+        <a href="#addons" class="hover:text-white transition">Add-ons</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
       </div>
     </div>
   </nav>
@@ -44,32 +46,27 @@
   <section id="hero" class="min-h-screen flex items-center pt-20 gradient-bg">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h1 class="text-6xl md:text-7xl font-black gradient-text mb-6">Premium GTA V Services</h1>
-      <p class="text-2xl text-gray-400">Recoveries • Modded Outfits • Custom Tools • Instant Delivery</p>
+      <p class="text-xl md:text-2xl text-gray-400">Recoveries • Modded Outfits • Custom Tools • Instant Delivery</p>
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Main Packages -->
   <section id="services" class="py-24 bg-black">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16">Our Packages</h2>
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Main Packages</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Starter -->
-        <div class="bg-zinc-950 border border-gray-700 rounded-3xl p-8 hover:border-gray-500 transition">
+        <div class="bg-zinc-950 border border-gray-700 rounded-3xl p-8">
           <h3 class="text-2xl font-bold">Starter</h3>
           <p class="text-5xl font-bold my-4">$15</p>
           <button onclick="showModal(0)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">See Details</button>
         </div>
-
-        <!-- Premium -->
         <div class="bg-zinc-950 border-2 border-white rounded-3xl p-8 relative scale-105">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black text-xs font-bold px-6 py-1 rounded-full">RECOMMENDED</div>
           <h3 class="text-2xl font-bold">Premium</h3>
           <p class="text-5xl font-bold my-4">$50</p>
           <button onclick="showModal(1)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">See Details</button>
         </div>
-
-        <!-- Elite -->
-        <div class="bg-zinc-950 border border-gray-700 rounded-3xl p-8 hover:border-gray-500 transition">
+        <div class="bg-zinc-950 border border-gray-700 rounded-3xl p-8">
           <h3 class="text-2xl font-bold">Elite</h3>
           <p class="text-5xl font-bold my-4">$90</p>
           <button onclick="showModal(2)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">See Details</button>
@@ -78,52 +75,72 @@
     </div>
   </section>
 
+  <!-- Add-ons -->
+  <section id="addons" class="py-24 bg-zinc-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Quick Add-ons</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
+          <p class="text-lg font-semibold">3 Modded Outfits</p>
+          <p class="text-4xl font-bold accent my-3">$5</p>
+          <button class="text-sm accent underline">Add to package</button>
+        </div>
+        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
+          <p class="text-lg font-semibold">5 Custom Vehicles</p>
+          <p class="text-4xl font-bold accent my-3">$8</p>
+          <button class="text-sm accent underline">Add to package</button>
+        </div>
+        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
+          <p class="text-lg font-semibold">Rank Boost (Level 100)</p>
+          <p class="text-4xl font-bold accent my-3">$12</p>
+          <button class="text-sm accent underline">Add to package</button>
+        </div>
+        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
+          <p class="text-lg font-semibold">Money Drop (1M GTA$)</p>
+          <p class="text-4xl font-bold accent my-3">$10</p>
+          <button class="text-sm accent underline">Add to package</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Modal -->
-  <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center">
-    <div class="bg-zinc-900 rounded-3xl max-w-lg w-full mx-4 p-8">
+  <div id="modal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-[60] flex items-center justify-center">
+    <div class="bg-zinc-900 rounded-3xl max-w-md w-full mx-4 p-8">
       <div id="modalContent"></div>
-      <button onclick="closeModal()" class="mt-8 w-full py-4 border border-gray-600 rounded-2xl">Close</button>
+      <button onclick="closeModal()" class="mt-8 w-full py-4 border border-gray-600 rounded-2xl hover:bg-zinc-800">Close</button>
     </div>
   </div>
 
   <script>
-    let currentAccent = "34,211,238";
-    let isGradient = true;
-
     function changeAccent(val) {
-      currentAccent = val;
       document.documentElement.style.setProperty('--accent', val);
     }
 
     function toggleGradient() {
-      isGradient = !isGradient;
       const hero = document.getElementById('hero');
-      hero.className = isGradient ? 
-        "min-h-screen flex items-center pt-20 gradient-bg" : 
-        "min-h-screen flex items-center pt-20 bg-black";
+      hero.classList.toggle('gradient-bg');
+      hero.classList.toggle('bg-black');
     }
 
     const packages = [
-      { title: "Starter", price: "$15", desc: "Basic recoveries, simple outfits, entry-level tools." },
-      { title: "Premium", price: "$50", desc: "Full recoveries, money drops, advanced outfits, vehicle spawner pack, rank boosts." },
-      { title: "Elite", price: "$90", desc: "Everything in Premium + exclusive mods, max rank & stats, full custom requests." }
+      {title:"Starter", price:"$15", desc:"Basic recoveries, simple modded outfits, and entry tools."},
+      {title:"Premium", price:"$50", desc:"Full recoveries, money drops, advanced outfits, vehicle spawns, and rank boosts."},
+      {title:"Elite", price:"$90", desc:"Everything in Premium + exclusive mods, max stats, and full custom requests."}
     ];
 
     function showModal(i) {
-      const pkg = packages[i];
+      const p = packages[i];
       document.getElementById('modalContent').innerHTML = `
-        <h2 class="text-3xl font-bold mb-2">${pkg.title}</h2>
-        <p class="text-5xl font-bold mb-6 accent">${pkg.price}</p>
-        <p class="text-gray-400 leading-relaxed">${pkg.desc}</p>
-        <div class="mt-8 text-sm text-gray-400">
-          <p class="font-semibold mb-2">What's Included:</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Instant delivery</li>
-            <li>Modded outfits & unlocks</li>
-            <li>Vehicle spawning tools</li>
-            <li>Priority support via Discord</li>
-          </ul>
-        </div>
+        <h2 class="text-3xl font-bold">${p.title}</h2>
+        <p class="text-5xl font-bold accent my-4">${p.price}</p>
+        <p class="text-gray-400">${p.desc}</p>
+        <ul class="mt-6 space-y-2 text-sm text-gray-400">
+          <li>✓ Instant delivery</li>
+          <li>✓ Modded outfits & unlocks</li>
+          <li>✓ Vehicle spawning tools</li>
+          <li>✓ Dedicated support</li>
+        </ul>
       `;
       document.getElementById('modal').classList.remove('hidden');
     }
