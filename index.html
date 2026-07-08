@@ -39,11 +39,19 @@
       <div class="space-y-8">
         <h1 class="text-7xl md:text-8xl font-black tracking-tighter leading-none glow">Premium GTA V Services</h1>
         <p class="text-2xl text-gray-300">Instant recoveries, elite modded outfits, custom tools, and undetectable enhancements.</p>
+        
+        <!-- Steam Note -->
+        <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-sm">
+          <i class="fab fa-steam-symbol text-xl"></i>
+          <span><strong>Steam Only</strong> — We require your account details privately, log in, perform the service, and log out.</span>
+        </div>
+
         <div class="flex gap-4">
           <button onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})" class="accent-bg text-black px-10 py-5 rounded-3xl text-lg font-semibold">Explore Packages</button>
           <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" class="border border-white/30 hover:border-white px-10 py-5 rounded-3xl text-lg font-semibold">Browse Products</button>
         </div>
       </div>
+
       <!-- Live Dashboard -->
       <div class="glass rounded-3xl p-8">
         <div class="flex justify-between mb-6">
@@ -97,10 +105,11 @@
           <button onclick="showModal(2)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">Choose Elite</button>
         </div>
       </div>
+      <p class="text-center text-xs text-gray-500 mt-10">All services are Steam-only. Account details are sent privately, we log in, complete the service, and log out.</p>
     </div>
   </section>
 
-  <!-- Product / Services Grid -->
+  <!-- Product Grid -->
   <section id="products" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-8">
       <div class="text-center mb-16">
@@ -109,7 +118,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Card 1 -->
         <div class="glass rounded-3xl p-8 hover:-translate-y-3 transition-all duration-500 group">
           <div class="flex justify-between mb-6">
             <span class="px-4 py-1 bg-white/10 text-xs font-bold rounded-full">POPULAR</span>
@@ -124,7 +132,6 @@
           <button onclick="addToCart(this)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold group-hover:brightness-110 transition">Purchase Access</button>
         </div>
 
-        <!-- Card 2 -->
         <div class="glass rounded-3xl p-8 hover:-translate-y-3 transition-all duration-500 group">
           <div class="flex justify-between mb-6">
             <span class="px-4 py-1 bg-white/10 text-xs font-bold rounded-full">BEST VALUE</span>
@@ -139,7 +146,6 @@
           <button onclick="addToCart(this)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold group-hover:brightness-110 transition">Purchase Access</button>
         </div>
 
-        <!-- Card 3 -->
         <div class="glass rounded-3xl p-8 hover:-translate-y-3 transition-all duration-500 group">
           <div class="flex justify-between mb-6">
             <span class="px-4 py-1 bg-white/10 text-xs font-bold rounded-full">ULTIMATE</span>
@@ -157,8 +163,7 @@
     </div>
   </section>
 
-  <!-- Rest of your sections (Add-ons, Testimonials, Footer) remain the same -->
-  <!-- ... (your existing add-ons, testimonials, footer) ... -->
+  <!-- Your existing Add-ons, Testimonials, Footer remain the same -->
 
   <script>
     function setAccent(r, g, b) {
