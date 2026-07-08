@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body {
-      background: #000000;
+      background: #0a0a0a;
       color: white;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       min-height: 100vh;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
     .container {
@@ -19,125 +19,129 @@
       margin: 0 auto;
     }
 
-    .crown {
-      font-size: 100px;
-      background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 30px rgba(241, 245, 249, 0.5));
-      margin-bottom: 30px;
+    .header {
+      text-align: center;
+      margin-bottom: 70px;
     }
 
-    h1 {
-      font-size: 3.8rem;
-      font-weight: 900;
-      letter-spacing: -3px;
-      background: linear-gradient(90deg, #f8fafc, #e2e8f0);
+    .crown {
+      font-size: 110px;
+      background: linear-gradient(90deg, #f1f5f9, #a5b4fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 40px rgba(165, 180, 252, 0.6));
       margin-bottom: 20px;
     }
 
+    h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -4px;
+      background: linear-gradient(90deg, #f8fafc, #c4d0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
     .tagline {
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       color: #d1d5db;
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto 50px;
     }
 
     .steam-note {
-      background: rgba(255,255,255,0.015);
-      padding: 28px 40px;
-      border-radius: 20px;
-      margin: 40px auto;
-      max-width: 520px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 32px 40px;
+      border-radius: 24px;
+      max-width: 560px;
+      margin: 0 auto 70px;
       text-align: center;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      max-width: 1200px;
-      margin: 60px auto 0;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
     }
 
     .product-card {
-      background: #111;
+      background: linear-gradient(145deg, #111111, #0a0a0a);
       border: 1px solid #222;
       border-radius: 20px;
-      padding: 28px;
-      transition: all 0.3s;
+      padding: 32px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .product-card:hover {
-      border-color: #444;
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transform: translateY(-12px);
+      border-color: #4ade80;
+      box-shadow: 0 25px 50px rgba(0, 255, 159, 0.1);
     }
 
     .product-card h3 {
-      font-size: 1.6rem;
-      margin: 0 0 8px;
+      font-size: 1.65rem;
+      margin: 0 0 12px;
       font-weight: 700;
     }
 
     .price {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      margin: 12px 0 20px;
+      background: linear-gradient(90deg, #ffffff, #e0e7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 10px 0 24px;
     }
 
     .stock {
       color: #4ade80;
-      font-size: 0.95rem;
-      margin-bottom: 24px;
+      font-size: 1rem;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .features {
       list-style: none;
       padding: 0;
-      margin: 0 0 28px;
-      color: #aaa;
+      margin: 0 0 32px;
+      color: #9ca3af;
     }
 
     .features li {
-      padding: 8px 0;
+      padding: 9px 0;
       border-bottom: 1px solid #222;
-    }
-
-    .features li:last-child {
-      border-bottom: none;
     }
 
     .btn {
       width: 100%;
-      padding: 16px;
+      padding: 18px;
       font-weight: 700;
-      font-size: 1.05rem;
-      border-radius: 12px;
+      font-size: 1.1rem;
+      border-radius: 14px;
       cursor: pointer;
       transition: all 0.3s;
       border: none;
     }
 
     .btn-primary {
-      background: #1f1f1f;
+      background: linear-gradient(90deg, #1f1f1f, #2a2a2a);
       color: white;
       border: 1px solid #333;
     }
 
     .btn-primary:hover {
-      background: #333;
+      background: linear-gradient(90deg, #333, #444);
     }
 
     .btn-options {
       background: transparent;
       color: #4ade80;
       border: 2px solid #4ade80;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .btn-options:hover {
@@ -145,89 +149,100 @@
       color: black;
     }
 
-    /* Modal Styles */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      z-index: 1000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
       align-items: center;
       justify-content: center;
     }
 
     .modal-content {
-      background: #111;
+      background: linear-gradient(145deg, #111111, #0a0a0a);
       border: 1px solid #333;
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 480px;
-      width: 90%;
+      border-radius: 24px;
+      padding: 42px;
+      max-width: 520px;
+      width: 92%;
       box-shadow: 0 30px 70px rgba(0,0,0,0.9);
     }
 
     .modal-content h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
+      margin: 0 0 28px;
+      font-size: 1.9rem;
+      font-weight: 700;
     }
 
     .option {
       background: #1a1a1a;
       border: 1px solid #333;
-      padding: 16px 20px;
-      margin-bottom: 10px;
-      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 12px;
+      border-radius: 14px;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
     .option:hover {
       border-color: #4ade80;
-      background: #222;
     }
 
     .option.selected {
       border-color: #4ade80;
-      background: #1f2a1f;
+      background: #112211;
       color: #4ade80;
+    }
+
+    .custom-input {
+      width: 100%;
+      padding: 16px 20px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 14px;
+      color: white;
+      font-size: 1.1rem;
+      margin-top: 8px;
+    }
+
+    .custom-input:focus {
+      outline: none;
+      border-color: #4ade80;
     }
 
     .modal-buttons {
       display: flex;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .modal-buttons button {
-      flex: 1;
+      gap: 14px;
+      margin-top: 32px;
     }
   </style>
 </head>
 <body>
-  <div class="container" style="text-align: center;">
-    <i class="fa-solid fa-crown crown"></i>
-    <h1>GTA V Modding Services</h1>
-    <p class="tagline">Premium recoveries, modded outfits, custom tools — delivered safely and instantly.</p>
+  <div class="container">
+    <div class="header">
+      <i class="fa-solid fa-crown crown"></i>
+      <h1>GTA V Modding Services</h1>
+      <p class="tagline">Premium recoveries, modded outfits, custom tools — delivered safely and instantly.</p>
+    </div>
 
     <div class="steam-note">
-      <i class="fab fa-steam-symbol"></i>
+      <i class="fab fa-steam-symbol" style="font-size: 42px; display: block; margin-bottom: 12px;"></i>
       <strong>Steam Only.</strong><br>
       You privately send your login details. We log in, perform the service, and log out.<br>
       Nothing is installed on your PC.
     </div>
 
-    <!-- Products -->
+    <!-- Products Grid -->
     <div class="products-grid">
 
-      <!-- Card 1: Outfits -->
+      <!-- Outfits -->
       <div class="product-card">
         <h3>Modded Outfits Pack</h3>
         <div class="price">$8</div>
-        <div class="stock">● 142 in stock</div>
+        <div class="stock"><i class="fas fa-circle"></i> 142 in stock</div>
         <ul class="features">
           <li>12 exclusive outfits</li>
           <li>Neon + RGB effects</li>
@@ -237,11 +252,11 @@
         <button class="btn btn-primary" onclick="addToCart('Modded Outfits Pack', '$8')">Add to Cart</button>
       </div>
 
-      <!-- Card 2: Modded Cars -->
+      <!-- Modded Cars -->
       <div class="product-card">
         <h3>Modded Cars</h3>
-        <div class="price">$15 <span style="font-size:1.1rem;opacity:0.6;">starting</span></div>
-        <div class="stock">● 87 in stock</div>
+        <div class="price">$15 <span style="font-size:1.2rem;opacity:0.6;">starting</span></div>
+        <div class="stock"><i class="fas fa-circle"></i> 87 in stock</div>
         <ul class="features">
           <li>Fully tuned vehicles</li>
           <li>Custom colors & liveries</li>
@@ -252,11 +267,11 @@
         <button class="btn btn-options" onclick="openOptionsModal('cars')">Options</button>
       </div>
 
-      <!-- Card 3: Rank Boost -->
+      <!-- Rank Boost -->
       <div class="product-card">
         <h3>Rank & Stats Boost</h3>
-        <div class="price">$12 <span style="font-size:1.1rem;opacity:0.6;">starting</span></div>
-        <div class="stock">● Unlimited</div>
+        <div class="price">$12 <span style="font-size:1.2rem;opacity:0.6;">starting</span></div>
+        <div class="stock"><i class="fas fa-circle"></i> Unlimited</div>
         <ul class="features">
           <li>Any rank from 1–5000</li>
           <li>Max money & RP</li>
@@ -270,15 +285,15 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Options Modal -->
   <div id="optionsModal" class="modal">
     <div class="modal-content">
       <h2 id="modalTitle"></h2>
       <div id="optionsList"></div>
-      
+
       <div class="modal-buttons">
         <button class="btn btn-primary" onclick="confirmSelection()">Add Selected to Cart</button>
-        <button class="btn btn-primary" onclick="closeModal()" style="background:#222;">Cancel</button>
+        <button class="btn btn-primary" onclick="closeModal()" style="background:#222; border:1px solid #444;">Cancel</button>
       </div>
     </div>
   </div>
@@ -295,64 +310,67 @@
       selectedOption = '';
 
       if (type === 'rank') {
-        title.textContent = 'Choose Rank';
+        title.textContent = 'Choose Your Rank';
         currentProduct = 'Rank Boost';
-        
+
         const ranks = [200, 400, 740, 1000, 3000, 4000, 8000];
         ranks.forEach(rank => {
-          const div = document.createElement('div');
-          div.className = 'option';
-          div.textContent = `Rank ${rank}`;
+          const div = createOptionElement(`Rank ${rank}`);
           div.onclick = () => selectOption(div, `Rank ${rank}`);
           list.appendChild(div);
         });
 
-        // Custom rank
-        const custom = document.createElement('div');
-        custom.className = 'option';
-        custom.innerHTML = `Custom Rank <input type="number" placeholder="Enter rank" style="margin-left:10px; padding:4px 8px; width:100px; background:#222; border:1px solid #444; color:white;">`;
-        custom.onclick = () => {
-          const input = custom.querySelector('input');
+        // Professional Custom Rank Input
+        const customDiv = document.createElement('div');
+        customDiv.className = 'option';
+        customDiv.innerHTML = `
+          <div style="margin-bottom: 8px; font-weight: 600;">Custom Rank</div>
+          <input type="number" id="customRankInput" class="custom-input" placeholder="Enter desired rank (e.g. 2500)" min="1" max="5000">
+        `;
+        customDiv.onclick = () => {
+          const input = document.getElementById('customRankInput');
           input.focus();
-          selectOption(custom, 'Custom Rank');
+          selectOption(customDiv, 'Custom Rank');
         };
-        list.appendChild(custom);
+        list.appendChild(customDiv);
 
       } else if (type === 'cars') {
         title.textContent = 'Choose Modded Cars';
         currentProduct = 'Modded Cars';
-        
-        const options = [
-          '1 modded car',
-          '3 modded cars',
-          '5+ modded cars'
-        ];
-        
-        options.forEach(opt => {
-          const div = document.createElement('div');
-          div.className = 'option';
-          div.textContent = opt;
+
+        const carOptions = ['1 modded car', '3 modded cars', '5+ modded cars'];
+        carOptions.forEach(opt => {
+          const div = createOptionElement(opt);
           div.onclick = () => selectOption(div, opt);
           list.appendChild(div);
         });
 
         // Custom amount
-        const custom = document.createElement('div');
-        custom.className = 'option';
-        custom.innerHTML = `Custom amount <input type="number" placeholder="How many?" style="margin-left:10px; padding:4px 8px; width:100px; background:#222; border:1px solid #444; color:white;">`;
-        custom.onclick = () => {
-          const input = custom.querySelector('input');
+        const customDiv = document.createElement('div');
+        customDiv.className = 'option';
+        customDiv.innerHTML = `
+          <div style="margin-bottom: 8px; font-weight: 600;">Custom Amount</div>
+          <input type="number" id="customCarsInput" class="custom-input" placeholder="How many cars?" min="1">
+        `;
+        customDiv.onclick = () => {
+          const input = document.getElementById('customCarsInput');
           input.focus();
-          selectOption(custom, 'Custom amount');
+          selectOption(customDiv, 'Custom Amount');
         };
-        list.appendChild(custom);
+        list.appendChild(customDiv);
       }
 
       modal.style.display = 'flex';
     }
 
+    function createOptionElement(text) {
+      const div = document.createElement('div');
+      div.className = 'option';
+      div.textContent = text;
+      return div;
+    }
+
     function selectOption(element, value) {
-      // Deselect all
       document.querySelectorAll('#optionsList .option').forEach(el => el.classList.remove('selected'));
       element.classList.add('selected');
       selectedOption = value;
@@ -363,8 +381,30 @@
         alert('Please select an option');
         return;
       }
+
+      // Handle custom inputs
+      if (selectedOption === 'Custom Rank') {
+        const input = document.getElementById('customRankInput');
+        const rank = input.value.trim();
+        if (!rank) {
+          alert('Please enter a custom rank');
+          return;
+        }
+        selectedOption = `Custom Rank ${rank}`;
+      }
+
+      if (selectedOption === 'Custom Amount') {
+        const input = document.getElementById('customCarsInput');
+        const amount = input.value.trim();
+        if (!amount) {
+          alert('Please enter how many cars');
+          return;
+        }
+        selectedOption = `${amount} modded cars (Custom)`;
+      }
+
       closeModal();
-      addToCart(`${currentProduct} - ${selectedOption}`, 'Custom Price');
+      addToCart(`${currentProduct} - ${selectedOption}`, 'See price in cart');
     }
 
     function closeModal() {
@@ -372,15 +412,12 @@
     }
 
     function addToCart(product, price) {
-      alert(`✅ Added to cart:\n${product}\nPrice: ${price}`);
-      // You can later connect this to a real cart system
+      alert(`✅ Added to cart:\n\n${product}\nPrice: ${price}`);
     }
 
-    // Close modal when clicking outside
+    // Close modal on outside click
     document.getElementById('optionsModal').addEventListener('click', function(e) {
-      if (e.target.id === 'optionsModal') {
-        closeModal();
-      }
+      if (e.target.id === 'optionsModal') closeModal();
     });
   </script>
 </body>
