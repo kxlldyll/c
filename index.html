@@ -1,69 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus // Underground Modding OS</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>Elite GTA V Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .neon-cyan { text-shadow: 0 0 15px rgb(34 211 238); }
+    .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 0 30px rgba(34, 211, 238, 0.3); }
+  </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-200">
 
-  <nav class="navbar">
-    <div class="logo">NEXUS</div>
-    <ul>
-      <li><a href="#products">Catalog</a></li>
-      <li><a href="#faq">Bypass FAQ</a></li>
-      <li><a href="#tos">Safety Policy</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="cart-trigger">Cart (<span id="cart-count">0</span>)</button>
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-crown text-cyan-400 text-2xl"></i>
+        <span class="text-2xl font-bold tracking-tight">Elite GTA V</span>
+      </div>
+      <div class="hidden md:flex gap-8 text-sm">
+        <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+        <a href="#services" class="hover:text-cyan-400 transition">Services</a>
+        <a href="#faq" class="hover:text-cyan-400 transition">FAQ</a>
+      </div>
+      <a href="#services" class="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-2 rounded-full font-semibold transition">Get Access</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <div class="badge">SYSTEM STATUS: UNDETECTED</div>
-      <h1>DOMINATE LOS SANTOS</h1>
-      <p>Premium telemetry injection, automated banking overrides, and complete account progression mechanics without traditional detection flags.</p>
-      <a href="#products" class="cta-btn">Access Manifest</a>
-    </div>
-  </header>
-
-  <section id="products" class="services">
-    <h2>RECOVERY MANIFEST</h2>
-    <div class="pricing-grid" id="product-container">
-      <!-- Generated via app.js -->
-    </div>
-  </section>
-
-  <section id="faq" class="faq">
-    <h2>SECURITY INTEGRITY FAQ</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h3>How does anti-detection handle Level 8000 changes?</h3>
-        <p>Our scripts stagger RP injection values across synthetic background session telemetry. Instead of an overnight integer flip, the system mimics massive continuous award triggers, meaning automated heuristic filters are completely bypassed.</p>
+  <!-- Hero -->
+  <section class="min-h-screen pt-24 flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(at_center,#22d3ee_0%,transparent_70%)] opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-6xl md:text-7xl font-bold leading-tight neon-cyan mb-6">
+        Premium GTA V Services
+      </h1>
+      <p class="text-2xl text-zinc-400 max-w-2xl mx-auto mb-10">
+        Recoveries • Modded Outfits • Custom Tools • Instant Delivery
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#services" class="bg-white text-black px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition">Get Started Now</a>
+        <a href="#features" class="border border-zinc-700 hover:border-cyan-400 px-10 py-4 rounded-2xl text-lg font-semibold transition">See Features</a>
       </div>
-      <div class="faq-item">
-        <h3>Is the cash safe from internal accounting sweeps?</h3>
-        <p>Yes. The automated delivery mechanisms routes incoming transaction tokens through legal business property acquisition values (Nightclub safe and Hangar sales data structures). Your wallet remains free of raw unassigned integer injections.</p>
+      <p class="text-xs text-zinc-500 mt-8">Trusted by hundreds • Undetected • All payments secure</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-24 bg-zinc-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Powerful Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 card-hover">
+          <i class="fas fa-money-bill-wave text-4xl text-cyan-400 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Recoveries</h3>
+          <ul class="space-y-3 text-zinc-400">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Buy All Businesses Free</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Money & RP Drops</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Full Account Recovery</li>
+          </ul>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 card-hover">
+          <i class="fas fa-tshirt text-4xl text-cyan-400 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Customization</h3>
+          <ul class="space-y-3 text-zinc-400">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Modded Outfits</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Unlock All</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> God Mode + Protections</li>
+          </ul>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 card-hover">
+          <i class="fas fa-car text-4xl text-cyan-400 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Vehicles</h3>
+          <ul class="space-y-3 text-zinc-400">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Vehicle Spawner</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Free Shopping</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Teleportation</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="tos" class="tos">
-    <h2>TERMS & WAIVERS</h2>
-    <div class="tos-content">
-      <p>By interacting with this local platform simulator, you acknowledge that automated anti-cheat architectures are dynamic. This interface operates entirely under simulation paradigms—meaning all transactions, checkouts, and acquisitions are completely fake, narrative-driven data interactions mapped for entertainment purposes only.</p>
+  <!-- Services / Pricing -->
+  <section id="services" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Choose Your Plan</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Starter -->
+        <div class="bg-zinc-950 border border-zinc-700 rounded-3xl p-8 card-hover">
+          <h3 class="text-2xl font-semibold mb-2">Starter</h3>
+          <p class="text-5xl font-bold mb-6">$15</p>
+          <ul class="space-y-4 mb-10 text-zinc-400">
+            <li>Basic Recoveries</li>
+            <li>Modded Outfits</li>
+            <li>Basic Tools</li>
+          </ul>
+          <a href="#" class="block text-center bg-zinc-800 hover:bg-zinc-700 py-4 rounded-2xl font-semibold">Buy Starter</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="bg-gradient-to-b from-zinc-900 to-zinc-950 border border-cyan-400 rounded-3xl p-8 card-hover scale-105 relative">
+          <div class="absolute -top-4 right-6 bg-cyan-400 text-black text-xs font-bold px-6 py-1 rounded-full">MOST POPULAR</div>
+          <h3 class="text-2xl font-semibold mb-2">Premium</h3>
+          <p class="text-5xl font-bold mb-6">$50</p>
+          <ul class="space-y-4 mb-10 text-zinc-400">
+            <li>Full Recoveries</li>
+            <li>Advanced Mods</li>
+            <li>God Mode & Protections</li>
+            <li>Vehicle Tools</li>
+          </ul>
+          <a href="#" class="block text-center bg-cyan-500 hover:bg-cyan-400 text-black py-4 rounded-2xl font-semibold">Buy Premium</a>
+        </div>
+
+        <!-- Elite -->
+        <div class="bg-zinc-950 border border-zinc-700 rounded-3xl p-8 card-hover">
+          <h3 class="text-2xl font-semibold mb-2">Elite</h3>
+          <p class="text-5xl font-bold mb-6">$90</p>
+          <ul class="space-y-4 mb-10 text-zinc-400">
+            <li>Everything in Premium</li>
+            <li>Priority Support</li>
+            <li>Exclusive Tools</li>
+            <li>Full Unlock Access</li>
+          </ul>
+          <a href="#" class="block text-center bg-zinc-800 hover:bg-zinc-700 py-4 rounded-2xl font-semibold">Buy Elite</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2026 NEXUS SYSTEMS INC. OPERATING OUTSIDE STANDARD PARAMETERS.</p>
+  <!-- FAQ -->
+  <section id="faq" class="py-24 bg-zinc-900">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">FAQ</h2>
+      <div class="space-y-6">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6">
+          <p class="font-semibold mb-2">Is it safe?</p>
+          <p class="text-zinc-400">Use in invite-only sessions only. High ban risk in public.</p>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6">
+          <p class="font-semibold mb-2">Payment Methods?</p>
+          <p class="text-zinc-400">Litecoin (LTC) • Robux • Robux Gift Cards</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black py-12 text-center text-xs text-zinc-500 border-t border-zinc-900">
+    <p>All sales final. No refunds. Using these services violates Rockstar's ToS. We are not responsible for bans.</p>
   </footer>
 
-  <script src="app.js" defer></script>
 </body>
 </html>
