@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body {
-      background: #000;
+      background: #000000;
       color: white;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -19,29 +19,31 @@
     }
 
     .crown {
-      font-size: 85px;
-      background: linear-gradient(90deg, #f1f5f9, #cbd5e1);
+      font-size: 100px;
+      background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 30px rgba(241, 245, 249, 0.6));
-      margin-bottom: 30px;
+      filter: drop-shadow(0 0 30px rgba(241, 245, 249, 0.5));
+      margin-bottom: 40px;
     }
 
     h1 {
-      font-size: 3.6rem;
+      font-size: 3.8rem;
       font-weight: 900;
       letter-spacing: -3px;
       background: linear-gradient(90deg, #f8fafc, #e2e8f0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      line-height: 1.05;
     }
 
     p {
-      font-size: 1.3rem;
-      color: #aaa;
-      max-width: 560px;
-      margin: 0 auto 50px;
+      font-size: 1.35rem;
+      color: #d1d5db;
+      max-width: 580px;
+      margin: 0 auto 60px;
+      line-height: 1.45;
     }
 
     .buttons {
@@ -52,27 +54,20 @@
     }
 
     button {
-      padding: 16px 38px;
+      padding: 16px 40px;
       font-size: 1.1rem;
       font-weight: 600;
       border-radius: 9999px;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
-      background: white;
-      color: black;
-    }
-
-    .btn-primary:hover { transform: scale(1.05); }
-
-    .btn-secondary {
-      border: 2px solid #555;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
       color: white;
     }
 
-    .btn-secondary:hover {
-      border-color: white;
+    button:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.5);
       transform: scale(1.05);
     }
   </style>
@@ -80,12 +75,14 @@
 <body>
   <div>
     <i class="fa-solid fa-crown crown"></i>
+    
     <h1>GTA V Modding Services</h1>
+    
     <p>Premium recoveries, modded outfits, custom tools — delivered safely and instantly on Steam.</p>
     
     <div class="buttons">
-      <button class="btn-primary">Explore Services</button>
-      <button class="btn-secondary">View Products</button>
+      <button>Explore Services</button>
+      <button>View Products</button>
     </div>
   </div>
 </body>
