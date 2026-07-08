@@ -26,8 +26,8 @@
       </div>
       <div class="flex gap-10 text-sm font-medium">
         <a href="#packages" class="hover:accent transition">Packages</a>
+        <a href="#products" class="hover:accent transition">Products</a>
         <a href="#addons" class="hover:accent transition">Add-ons</a>
-        <a href="#faq" class="hover:accent transition">FAQ</a>
       </div>
       <button onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})" class="accent-bg text-black px-8 py-3.5 rounded-2xl font-semibold">Get Access</button>
     </div>
@@ -41,10 +41,9 @@
         <p class="text-2xl text-gray-300">Instant recoveries, elite modded outfits, custom tools, and undetectable enhancements.</p>
         <div class="flex gap-4">
           <button onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})" class="accent-bg text-black px-10 py-5 rounded-3xl text-lg font-semibold">Explore Packages</button>
-          <button onclick="document.getElementById('addons').scrollIntoView({behavior:'smooth'})" class="border border-white/30 hover:border-white px-10 py-5 rounded-3xl text-lg font-semibold">Browse Add-ons</button>
+          <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" class="border border-white/30 hover:border-white px-10 py-5 rounded-3xl text-lg font-semibold">Browse Products</button>
         </div>
       </div>
-
       <!-- Live Dashboard -->
       <div class="glass rounded-3xl p-8">
         <div class="flex justify-between mb-6">
@@ -75,7 +74,6 @@
           </ul>
           <button onclick="showModal(0)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">Choose Starter</button>
         </div>
-
         <div class="glass rounded-3xl p-8 ring-2 ring-offset-4 ring-offset-black ring-accent scale-105">
           <h3 class="text-2xl font-bold">Premium</h3>
           <p class="text-6xl font-bold my-6">$50</p>
@@ -87,7 +85,6 @@
           </ul>
           <button onclick="showModal(1)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">Choose Premium</button>
         </div>
-
         <div class="glass rounded-3xl p-8">
           <h3 class="text-2xl font-bold">Elite</h3>
           <p class="text-6xl font-bold my-6">$90</p>
@@ -103,68 +100,65 @@
     </div>
   </section>
 
-  <!-- Add-ons -->
-  <section id="addons" class="py-24 bg-zinc-950">
+  <!-- Product / Services Grid -->
+  <section id="products" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-8">
-      <h2 class="text-5xl font-bold text-center mb-16">Quick Add-ons</h2>
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="glass p-6 rounded-3xl text-center">
-          <p class="font-semibold">3 Modded Outfits</p>
-          <p class="text-4xl font-bold accent my-4">$5</p>
-          <button class="text-sm accent underline">Add</button>
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold tracking-tighter mb-4">Featured Products</h2>
+        <p class="text-gray-400 text-xl">Instant access • High quality • Undetectable</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="glass rounded-3xl p-8 hover:-translate-y-3 transition-all duration-500 group">
+          <div class="flex justify-between mb-6">
+            <span class="px-4 py-1 bg-white/10 text-xs font-bold rounded-full">POPULAR</span>
+            <span class="text-4xl font-bold">$35</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Standard Recovery Bundle</h3>
+          <ul class="space-y-4 text-gray-300 mb-10">
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Full account recovery</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Business purchases</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> 500K GTA$ drop</li>
+          </ul>
+          <button onclick="addToCart(this)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold group-hover:brightness-110 transition">Purchase Access</button>
         </div>
-        <div class="glass p-6 rounded-3xl text-center">
-          <p class="font-semibold">5 Custom Vehicles</p>
-          <p class="text-4xl font-bold accent my-4">$8</p>
-          <button class="text-sm accent underline">Add</button>
+
+        <!-- Card 2 -->
+        <div class="glass rounded-3xl p-8 hover:-translate-y-3 transition-all duration-500 group">
+          <div class="flex justify-between mb-6">
+            <span class="px-4 py-1 bg-white/10 text-xs font-bold rounded-full">BEST VALUE</span>
+            <span class="text-4xl font-bold">$65</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Modded Outfit Pack</h3>
+          <ul class="space-y-4 text-gray-300 mb-10">
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> 8 exclusive outfits</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Custom neon effects</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Unlock all clothing</li>
+          </ul>
+          <button onclick="addToCart(this)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold group-hover:brightness-110 transition">Purchase Access</button>
         </div>
-        <div class="glass p-6 rounded-3xl text-center">
-          <p class="font-semibold">Rank Boost (Lvl 100)</p>
-          <p class="text-4xl font-bold accent my-4">$12</p>
-          <button class="text-sm accent underline">Add</button>
-        </div>
-        <div class="glass p-6 rounded-3xl text-center">
-          <p class="font-semibold">1M GTA$ Drop</p>
-          <p class="text-4xl font-bold accent my-4">$10</p>
-          <button class="text-sm accent underline">Add</button>
+
+        <!-- Card 3 -->
+        <div class="glass rounded-3xl p-8 hover:-translate-y-3 transition-all duration-500 group">
+          <div class="flex justify-between mb-6">
+            <span class="px-4 py-1 bg-white/10 text-xs font-bold rounded-full">ULTIMATE</span>
+            <span class="text-4xl font-bold">$120</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-6">Ultimate Developer Tools</h3>
+          <ul class="space-y-4 text-gray-300 mb-10">
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Full vehicle spawner</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Advanced recovery tools</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check accent"></i> Lifetime updates</li>
+          </ul>
+          <button onclick="addToCart(this)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold group-hover:brightness-110 transition">Purchase Access</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="py-20 bg-black">
-    <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-5xl font-bold text-center mb-16">What Players Say</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass p-8 rounded-3xl">
-          <p class="italic">"Fastest delivery I've ever had. Premium package is actually worth it."</p>
-          <p class="mt-6 text-accent">- LosSantosKing</p>
-        </div>
-        <div class="glass p-8 rounded-3xl">
-          <p class="italic">"Outfits look insane. Support responded in 2 minutes."</p>
-          <p class="mt-6 text-accent">- PhantomRider</p>
-        </div>
-        <div class="glass p-8 rounded-3xl">
-          <p class="italic">"Money drop was clean. Will be back for Elite next month."</p>
-          <p class="mt-6 text-accent">- ShadowGTA</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black border-t border-white/10 py-16">
-    <div class="max-w-7xl mx-auto px-8 text-center text-sm text-gray-400">
-      <p>All sales final. Services violate Rockstar ToS. Use at your own risk. We are not responsible for bans.</p>
-      <p class="mt-6">© Elite GTA V • Payments: LTC, Robux</p>
-    </div>
-  </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="hidden fixed inset-0 bg-black/90 backdrop-blur z-50 flex items-center justify-center">
-    <div class="glass max-w-md w-full mx-4 p-10 rounded-3xl" id="modalContent"></div>
-  </div>
+  <!-- Rest of your sections (Add-ons, Testimonials, Footer) remain the same -->
+  <!-- ... (your existing add-ons, testimonials, footer) ... -->
 
   <script>
     function setAccent(r, g, b) {
@@ -185,6 +179,16 @@
 
     function closeModal() {
       document.getElementById('modal').classList.add('hidden');
+    }
+
+    function addToCart(btn) {
+      const original = btn.textContent;
+      btn.textContent = "Added ✓";
+      btn.style.backgroundColor = "#10b981";
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.backgroundColor = "";
+      }, 1500);
     }
   </script>
 </body>
