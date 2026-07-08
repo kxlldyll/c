@@ -3,422 +3,823 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GTA V Modding Services</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <title>Vanguard • GTA V Modding Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lucide@latest/dist/umd/lucide.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <style>
-    body {
-      background: #0a0a0a;
-      color: white;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-height: 100vh;
-      padding: 60px 20px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .crown {
-      font-size: 110px;
-      background: linear-gradient(90deg, #f1f5f9, #a5b4fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 40px rgba(165, 180, 252, 0.6));
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 4rem;
-      font-weight: 900;
-      letter-spacing: -4px;
-      background: linear-gradient(90deg, #f8fafc, #c4d0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
-    }
-
-    .tagline {
-      font-size: 1.4rem;
-      color: #d1d5db;
-      max-width: 600px;
-      margin: 0 auto 50px;
-    }
-
-    .steam-note {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 32px 40px;
-      border-radius: 24px;
-      max-width: 560px;
-      margin: 0 auto 70px;
-      text-align: center;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
-    }
-
-    .product-card {
-      background: linear-gradient(145deg, #111111, #0a0a0a);
-      border: 1px solid #222;
-      border-radius: 20px;
-      padding: 32px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .product-card:hover {
-      transform: translateY(-12px);
-      border-color: #4ade80;
-      box-shadow: 0 25px 50px rgba(0, 255, 159, 0.1);
-    }
-
-    .product-card h3 {
-      font-size: 1.65rem;
-      margin: 0 0 12px;
-      font-weight: 700;
-    }
-
-    .price {
-      font-size: 2.8rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #ffffff, #e0e7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 10px 0 24px;
-    }
-
-    .stock {
-      color: #4ade80;
-      font-size: 1rem;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 32px;
-      color: #9ca3af;
-    }
-
-    .features li {
-      padding: 9px 0;
-      border-bottom: 1px solid #222;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 18px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: all 0.3s;
-      border: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, #1f1f1f, #2a2a2a);
-      color: white;
-      border: 1px solid #333;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(90deg, #333, #444);
-    }
-
-    .btn-options {
-      background: transparent;
-      color: #4ade80;
-      border: 2px solid #4ade80;
-      margin-top: 12px;
-    }
-
-    .btn-options:hover {
-      background: #4ade80;
-      color: black;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: linear-gradient(145deg, #111111, #0a0a0a);
-      border: 1px solid #333;
-      border-radius: 24px;
-      padding: 42px;
-      max-width: 520px;
-      width: 92%;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.9);
-    }
-
-    .modal-content h2 {
-      margin: 0 0 28px;
-      font-size: 1.9rem;
-      font-weight: 700;
-    }
-
-    .option {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      padding: 18px 24px;
-      margin-bottom: 12px;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 1.1rem;
-    }
-
-    .option:hover {
-      border-color: #4ade80;
-    }
-
-    .option.selected {
-      border-color: #4ade80;
-      background: #112211;
-      color: #4ade80;
-    }
-
-    .custom-input {
-      width: 100%;
-      padding: 16px 20px;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 14px;
-      color: white;
-      font-size: 1.1rem;
-      margin-top: 8px;
-    }
-
-    .custom-input:focus {
-      outline: none;
-      border-color: #4ade80;
-    }
-
-    .modal-buttons {
-      display: flex;
-      gap: 14px;
-      margin-top: 32px;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap');
+    body { font-family: 'Inter', system_ui, sans-serif; }
+    .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); }
+    .metric-card { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
+    .metric-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+    .service-card { transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); }
+    .nav-link { transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
+    .nav-link:hover { color: rgb(129 140 248); }
+    .option-row { transition: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1); }
+    .option-row:hover { background-color: rgba(63, 66, 87, 0.6); border-color: rgb(129 140 248 / 0.4); }
+    .option-row.selected { background-color: rgba(63, 66, 87, 0.8); border-color: rgb(129 140 248); color: white; }
+    .status-badge { font-size: 0.75rem; font-weight: 600; padding: 2px 10px; border-radius: 9999px; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <i class="fa-solid fa-crown crown"></i>
-      <h1>GTA V Modding Services</h1>
-      <p class="tagline">Premium recoveries, modded outfits, custom tools — delivered safely and instantly.</p>
+<body class="bg-slate-900 text-slate-200">
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-white/5 bg-slate-900/95 backdrop-blur-xl">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="px-8 h-20 flex items-center justify-between">
+        <!-- Brand -->
+        <div class="flex items-center gap-x-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 via-violet-500 to-indigo-600 flex items-center justify-center shadow-xl shadow-indigo-500/30">
+            <i data-lucide="shield" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <div class="font-extrabold text-3xl tracking-tighter">VANGUARD</div>
+            <div class="text-[10px] text-slate-500 -mt-1 font-medium tracking-[2px]">GTA V ENTERPRISE</div>
+          </div>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+          <a href="#" class="nav-link text-slate-300 hover:text-white">Services</a>
+          <a href="#" class="nav-link text-slate-300 hover:text-white">Analytics</a>
+          <a href="#" class="nav-link text-slate-300 hover:text-white">Status</a>
+          <a href="#" class="nav-link text-slate-300 hover:text-white">Support</a>
+        </div>
+
+        <!-- Right side -->
+        <div class="flex items-center gap-x-4">
+          <!-- Notifications -->
+          <div class="relative cursor-pointer" onclick="showNotifications()">
+            <div class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-white/5 transition-colors">
+              <i data-lucide="bell" class="w-5 h-5 text-slate-400"></i>
+            </div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-slate-900">3</div>
+          </div>
+
+          <!-- Profile -->
+          <div class="flex items-center gap-x-3 pl-4 border-l border-white/10">
+            <div class="text-right">
+              <div class="font-semibold text-sm">Alex Rivera</div>
+              <div class="text-xs text-emerald-400">Premium • Tier 3</div>
+            </div>
+            <div class="w-10 h-10 rounded-2xl overflow-hidden ring-2 ring-white/10">
+              <img src="https://i.pravatar.cc/40?img=68" class="w-full h-full object-cover" alt="Profile">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </nav>
 
-    <div class="steam-note">
-      <i class="fab fa-steam-symbol" style="font-size: 42px; display: block; margin-bottom: 12px;"></i>
-      <strong>Steam Only.</strong><br>
-      You privately send your login details. We log in, perform the service, and log out.<br>
-      Nothing is installed on your PC.
-    </div>
-
-    <!-- Products Grid -->
-    <div class="products-grid">
-
-      <!-- Outfits -->
-      <div class="product-card">
-        <h3>Modded Outfits Pack</h3>
-        <div class="price">$8</div>
-        <div class="stock"><i class="fas fa-circle"></i> 142 in stock</div>
-        <ul class="features">
-          <li>12 exclusive outfits</li>
-          <li>Neon + RGB effects</li>
-          <li>Instant wardrobe apply</li>
-          <li>Future-proof updates</li>
-        </ul>
-        <button class="btn btn-primary" onclick="addToCart('Modded Outfits Pack', '$8')">Add to Cart</button>
+  <!-- HERO -->
+  <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/5 border border-white/10 mb-6">
+        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+        <span class="text-sm font-medium text-emerald-400">All systems operational • 47,291 orders delivered</span>
       </div>
+      
+      <h1 class="text-7xl font-extrabold tracking-tighter leading-none mb-6">
+        Premium GTA V<br>Modding at scale.
+      </h1>
+      <p class="max-w-md mx-auto text-xl text-slate-400 mb-10">
+        Enterprise-grade recoveries, custom vehicles, and account services.<br>
+        Delivered safely in private sessions.
+      </p>
 
-      <!-- Modded Cars -->
-      <div class="product-card">
-        <h3>Modded Cars</h3>
-        <div class="price">$15 <span style="font-size:1.2rem;opacity:0.6;">starting</span></div>
-        <div class="stock"><i class="fas fa-circle"></i> 87 in stock</div>
-        <ul class="features">
-          <li>Fully tuned vehicles</li>
-          <li>Custom colors & liveries</li>
-          <li>Performance upgrades</li>
-          <li>Spawn tools included</li>
-        </ul>
-        <button class="btn btn-primary" onclick="addToCart('Modded Cars (Default)', '$15')">Add to Cart</button>
-        <button class="btn btn-options" onclick="openOptionsModal('cars')">Options</button>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' })" 
+                class="px-9 py-4 bg-white text-slate-900 font-semibold rounded-3xl hover:bg-slate-100 active:scale-[0.985] transition-all flex items-center justify-center gap-x-2 shadow-xl shadow-white/10">
+          <span>Browse Services</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+        
+        <button onclick="showStatusModal()" 
+                class="px-9 py-4 border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-3xl font-semibold flex items-center justify-center gap-x-2">
+          <i data-lucide="activity" class="w-4 h-4"></i>
+          <span>View Live Status</span>
+        </button>
       </div>
-
-      <!-- Rank Boost -->
-      <div class="product-card">
-        <h3>Rank & Stats Boost</h3>
-        <div class="price">$12 <span style="font-size:1.2rem;opacity:0.6;">starting</span></div>
-        <div class="stock"><i class="fas fa-circle"></i> Unlimited</div>
-        <ul class="features">
-          <li>Any rank from 1–5000</li>
-          <li>Max money & RP</li>
-          <li>Fast & safe delivery</li>
-          <li>24/7 support</li>
-        </ul>
-        <button class="btn btn-primary" onclick="addToCart('Rank Boost (Default)', '$12')">Add to Cart</button>
-        <button class="btn btn-options" onclick="openOptionsModal('rank')">Options</button>
+      
+      <div class="mt-8 flex justify-center">
+        <div class="glass border border-white/10 rounded-3xl px-6 py-3 text-sm flex items-center gap-x-4">
+          <div class="flex -space-x-2">
+            <div class="w-7 h-7 rounded-full border-2 border-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=12" alt=""></div>
+            <div class="w-7 h-7 rounded-full border-2 border-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=28" alt=""></div>
+            <div class="w-7 h-7 rounded-full border-2 border-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=47" alt=""></div>
+          </div>
+          <span class="text-slate-400 text-sm">Joined by <span class="font-semibold text-white">12,841</span> operators today</span>
+        </div>
       </div>
-
     </div>
   </div>
 
-  <!-- Options Modal -->
-  <div id="optionsModal" class="modal">
-    <div class="modal-content">
-      <h2 id="modalTitle"></h2>
-      <div id="optionsList"></div>
+  <!-- ANALYTICS HUB -->
+  <div class="max-w-screen-2xl mx-auto px-8 pb-16">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <div class="font-semibold text-2xl tracking-tight">Platform Analytics</div>
+        <div class="text-slate-400 text-sm">Last 24 hours • Real-time</div>
+      </div>
+      <button onclick="refreshMetrics()" 
+              class="flex items-center gap-x-2 text-sm px-4 py-2 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors">
+        <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+        <span>Refresh</span>
+      </button>
+    </div>
 
-      <div class="modal-buttons">
-        <button class="btn btn-primary" onclick="confirmSelection()">Add Selected to Cart</button>
-        <button class="btn btn-primary" onclick="closeModal()" style="background:#222; border:1px solid #444;">Cancel</button>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Metric 1 -->
+      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="flex items-center gap-x-3">
+              <div class="w-11 h-11 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                <i data-lucide="shopping-cart" class="w-5 h-5 text-emerald-400"></i>
+              </div>
+              <div>
+                <div class="text-4xl font-extrabold tracking-tighter">1,284</div>
+                <div class="text-sm text-slate-400">Orders Today</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="inline-flex items-center gap-x-1 text-emerald-400 text-sm font-semibold">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              <span>18%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metric 2 -->
+      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="flex items-center gap-x-3">
+              <div class="w-11 h-11 rounded-2xl bg-violet-500/10 flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-5 h-5 text-violet-400"></i>
+              </div>
+              <div>
+                <div class="text-4xl font-extrabold tracking-tighter">99.7</div>
+                <div class="text-sm text-slate-400">Success Rate</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="inline-flex items-center gap-x-1 text-emerald-400 text-sm font-semibold">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              <span>0.4%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metric 3 -->
+      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="flex items-center gap-x-3">
+              <div class="w-11 h-11 rounded-2xl bg-indigo-500/10 flex items-center justify-center">
+                <i data-lucide="clock" class="w-5 h-5 text-indigo-400"></i>
+              </div>
+              <div>
+                <div class="text-4xl font-extrabold tracking-tighter">14m</div>
+                <div class="text-sm text-slate-400">Avg Delivery</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="inline-flex items-center gap-x-1 text-emerald-400 text-sm font-semibold">
+              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+              <span>32%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metric 4 -->
+      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="flex items-center gap-x-3">
+              <div class="w-11 h-11 rounded-2xl bg-amber-500/10 flex items-center justify-center">
+                <i data-lucide="users" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <div>
+                <div class="text-4xl font-extrabold tracking-tighter">47.2k</div>
+                <div class="text-sm text-slate-400">Active Operators</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="inline-flex items-center gap-x-1 text-emerald-400 text-sm font-semibold">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              <span>9%</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- CORE FUNCTIONAL MATRIX -->
+  <div id="services-section" class="max-w-screen-2xl mx-auto px-8 pb-24">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-4 mb-8">
+      <div>
+        <div class="font-semibold text-3xl tracking-tight">Available Services</div>
+        <div class="text-slate-400">Enterprise modding solutions • Instant private session delivery</div>
+      </div>
+      
+      <!-- Filters -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative w-full sm:w-80">
+          <i data-lucide="search" class="w-4 h-4 absolute left-4 top-3.5 text-slate-500"></i>
+          <input id="search-input" 
+                 onkeyup="filterServices()"
+                 type="text" 
+                 placeholder="Search services..." 
+                 class="w-full bg-slate-800 border border-white/10 focus:border-indigo-500/50 transition-colors pl-11 py-3 rounded-3xl text-sm placeholder:text-slate-500 outline-none">
+        </div>
+        
+        <div class="flex items-center gap-1 bg-slate-800 border border-white/10 rounded-3xl p-1">
+          <button onclick="filterByType('all')" id="filter-all"
+                  class="px-5 py-2 text-sm font-medium rounded-3xl active-filter bg-white text-slate-900">All</button>
+          <button onclick="filterByType('outfits')" id="filter-outfits"
+                  class="px-5 py-2 text-sm font-medium rounded-3xl text-slate-300 hover:text-white">Outfits</button>
+          <button onclick="filterByType('vehicles')" id="filter-vehicles"
+                  class="px-5 py-2 text-sm font-medium rounded-3xl text-slate-300 hover:text-white">Vehicles</button>
+          <button onclick="filterByType('ranks')" id="filter-ranks"
+                  class="px-5 py-2 text-sm font-medium rounded-3xl text-slate-300 hover:text-white">Ranks</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- Steam Trust Banner -->
+  <div class="max-w-screen-2xl mx-auto px-8 pb-16">
+    <div class="glass border border-white/10 rounded-3xl px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-x-4">
+        <i data-lucide="lock" class="w-8 h-8 text-emerald-400"></i>
+        <div>
+          <div class="font-semibold">Steam Only • Private Sessions</div>
+          <div class="text-sm text-slate-400">Login details sent privately → Service executed → Immediate logout. Zero files installed on your machine.</div>
+        </div>
+      </div>
+      <div class="text-sm text-emerald-400 font-medium flex items-center gap-x-2">
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+        <span>47,291 successful deliveries this month</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIGURATION MODAL -->
+  <div id="config-modal" onclick="if (event.target.id === 'config-modal') closeModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-6">
+    <div onclick="event.stopImmediatePropagation()" class="bg-slate-800 border border-white/10 rounded-3xl w-full max-w-lg shadow-2xl">
+      <!-- Modal Header -->
+      <div class="px-8 pt-8 pb-6 border-b border-white/10 flex items-center justify-between">
+        <div>
+          <div id="modal-title" class="font-semibold text-2xl tracking-tight"></div>
+          <div id="modal-subtitle" class="text-sm text-slate-400"></div>
+        </div>
+        <button onclick="closeModal()" class="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-white/5">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Options Content -->
+      <div class="p-8" id="modal-content">
+        <!-- Dynamic content injected by JS -->
+      </div>
+
+      <div class="px-8 pb-8 flex gap-3">
+        <button onclick="confirmSelection()" 
+                class="flex-1 py-4 bg-white text-slate-900 font-semibold rounded-3xl hover:bg-slate-100 active:scale-[0.985] transition-all">
+          Add Selected to Cart
+        </button>
+        <button onclick="closeModal()" 
+                class="flex-1 py-4 border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-3xl font-semibold">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-[200] flex flex-col gap-3"></div>
 
   <script>
-    let currentProduct = '';
-    let selectedOption = '';
+    // Tailwind script
+    function initializeTailwind() {
+      document.documentElement.style.setProperty('--accent', '#6366f1');
+    }
 
-    function openOptionsModal(type) {
-      const modal = document.getElementById('optionsModal');
-      const title = document.getElementById('modalTitle');
-      const list = document.getElementById('optionsList');
-      list.innerHTML = '';
-      selectedOption = '';
+    // Services Data
+    const servicesData = [
+      {
+        id: 1,
+        name: "Modded Outfits Pack",
+        price: 8,
+        type: "outfits",
+        stock: 142,
+        status: "Operational",
+        features: ["12 exclusive outfits", "Neon + RGB effects", "Instant wardrobe apply", "Future-proof updates"],
+        hasOptions: false
+      },
+      {
+        id: 2,
+        name: "Modded Cars Bundle",
+        price: 15,
+        type: "vehicles",
+        stock: 87,
+        status: "Operational",
+        features: ["8 fully tuned supercars", "Custom liveries & colors", "Performance upgrades", "Spawn menu included"],
+        hasOptions: true
+      },
+      {
+        id: 3,
+        name: "Rank & Stats Boost",
+        price: 12,
+        type: "ranks",
+        stock: null,
+        status: "Operational",
+        features: ["Any rank 1–5000", "Max money & RP", "Fast & undetected", "24/7 delivery"],
+        hasOptions: true
+      },
+      {
+        id: 4,
+        name: "Full Account Recovery",
+        price: 25,
+        type: "ranks",
+        stock: 64,
+        status: "Operational",
+        features: ["Complete account restore", "All items & progress", "Bank & property recovery", "Priority execution"],
+        hasOptions: false
+      }
+    ];
 
-      if (type === 'rank') {
-        title.textContent = 'Choose Your Rank';
-        currentProduct = 'Rank Boost';
+    let currentFilter = 'all';
+    let currentSearch = '';
+    let cartCount = 0;
+    let selectedService = null;
+    let selectedOptionValue = '';
 
-        const ranks = [200, 400, 740, 1000, 3000, 4000, 8000];
-        ranks.forEach(rank => {
-          const div = createOptionElement(`Rank ${rank}`);
-          div.onclick = () => selectOption(div, `Rank ${rank}`);
-          list.appendChild(div);
-        });
+    function createServiceCard(service) {
+      const statusColor = service.status === "Operational" ? "emerald" : service.status === "Warning" ? "amber" : "red";
+      const stockText = service.stock === null ? "Unlimited" : `${service.stock} in stock`;
 
-        // Professional Custom Rank Input
-        const customDiv = document.createElement('div');
-        customDiv.className = 'option';
-        customDiv.innerHTML = `
-          <div style="margin-bottom: 8px; font-weight: 600;">Custom Rank</div>
-          <input type="number" id="customRankInput" class="custom-input" placeholder="Enter desired rank (e.g. 2500)" min="1" max="5000">
+      let html = `
+        <div class="service-card bg-slate-800 border border-white/5 rounded-3xl p-7 flex flex-col h-full">
+          <div class="flex items-start justify-between mb-5">
+            <div>
+              <div class="font-semibold text-2xl tracking-tight">${service.name}</div>
+              <div class="mt-1">
+                <span class="status-badge bg-${statusColor}-500/10 text-${statusColor}-400 border border-${statusColor}-500/20">${service.status}</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-4xl font-extrabold tracking-tighter">$${service.price}</div>
+              <div class="text-xs text-slate-500">USD</div>
+            </div>
+          </div>
+
+          <div class="flex-1">
+            <ul class="space-y-2.5 mb-8">
+      `;
+
+      service.features.forEach(feature => {
+        html += `
+          <li class="flex items-start gap-x-3 text-sm text-slate-300">
+            <i data-lucide="check" class="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-400"></i>
+            <span>${feature}</span>
+          </li>
         `;
-        customDiv.onclick = () => {
-          const input = document.getElementById('customRankInput');
-          input.focus();
-          selectOption(customDiv, 'Custom Rank');
-        };
-        list.appendChild(customDiv);
+      });
 
-      } else if (type === 'cars') {
-        title.textContent = 'Choose Modded Cars';
-        currentProduct = 'Modded Cars';
+      html += `
+            </ul>
+          </div>
 
-        const carOptions = ['1 modded car', '3 modded cars', '5+ modded cars'];
-        carOptions.forEach(opt => {
-          const div = createOptionElement(opt);
-          div.onclick = () => selectOption(div, opt);
-          list.appendChild(div);
-        });
+          <div class="pt-4 border-t border-white/10">
+            <div class="flex items-center justify-between text-sm mb-5">
+              <div class="text-emerald-400 font-medium flex items-center gap-x-1.5">
+                <i data-lucide="package" class="w-4 h-4"></i>
+                <span>${stockText}</span>
+              </div>
+            </div>
 
-        // Custom amount
-        const customDiv = document.createElement('div');
-        customDiv.className = 'option';
-        customDiv.innerHTML = `
-          <div style="margin-bottom: 8px; font-weight: 600;">Custom Amount</div>
-          <input type="number" id="customCarsInput" class="custom-input" placeholder="How many cars?" min="1">
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="addToCart(${service.id})" 
+                      class="py-3.5 text-sm font-semibold bg-white text-slate-900 hover:bg-slate-100 active:scale-[0.985] transition-all rounded-2xl flex items-center justify-center gap-x-2">
+                <span>Add to Cart</span>
+              </button>
+      `;
+
+      if (service.hasOptions) {
+        html += `
+              <button onclick="openConfigModal(${service.id})" 
+                      class="py-3.5 text-sm font-semibold border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-2xl flex items-center justify-center gap-x-2">
+                <i data-lucide="settings-2" class="w-4 h-4"></i>
+                <span>Configure</span>
+              </button>
         `;
-        customDiv.onclick = () => {
-          const input = document.getElementById('customCarsInput');
-          input.focus();
-          selectOption(customDiv, 'Custom Amount');
-        };
-        list.appendChild(customDiv);
+      } else {
+        html += `
+              <button onclick="addToCart(${service.id})" 
+                      class="py-3.5 text-sm font-semibold border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-2xl">
+                Quick Add
+              </button>
+        `;
       }
 
-      modal.style.display = 'flex';
+      html += `</div></div></div>`;
+      return html;
     }
 
-    function createOptionElement(text) {
-      const div = document.createElement('div');
-      div.className = 'option';
-      div.textContent = text;
-      return div;
-    }
-
-    function selectOption(element, value) {
-      document.querySelectorAll('#optionsList .option').forEach(el => el.classList.remove('selected'));
-      element.classList.add('selected');
-      selectedOption = value;
-    }
-
-    function confirmSelection() {
-      if (!selectedOption) {
-        alert('Please select an option');
+    function renderServices(filteredServices) {
+      const grid = document.getElementById('services-grid');
+      grid.innerHTML = '';
+      
+      if (filteredServices.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center">
+            <i data-lucide="search-x" class="w-12 h-12 mx-auto text-slate-600 mb-4"></i>
+            <p class="text-slate-400">No services match your filters.</p>
+          </div>
+        `;
+        lucide.createIcons();
         return;
       }
 
-      // Handle custom inputs
-      if (selectedOption === 'Custom Rank') {
-        const input = document.getElementById('customRankInput');
-        const rank = input.value.trim();
-        if (!rank) {
-          alert('Please enter a custom rank');
-          return;
-        }
-        selectedOption = `Custom Rank ${rank}`;
+      filteredServices.forEach(service => {
+        grid.innerHTML += createServiceCard(service);
+      });
+      
+      lucide.createIcons();
+    }
+
+    function filterServices() {
+      currentSearch = document.getElementById('search-input').value.toLowerCase().trim();
+      
+      let filtered = servicesData;
+      
+      if (currentFilter !== 'all') {
+        filtered = filtered.filter(s => s.type === currentFilter);
+      }
+      
+      if (currentSearch) {
+        filtered = filtered.filter(s => 
+          s.name.toLowerCase().includes(currentSearch) || 
+          s.features.some(f => f.toLowerCase().includes(currentSearch))
+        );
+      }
+      
+      renderServices(filtered);
+    }
+
+    function filterByType(type) {
+      currentFilter = type;
+      
+      // Update active button styles
+      document.querySelectorAll('[id^="filter-"]').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-slate-900');
+        btn.classList.add('text-slate-300');
+      });
+      
+      const activeBtn = document.getElementById(`filter-${type}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-white', 'text-slate-900');
+        activeBtn.classList.remove('text-slate-300');
+      } else {
+        document.getElementById('filter-all').classList.add('bg-white', 'text-slate-900');
+        document.getElementById('filter-all').classList.remove('text-slate-300');
+      }
+      
+      filterServices();
+    }
+
+    function addToCart(serviceId) {
+      const service = servicesData.find(s => s.id === serviceId);
+      if (!service) return;
+
+      cartCount++;
+      updateCartCount();
+      
+      showToast(`Added ${service.name} to cart`, 'success');
+    }
+
+    function updateCartCount() {
+      // Could be extended to show real cart, currently just toast feedback
+    }
+
+    function openConfigModal(serviceId) {
+      const service = servicesData.find(s => s.id === serviceId);
+      if (!service) return;
+
+      selectedService = service;
+      selectedOptionValue = '';
+
+      const modal = document.getElementById('config-modal');
+      const titleEl = document.getElementById('modal-title');
+      const subtitleEl = document.getElementById('modal-subtitle');
+      const contentEl = document.getElementById('modal-content');
+
+      titleEl.textContent = service.name;
+      subtitleEl.textContent = `Starting at $${service.price} • Configure your package`;
+
+      let optionsHTML = '';
+
+      if (service.type === 'ranks') {
+        optionsHTML = `
+          <div class="space-y-2">
+            <div class="text-xs uppercase tracking-widest text-slate-400 font-medium mb-3 px-1">SELECT RANK</div>
+        `;
+        
+        const ranks = [200, 400, 740, 1000, 3000, 4000, 8000];
+        ranks.forEach(rank => {
+          optionsHTML += `
+            <div onclick="selectOption(this, 'Rank ${rank}', ${serviceId})" 
+                 class="option-row flex items-center justify-between border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
+              <div class="font-medium">Rank ${rank}</div>
+              <div class="text-xs px-3 py-1 rounded-xl bg-white/5">$${service.price}</div>
+            </div>
+          `;
+        });
+
+        // Custom Rank
+        optionsHTML += `
+            <div onclick="selectCustomRank(this, ${serviceId})" 
+                 class="option-row flex flex-col border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
+              <div class="flex items-center justify-between mb-2">
+                <div class="font-medium">Custom Rank</div>
+              </div>
+              <input type="number" id="custom-rank-input" placeholder="Enter rank (1–5000)" 
+                     class="bg-slate-900 border border-white/10 focus:border-indigo-500 text-sm px-4 py-3 rounded-2xl w-full outline-none" 
+                     min="1" max="5000" oninput="event.stopImmediatePropagation()">
+            </div>
+          </div>
+        `;
+      } 
+      else if (service.type === 'vehicles') {
+        optionsHTML = `
+          <div class="space-y-2">
+            <div class="text-xs uppercase tracking-widest text-slate-400 font-medium mb-3 px-1">SELECT PACKAGE</div>
+        `;
+        
+        const carOptions = [
+          { label: "1 modded car", price: service.price },
+          { label: "3 modded cars", price: service.price + 12 },
+          { label: "5+ modded cars", price: service.price + 28 }
+        ];
+        
+        carOptions.forEach((opt, index) => {
+          optionsHTML += `
+            <div onclick="selectOption(this, '${opt.label}', ${serviceId})" 
+                 class="option-row flex items-center justify-between border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
+              <div class="font-medium">${opt.label}</div>
+              <div class="text-xs px-3 py-1 rounded-xl bg-white/5">$${opt.price}</div>
+            </div>
+          `;
+        });
+
+        // Custom Amount
+        optionsHTML += `
+            <div onclick="selectCustomCars(this, ${serviceId})" 
+                 class="option-row flex flex-col border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
+              <div class="flex items-center justify-between mb-2">
+                <div class="font-medium">Custom Amount</div>
+              </div>
+              <input type="number" id="custom-cars-input" placeholder="Enter number of cars" 
+                     class="bg-slate-900 border border-white/10 focus:border-indigo-500 text-sm px-4 py-3 rounded-2xl w-full outline-none" 
+                     min="1" oninput="event.stopImmediatePropagation()">
+            </div>
+          </div>
+        `;
       }
 
-      if (selectedOption === 'Custom Amount') {
-        const input = document.getElementById('customCarsInput');
-        const amount = input.value.trim();
-        if (!amount) {
-          alert('Please enter how many cars');
-          return;
-        }
-        selectedOption = `${amount} modded cars (Custom)`;
+      contentEl.innerHTML = optionsHTML;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      lucide.createIcons();
+    }
+
+    function selectOption(element, value, serviceId) {
+      // Deselect all
+      document.querySelectorAll('#modal-content .option-row').forEach(el => {
+        el.classList.remove('selected', 'border-indigo-500');
+        el.classList.add('border-white/10');
+      });
+      
+      element.classList.add('selected', 'border-indigo-500');
+      element.classList.remove('border-white/10');
+      
+      selectedOptionValue = value;
+    }
+
+    function selectCustomRank(element, serviceId) {
+      document.querySelectorAll('#modal-content .option-row').forEach(el => {
+        el.classList.remove('selected', 'border-indigo-500');
+        el.classList.add('border-white/10');
+      });
+      
+      element.classList.add('selected', 'border-indigo-500');
+      element.classList.remove('border-white/10');
+      
+      const input = document.getElementById('custom-rank-input');
+      if (input) {
+        input.focus();
+        input.onchange = () => {
+          if (input.value) {
+            selectedOptionValue = `Custom Rank ${input.value}`;
+          }
+        };
+      }
+    }
+
+    function selectCustomCars(element, serviceId) {
+      document.querySelectorAll('#modal-content .option-row').forEach(el => {
+        el.classList.remove('selected', 'border-indigo-500');
+        el.classList.add('border-white/10');
+      });
+      
+      element.classList.add('selected', 'border-indigo-500');
+      element.classList.remove('border-white/10');
+      
+      const input = document.getElementById('custom-cars-input');
+      if (input) {
+        input.focus();
+        input.onchange = () => {
+          if (input.value) {
+            selectedOptionValue = `${input.value} modded cars (Custom)`;
+          }
+        };
+      }
+    }
+
+    function confirmSelection() {
+      if (!selectedService || !selectedOptionValue) {
+        showToast("Please select an option", "error");
+        return;
       }
 
+      const finalName = `${selectedService.name} — ${selectedOptionValue}`;
+      cartCount++;
+      updateCartCount();
+      
+      showToast(`Added to cart: ${finalName}`, 'success');
       closeModal();
-      addToCart(`${currentProduct} - ${selectedOption}`, 'See price in cart');
     }
 
     function closeModal() {
-      document.getElementById('optionsModal').style.display = 'none';
+      const modal = document.getElementById('config-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+      selectedService = null;
+      selectedOptionValue = '';
     }
 
-    function addToCart(product, price) {
-      alert(`✅ Added to cart:\n\n${product}\nPrice: ${price}`);
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      
+      const toast = document.createElement('div');
+      toast.className = `px-6 py-4 rounded-3xl flex items-center gap-x-3 shadow-2xl text-sm font-medium border ${type === 'success' ? 'bg-emerald-950 border-emerald-900 text-emerald-300' : 'bg-red-950 border-red-900 text-red-300'}`;
+      
+      toast.innerHTML = `
+        <div class="flex items-center gap-x-3">
+          <i data-lucide="${type === 'success' ? 'check-circle' : 'alert-circle'}" class="w-5 h-5"></i>
+          <span>${message}</span>
+        </div>
+      `;
+      
+      container.appendChild(toast);
+      lucide.createIcons();
+      
+      setTimeout(() => {
+        toast.style.transition = 'all 0.3s ease';
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 2800);
     }
 
-    // Close modal on outside click
-    document.getElementById('optionsModal').addEventListener('click', function(e) {
-      if (e.target.id === 'optionsModal') closeModal();
-    });
+    function showNotifications() {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `px-6 py-4 rounded-3xl flex items-center gap-x-3 shadow-2xl text-sm font-medium border bg-slate-800 border-white/10`;
+      toast.innerHTML = `
+        <div>
+          <div class="font-semibold">3 new updates</div>
+          <div class="text-xs text-slate-400 mt-0.5">Rank boosts delivered • 2 vehicles ready</div>
+        </div>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3200);
+    }
+
+    function showStatusModal() {
+      const modalHTML = `
+        <div onclick="this.remove()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[110] flex items-center justify-center p-6">
+          <div onclick="event.stopImmediatePropagation()" class="bg-slate-800 border border-white/10 rounded-3xl w-full max-w-md p-8">
+            <div class="flex justify-between items-center mb-6">
+              <div class="font-semibold text-xl">System Status</div>
+              <button onclick="event.target.closest('.fixed').remove()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            
+            <div class="space-y-4 text-sm">
+              <div class="flex justify-between items-center py-3 border-b border-white/10">
+                <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Order Processing</span></div>
+                <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/10">
+                <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Private Sessions</span></div>
+                <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/10">
+                <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Account Services</span></div>
+                <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Support Queue</span></div>
+                <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-white/10 text-xs text-center text-slate-500">
+              All services running at peak performance
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', modalHTML);
+      lucide.createIcons();
+    }
+
+    function refreshMetrics() {
+      const metrics = document.querySelectorAll('.metric-card .text-4xl');
+      metrics.forEach(el => {
+        el.style.transition = 'none';
+        el.style.opacity = '0.3';
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.4s ease';
+          el.style.opacity = '1';
+        }, 80);
+      });
+      
+      setTimeout(() => {
+        showToast("Metrics refreshed", "success");
+      }, 650);
+    }
+
+    function initializeFilters() {
+      // Set initial active filter
+      const allBtn = document.getElementById('filter-all');
+      if (allBtn) allBtn.classList.add('bg-white', 'text-slate-900');
+      
+      // Initial render
+      renderServices(servicesData);
+      
+      // Search listener
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', filterServices);
+      }
+    }
+
+    function initializeEverything() {
+      initializeTailwind();
+      
+      // Initial services
+      initializeFilters();
+      
+      // Create icons
+      lucide.createIcons();
+      
+      // Keyboard support for modal close
+      document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+          const modal = document.getElementById('config-modal');
+          if (!modal.classList.contains('hidden')) {
+            closeModal();
+          }
+        }
+      });
+      
+      // Demo: show one toast after load (optional)
+      setTimeout(() => {
+        // showToast("Welcome back, Alex. Your last order was completed successfully.", "success");
+      }, 4200);
+      
+      console.log('%c[Vanguard] Enterprise frontend initialized successfully.', 'color:#64748b');
+    }
+
+    // Boot application
+    window.onload = initializeEverything;
   </script>
 </body>
 </html>
