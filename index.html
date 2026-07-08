@@ -3,150 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elite GTA V Services</title>
+  <title>Elite GTA V — Premium Services</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    :root { --accent: 34 211 238; }
+    :root {
+      --accent: 34 211 238;
+    }
     .accent { color: rgb(var(--accent)); }
     .accent-bg { background-color: rgb(var(--accent)); }
-    .gradient-text { background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .gradient-bg { background: linear-gradient(180deg, #0a0a0a, #1f2937); }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); }
+
+    .hero-bg {
+      background: radial-gradient(circle at 30% 20%, rgba(var(--accent), 0.15) 0%, transparent 50%),
+                  #0a0b10;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 40px rgb(var(--accent) / 0.5);
+    }
+
+    .terminal-line {
+      animation: typing 1.5s steps(40, end) forwards;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
   </style>
 </head>
-<body class="bg-black text-gray-200">
+<body class="bg-[#0a0b10] text-white overflow-x-hidden">
 
-  <!-- Theme Controls -->
-  <div class="fixed top-4 right-4 z-50 flex gap-3">
-    <select id="accentPicker" onchange="changeAccent(this.value)" class="bg-zinc-900 border border-gray-700 rounded-xl px-4 py-2 text-sm">
-      <option value="34,211,238">Cyan</option>
-      <option value="168,85,247">Purple</option>
-      <option value="34,197,151">Emerald</option>
-      <option value="249,115,22">Orange</option>
-    </select>
-    <button onclick="toggleGradient()" class="bg-zinc-900 border border-gray-700 hover:border-white px-4 py-2 rounded-xl text-sm">Toggle Gradient</button>
+  <!-- Floating Theme Controller -->
+  <div class="fixed bottom-8 right-8 glass rounded-3xl p-5 z-50 shadow-2xl">
+    <div class="flex gap-3">
+      <button onclick="setAccent(34,211,238)" class="w-9 h-9 rounded-2xl bg-cyan-400 hover:scale-110 transition"></button>
+      <button onclick="setAccent(168,85,247)" class="w-9 h-9 rounded-2xl bg-purple-500 hover:scale-110 transition"></button>
+      <button onclick="setAccent(34,197,151)" class="w-9 h-9 rounded-2xl bg-emerald-400 hover:scale-110 transition"></button>
+      <button onclick="setAccent(249,115,22)" class="w-9 h-9 rounded-2xl bg-orange-500 hover:scale-110 transition"></button>
+      <button onclick="setAccent(236,72,153)" class="w-9 h-9 rounded-2xl bg-pink-500 hover:scale-110 transition"></button>
+    </div>
+    <p class="text-[10px] text-center mt-3 text-gray-400 tracking-widest">ACCENT</p>
   </div>
 
-  <!-- Sticky Navbar -->
-  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-md border-b border-gray-800 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <i class="fas fa-crown text-3xl accent"></i>
-        <span class="text-2xl font-bold tracking-tighter">Elite GTA V</span>
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-black/70 backdrop-blur-xl border-b border-white/10 z-50">
+    <div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <i class="fa-solid fa-crown text-3xl accent"></i>
+        <span class="font-bold text-2xl tracking-tighter">Elite GTA V</span>
       </div>
-      <div class="flex gap-8 text-sm">
-        <a href="#services" class="hover:text-white transition">Packages</a>
-        <a href="#addons" class="hover:text-white transition">Add-ons</a>
-        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      <div class="flex items-center gap-10 text-sm font-medium">
+        <a href="#services" class="hover:text-white/80 transition">Services</a>
+        <a href="#addons" class="hover:text-white/80 transition">Add-ons</a>
+        <a href="#status" class="hover:text-white/80 transition">Live Status</a>
       </div>
+      <a href="#services" class="accent-bg text-black px-8 py-3 rounded-2xl font-semibold hover:brightness-110 transition">Get Access</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section id="hero" class="min-h-screen flex items-center pt-20 gradient-bg">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-6xl md:text-7xl font-black gradient-text mb-6">Premium GTA V Services</h1>
-      <p class="text-xl md:text-2xl text-gray-400">Recoveries • Modded Outfits • Custom Tools • Instant Delivery</p>
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen pt-24 grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-8">
+    <!-- Left Typography -->
+    <div class="space-y-8">
+      <h1 class="text-7xl md:text-8xl font-black leading-none tracking-tighter glow-text">
+        Premium GTA V<br>Services
+      </h1>
+      <p class="text-xl text-gray-400 max-w-lg">
+        Instant recoveries, elite modded outfits, custom tools, and undetectable enhancements. 
+        Built for serious players.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#services" class="accent-bg text-black px-10 py-5 rounded-3xl font-semibold text-lg hover:scale-105 transition">
+          Explore Packages
+        </a>
+        <a href="#status" class="border border-white/30 hover:border-white/60 px-10 py-5 rounded-3xl font-semibold text-lg transition">
+          Live Status →
+        </a>
+      </div>
     </div>
-  </section>
 
-  <!-- Main Packages -->
-  <section id="services" class="py-24 bg-black">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Main Packages</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-zinc-950 border border-gray-700 rounded-3xl p-8">
-          <h3 class="text-2xl font-bold">Starter</h3>
-          <p class="text-5xl font-bold my-4">$15</p>
-          <button onclick="showModal(0)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">See Details</button>
+    <!-- Right Dashboard Preview -->
+    <div class="glass rounded-3xl p-8 shadow-2xl border border-white/10">
+      <div class="flex justify-between items-center mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+          <span class="text-sm font-medium">LIVE SERVER • ONLINE</span>
         </div>
-        <div class="bg-zinc-950 border-2 border-white rounded-3xl p-8 relative scale-105">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black text-xs font-bold px-6 py-1 rounded-full">RECOMMENDED</div>
-          <h3 class="text-2xl font-bold">Premium</h3>
-          <p class="text-5xl font-bold my-4">$50</p>
-          <button onclick="showModal(1)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">See Details</button>
+        <span class="text-xs text-gray-400">v2.4.1 • 124 users connected</span>
+      </div>
+
+      <div class="bg-black/60 rounded-2xl p-6 space-y-6 text-sm font-mono">
+        <div class="terminal-line">→ Recovery session started for user_8742</div>
+        <div class="terminal-line">→ $2.4M GTA$ delivered • 100% undetected</div>
+        <div class="terminal-line">→ Custom outfit applied • Neon Phantom</div>
+        <div class="terminal-line text-emerald-400">✓ All tools active • God Mode disabled (safety)</div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mt-8 text-center">
+        <div class="bg-black/40 rounded-2xl py-4">
+          <div class="text-emerald-400 text-2xl font-bold">47</div>
+          <div class="text-xs text-gray-400">Deliveries today</div>
         </div>
-        <div class="bg-zinc-950 border border-gray-700 rounded-3xl p-8">
-          <h3 class="text-2xl font-bold">Elite</h3>
-          <p class="text-5xl font-bold my-4">$90</p>
-          <button onclick="showModal(2)" class="w-full accent-bg text-black py-4 rounded-2xl font-semibold">See Details</button>
+        <div class="bg-black/40 rounded-2xl py-4">
+          <div class="text-amber-400 text-2xl font-bold">12</div>
+          <div class="text-xs text-gray-400">Active sessions</div>
+        </div>
+        <div class="bg-black/40 rounded-2xl py-4">
+          <div class="accent text-2xl font-bold">99.8%</div>
+          <div class="text-xs text-gray-400">Success rate</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Add-ons -->
-  <section id="addons" class="py-24 bg-zinc-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Quick Add-ons</h2>
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
-          <p class="text-lg font-semibold">3 Modded Outfits</p>
-          <p class="text-4xl font-bold accent my-3">$5</p>
-          <button class="text-sm accent underline">Add to package</button>
-        </div>
-        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
-          <p class="text-lg font-semibold">5 Custom Vehicles</p>
-          <p class="text-4xl font-bold accent my-3">$8</p>
-          <button class="text-sm accent underline">Add to package</button>
-        </div>
-        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
-          <p class="text-lg font-semibold">Rank Boost (Level 100)</p>
-          <p class="text-4xl font-bold accent my-3">$12</p>
-          <button class="text-sm accent underline">Add to package</button>
-        </div>
-        <div class="bg-zinc-900 p-6 rounded-3xl text-center">
-          <p class="text-lg font-semibold">Money Drop (1M GTA$)</p>
-          <p class="text-4xl font-bold accent my-3">$10</p>
-          <button class="text-sm accent underline">Add to package</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modal -->
-  <div id="modal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-[60] flex items-center justify-center">
-    <div class="bg-zinc-900 rounded-3xl max-w-md w-full mx-4 p-8">
-      <div id="modalContent"></div>
-      <button onclick="closeModal()" class="mt-8 w-full py-4 border border-gray-600 rounded-2xl hover:bg-zinc-800">Close</button>
-    </div>
-  </div>
+  <!-- Services Section + Add-ons would go here (you can expand later) -->
 
   <script>
-    function changeAccent(val) {
-      document.documentElement.style.setProperty('--accent', val);
-    }
-
-    function toggleGradient() {
-      const hero = document.getElementById('hero');
-      hero.classList.toggle('gradient-bg');
-      hero.classList.toggle('bg-black');
-    }
-
-    const packages = [
-      {title:"Starter", price:"$15", desc:"Basic recoveries, simple modded outfits, and entry tools."},
-      {title:"Premium", price:"$50", desc:"Full recoveries, money drops, advanced outfits, vehicle spawns, and rank boosts."},
-      {title:"Elite", price:"$90", desc:"Everything in Premium + exclusive mods, max stats, and full custom requests."}
-    ];
-
-    function showModal(i) {
-      const p = packages[i];
-      document.getElementById('modalContent').innerHTML = `
-        <h2 class="text-3xl font-bold">${p.title}</h2>
-        <p class="text-5xl font-bold accent my-4">${p.price}</p>
-        <p class="text-gray-400">${p.desc}</p>
-        <ul class="mt-6 space-y-2 text-sm text-gray-400">
-          <li>✓ Instant delivery</li>
-          <li>✓ Modded outfits & unlocks</li>
-          <li>✓ Vehicle spawning tools</li>
-          <li>✓ Dedicated support</li>
-        </ul>
-      `;
-      document.getElementById('modal').classList.remove('hidden');
-    }
-
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
+    function setAccent(r, g, b) {
+      document.documentElement.style.setProperty('--accent', `${r} ${g} ${b}`);
     }
   </script>
 </body>
