@@ -1,51 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GTA V Modding Services</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    .gradient-text {
-      background: linear-gradient(90deg, #f1f5f9, #cbd5e1);
+    body {
+      background: #000000;
+      color: white;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .crown {
+      font-size: 100px;
+      background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 30px rgba(241, 245, 249, 0.5));
+      margin-bottom: 40px;
     }
-    .crown-glow {
-      filter: drop-shadow(0 0 30px rgba(241, 245, 249, 0.6));
+
+    h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      letter-spacing: -3px;
+      background: linear-gradient(90deg, #f8fafc, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 24px;
+      line-height: 1.05;
+    }
+
+    p {
+      font-size: 1.35rem;
+      color: #d1d5db;
+      max-width: 580px;
+      margin: 0 auto 60px;
+      line-height: 1.45;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 16px 42px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.5);
+      transform: scale(1.05);
     }
   </style>
 </head>
-<body class="bg-black text-white min-h-screen flex items-center">
-
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <!-- Crown -->
-    <div class="flex justify-center mb-10">
-      <i class="fa-solid fa-crown text-[120px] text-white crown-glow"></i>
+<body>
+  <div>
+    <div>
+      <i class="fa-solid fa-crown crown"></i>
     </div>
 
-    <!-- Title -->
-    <h1 class="text-7xl md:text-8xl font-black tracking-[-2px] gradient-text leading-none mb-8">
-      GTA V Modding Services
-    </h1>
+    <h1>GTA V Modding Services</h1>
 
-    <!-- Subtitle -->
-    <p class="text-2xl text-gray-300 max-w-2xl mx-auto mb-12">
-      Premium recoveries, modded outfits, custom tools —<br>
-      delivered safely and instantly.
-    </p>
+    <p>Premium recoveries, modded outfits, custom tools — delivered safely and instantly on Steam.</p>
 
-    <!-- Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-white text-black px-10 py-5 rounded-3xl text-lg font-semibold hover:scale-105 transition">
-        Explore Services
-      </button>
-      <button class="border border-white/40 hover:border-white px-10 py-5 rounded-3xl text-lg font-semibold transition">
-        View Products
-      </button>
+    <div class="buttons">
+      <button class="btn-primary">Explore Services</button>
+      <button class="btn-secondary">View Products</button>
     </div>
   </div>
-
 </body>
 </html>
