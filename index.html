@@ -10,22 +10,22 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap');
     body { font-family: 'Inter', system_ui, sans-serif; }
-    .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); }
+    .glass { background: rgba(9, 9, 11, 0.75); backdrop-filter: blur(20px); }
     .metric-card { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
     .metric-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
     .service-card { transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5); }
     .nav-link { transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
     .nav-link:hover { color: rgb(129 140 248); }
     .option-row { transition: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1); }
-    .option-row:hover { background-color: rgba(63, 66, 87, 0.6); border-color: rgb(129 140 248 / 0.4); }
-    .option-row.selected { background-color: rgba(63, 66, 87, 0.8); border-color: rgb(129 140 248); color: white; }
+    .option-row:hover { background-color: rgba(63, 66, 87, 0.5); border-color: rgb(129 140 248 / 0.3); }
+    .option-row.selected { background-color: rgba(63, 66, 87, 0.7); border-color: rgb(129 140 248); color: white; }
     .status-badge { font-size: 0.75rem; font-weight: 600; padding: 2px 10px; border-radius: 9999px; }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-200">
+<body class="bg-black text-zinc-50">
   <!-- NAV -->
-  <nav class="sticky top-0 z-50 border-b border-white/5 bg-slate-900/95 backdrop-blur-xl">
+  <nav class="sticky top-0 z-50 border-b border-white/[0.03] bg-black/95 backdrop-blur-xl">
     <div class="max-w-screen-2xl mx-auto">
       <div class="px-8 h-20 flex items-center justify-between">
         <!-- Brand -->
@@ -35,16 +35,16 @@
           </div>
           <div>
             <div class="font-extrabold text-3xl tracking-tighter">VANGUARD</div>
-            <div class="text-[10px] text-slate-500 -mt-1 font-medium tracking-[2px]">GTA V ENTERPRISE</div>
+            <div class="text-[10px] text-zinc-500 -mt-1 font-medium tracking-[2px]">GTA V ENTERPRISE</div>
           </div>
         </div>
 
         <!-- Nav Links -->
         <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
-          <a href="#" class="nav-link text-slate-300 hover:text-white">Services</a>
-          <a href="#" class="nav-link text-slate-300 hover:text-white">Analytics</a>
-          <a href="#" class="nav-link text-slate-300 hover:text-white">Status</a>
-          <a href="#" class="nav-link text-slate-300 hover:text-white">Support</a>
+          <a href="#" class="nav-link text-zinc-400 hover:text-zinc-50">Services</a>
+          <a href="#" class="nav-link text-zinc-400 hover:text-zinc-50">Analytics</a>
+          <a href="#" class="nav-link text-zinc-400 hover:text-zinc-50">Status</a>
+          <a href="#" class="nav-link text-zinc-400 hover:text-zinc-50">Support</a>
         </div>
 
         <!-- Right side -->
@@ -52,18 +52,18 @@
           <!-- Notifications -->
           <div class="relative cursor-pointer" onclick="showNotifications()">
             <div class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-white/5 transition-colors">
-              <i data-lucide="bell" class="w-5 h-5 text-slate-400"></i>
+              <i data-lucide="bell" class="w-5 h-5 text-zinc-400"></i>
             </div>
-            <div class="absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-slate-900">3</div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-black">3</div>
           </div>
 
           <!-- Profile -->
-          <div class="flex items-center gap-x-3 pl-4 border-l border-white/10">
+          <div class="flex items-center gap-x-3 pl-4 border-l border-white/[0.03]">
             <div class="text-right">
-              <div class="font-semibold text-sm">Alex Rivera</div>
+              <div class="font-semibold text-sm text-zinc-50">Alex Rivera</div>
               <div class="text-xs text-emerald-400">Premium • Tier 3</div>
             </div>
-            <div class="w-10 h-10 rounded-2xl overflow-hidden ring-2 ring-white/10">
+            <div class="w-10 h-10 rounded-2xl overflow-hidden ring-2 ring-white/[0.06]">
               <img src="https://i.pravatar.cc/40?img=68" class="w-full h-full object-cover" alt="Profile">
             </div>
           </div>
@@ -75,41 +75,41 @@
   <!-- HERO -->
   <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-20">
     <div class="max-w-4xl mx-auto text-center">
-      <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/5 border border-white/10 mb-6">
+      <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/5 border border-white/[0.03] mb-6">
         <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
         <span class="text-sm font-medium text-emerald-400">All systems operational • 47,291 orders delivered</span>
       </div>
       
-      <h1 class="text-7xl font-extrabold tracking-tighter leading-none mb-6">
+      <h1 class="text-7xl font-extrabold tracking-tighter leading-none mb-6 text-zinc-50">
         Premium GTA V<br>Modding at scale.
       </h1>
-      <p class="max-w-md mx-auto text-xl text-slate-400 mb-10">
+      <p class="max-w-md mx-auto text-xl text-zinc-400 mb-10">
         Enterprise-grade recoveries, custom vehicles, and account services.<br>
         Delivered safely in private sessions.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <button onclick="document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' })" 
-                class="px-9 py-4 bg-white text-slate-900 font-semibold rounded-3xl hover:bg-slate-100 active:scale-[0.985] transition-all flex items-center justify-center gap-x-2 shadow-xl shadow-white/10">
+                class="px-9 py-4 bg-white text-black font-semibold rounded-3xl hover:bg-zinc-100 active:scale-[0.985] transition-all flex items-center justify-center gap-x-2 shadow-xl shadow-white/10">
           <span>Browse Services</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
         
         <button onclick="showStatusModal()" 
-                class="px-9 py-4 border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-3xl font-semibold flex items-center justify-center gap-x-2">
+                class="px-9 py-4 border border-white/[0.08] hover:bg-white/5 active:scale-[0.985] transition-all rounded-3xl font-semibold flex items-center justify-center gap-x-2 text-zinc-50">
           <i data-lucide="activity" class="w-4 h-4"></i>
           <span>View Live Status</span>
         </button>
       </div>
       
       <div class="mt-8 flex justify-center">
-        <div class="glass border border-white/10 rounded-3xl px-6 py-3 text-sm flex items-center gap-x-4">
+        <div class="glass border border-white/[0.03] rounded-3xl px-6 py-3 text-sm flex items-center gap-x-4">
           <div class="flex -space-x-2">
-            <div class="w-7 h-7 rounded-full border-2 border-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=12" alt=""></div>
-            <div class="w-7 h-7 rounded-full border-2 border-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=28" alt=""></div>
-            <div class="w-7 h-7 rounded-full border-2 border-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=47" alt=""></div>
+            <div class="w-7 h-7 rounded-full border-2 border-black overflow-hidden"><img src="https://i.pravatar.cc/28?img=12" alt=""></div>
+            <div class="w-7 h-7 rounded-full border-2 border-black overflow-hidden"><img src="https://i.pravatar.cc/28?img=28" alt=""></div>
+            <div class="w-7 h-7 rounded-full border-2 border-black overflow-hidden"><img src="https://i.pravatar.cc/28?img=47" alt=""></div>
           </div>
-          <span class="text-slate-400 text-sm">Joined by <span class="font-semibold text-white">12,841</span> operators today</span>
+          <span class="text-zinc-400 text-sm">Joined by <span class="font-semibold text-zinc-50">12,841</span> operators today</span>
         </div>
       </div>
     </div>
@@ -119,11 +119,11 @@
   <div class="max-w-screen-2xl mx-auto px-8 pb-16">
     <div class="flex items-end justify-between mb-6">
       <div>
-        <div class="font-semibold text-2xl tracking-tight">Platform Analytics</div>
-        <div class="text-slate-400 text-sm">Last 24 hours • Real-time</div>
+        <div class="font-semibold text-2xl tracking-tight text-zinc-50">Platform Analytics</div>
+        <div class="text-zinc-400 text-sm">Last 24 hours • Real-time</div>
       </div>
       <button onclick="refreshMetrics()" 
-              class="flex items-center gap-x-2 text-sm px-4 py-2 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors">
+              class="flex items-center gap-x-2 text-sm px-4 py-2 rounded-2xl border border-white/[0.03] hover:bg-white/5 transition-colors text-zinc-50">
         <i data-lucide="refresh-cw" class="w-4 h-4"></i>
         <span>Refresh</span>
       </button>
@@ -131,7 +131,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <!-- Metric 1 -->
-      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+      <div class="metric-card bg-zinc-950 border border-white/[0.03] rounded-3xl p-6">
         <div class="flex items-start justify-between">
           <div>
             <div class="flex items-center gap-x-3">
@@ -139,8 +139,8 @@
                 <i data-lucide="shopping-cart" class="w-5 h-5 text-emerald-400"></i>
               </div>
               <div>
-                <div class="text-4xl font-extrabold tracking-tighter">1,284</div>
-                <div class="text-sm text-slate-400">Orders Today</div>
+                <div class="text-4xl font-extrabold tracking-tighter text-zinc-50">1,284</div>
+                <div class="text-sm text-zinc-400">Orders Today</div>
               </div>
             </div>
           </div>
@@ -154,7 +154,7 @@
       </div>
 
       <!-- Metric 2 -->
-      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+      <div class="metric-card bg-zinc-950 border border-white/[0.03] rounded-3xl p-6">
         <div class="flex items-start justify-between">
           <div>
             <div class="flex items-center gap-x-3">
@@ -162,8 +162,8 @@
                 <i data-lucide="check-circle" class="w-5 h-5 text-violet-400"></i>
               </div>
               <div>
-                <div class="text-4xl font-extrabold tracking-tighter">99.7</div>
-                <div class="text-sm text-slate-400">Success Rate</div>
+                <div class="text-4xl font-extrabold tracking-tighter text-zinc-50">99.7</div>
+                <div class="text-sm text-zinc-400">Success Rate</div>
               </div>
             </div>
           </div>
@@ -177,7 +177,7 @@
       </div>
 
       <!-- Metric 3 -->
-      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+      <div class="metric-card bg-zinc-950 border border-white/[0.03] rounded-3xl p-6">
         <div class="flex items-start justify-between">
           <div>
             <div class="flex items-center gap-x-3">
@@ -185,8 +185,8 @@
                 <i data-lucide="clock" class="w-5 h-5 text-indigo-400"></i>
               </div>
               <div>
-                <div class="text-4xl font-extrabold tracking-tighter">14m</div>
-                <div class="text-sm text-slate-400">Avg Delivery</div>
+                <div class="text-4xl font-extrabold tracking-tighter text-zinc-50">14m</div>
+                <div class="text-sm text-zinc-400">Avg Delivery</div>
               </div>
             </div>
           </div>
@@ -200,7 +200,7 @@
       </div>
 
       <!-- Metric 4 -->
-      <div class="metric-card bg-slate-800 border border-white/5 rounded-3xl p-6">
+      <div class="metric-card bg-zinc-950 border border-white/[0.03] rounded-3xl p-6">
         <div class="flex items-start justify-between">
           <div>
             <div class="flex items-center gap-x-3">
@@ -208,8 +208,8 @@
                 <i data-lucide="users" class="w-5 h-5 text-amber-400"></i>
               </div>
               <div>
-                <div class="text-4xl font-extrabold tracking-tighter">47.2k</div>
-                <div class="text-sm text-slate-400">Active Operators</div>
+                <div class="text-4xl font-extrabold tracking-tighter text-zinc-50">47.2k</div>
+                <div class="text-sm text-zinc-400">Active Operators</div>
               </div>
             </div>
           </div>
@@ -228,30 +228,30 @@
   <div id="services-section" class="max-w-screen-2xl mx-auto px-8 pb-24">
     <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-4 mb-8">
       <div>
-        <div class="font-semibold text-3xl tracking-tight">Available Services</div>
-        <div class="text-slate-400">Enterprise modding solutions • Instant private session delivery</div>
+        <div class="font-semibold text-3xl tracking-tight text-zinc-50">Available Services</div>
+        <div class="text-zinc-400">Enterprise modding solutions • Instant private session delivery</div>
       </div>
       
       <!-- Filters -->
       <div class="flex flex-col sm:flex-row gap-3">
         <div class="relative w-full sm:w-80">
-          <i data-lucide="search" class="w-4 h-4 absolute left-4 top-3.5 text-slate-500"></i>
+          <i data-lucide="search" class="w-4 h-4 absolute left-4 top-3.5 text-zinc-500"></i>
           <input id="search-input" 
                  onkeyup="filterServices()"
                  type="text" 
                  placeholder="Search services..." 
-                 class="w-full bg-slate-800 border border-white/10 focus:border-indigo-500/50 transition-colors pl-11 py-3 rounded-3xl text-sm placeholder:text-slate-500 outline-none">
+                 class="w-full bg-zinc-950 border border-white/[0.03] focus:border-indigo-500/50 transition-colors pl-11 py-3 rounded-3xl text-sm placeholder:text-zinc-500 outline-none text-zinc-50">
         </div>
         
-        <div class="flex items-center gap-1 bg-slate-800 border border-white/10 rounded-3xl p-1">
+        <div class="flex items-center gap-1 bg-zinc-950 border border-white/[0.03] rounded-3xl p-1">
           <button onclick="filterByType('all')" id="filter-all"
-                  class="px-5 py-2 text-sm font-medium rounded-3xl active-filter bg-white text-slate-900">All</button>
+                  class="px-5 py-2 text-sm font-medium rounded-3xl active-filter bg-white text-black">All</button>
           <button onclick="filterByType('outfits')" id="filter-outfits"
-                  class="px-5 py-2 text-sm font-medium rounded-3xl text-slate-300 hover:text-white">Outfits</button>
+                  class="px-5 py-2 text-sm font-medium rounded-3xl text-zinc-400 hover:text-zinc-50">Outfits</button>
           <button onclick="filterByType('vehicles')" id="filter-vehicles"
-                  class="px-5 py-2 text-sm font-medium rounded-3xl text-slate-300 hover:text-white">Vehicles</button>
+                  class="px-5 py-2 text-sm font-medium rounded-3xl text-zinc-400 hover:text-zinc-50">Vehicles</button>
           <button onclick="filterByType('ranks')" id="filter-ranks"
-                  class="px-5 py-2 text-sm font-medium rounded-3xl text-slate-300 hover:text-white">Ranks</button>
+                  class="px-5 py-2 text-sm font-medium rounded-3xl text-zinc-400 hover:text-zinc-50">Ranks</button>
         </div>
       </div>
     </div>
@@ -264,12 +264,12 @@
 
   <!-- Steam Trust Banner -->
   <div class="max-w-screen-2xl mx-auto px-8 pb-16">
-    <div class="glass border border-white/10 rounded-3xl px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="glass border border-white/[0.03] rounded-3xl px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-x-4">
         <i data-lucide="lock" class="w-8 h-8 text-emerald-400"></i>
         <div>
-          <div class="font-semibold">Steam Only • Private Sessions</div>
-          <div class="text-sm text-slate-400">Login details sent privately → Service executed → Immediate logout. Zero files installed on your machine.</div>
+          <div class="font-semibold text-zinc-50">Steam Only • Private Sessions</div>
+          <div class="text-sm text-zinc-400">Login details sent privately → Service executed → Immediate logout. Zero files installed on your machine.</div>
         </div>
       </div>
       <div class="text-sm text-emerald-400 font-medium flex items-center gap-x-2">
@@ -280,16 +280,16 @@
   </div>
 
   <!-- CONFIGURATION MODAL -->
-  <div id="config-modal" onclick="if (event.target.id === 'config-modal') closeModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-6">
-    <div onclick="event.stopImmediatePropagation()" class="bg-slate-800 border border-white/10 rounded-3xl w-full max-w-lg shadow-2xl">
+  <div id="config-modal" onclick="if (event.target.id === 'config-modal') closeModal()" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-6">
+    <div onclick="event.stopImmediatePropagation()" class="bg-zinc-950 border border-white/[0.03] rounded-3xl w-full max-w-lg shadow-2xl">
       <!-- Modal Header -->
-      <div class="px-8 pt-8 pb-6 border-b border-white/10 flex items-center justify-between">
+      <div class="px-8 pt-8 pb-6 border-b border-white/[0.03] flex items-center justify-between">
         <div>
-          <div id="modal-title" class="font-semibold text-2xl tracking-tight"></div>
-          <div id="modal-subtitle" class="text-sm text-slate-400"></div>
+          <div id="modal-title" class="font-semibold text-2xl tracking-tight text-zinc-50"></div>
+          <div id="modal-subtitle" class="text-sm text-zinc-400"></div>
         </div>
         <button onclick="closeModal()" class="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-white/5">
-          <i data-lucide="x" class="w-5 h-5"></i>
+          <i data-lucide="x" class="w-5 h-5 text-zinc-400"></i>
         </button>
       </div>
 
@@ -300,11 +300,11 @@
 
       <div class="px-8 pb-8 flex gap-3">
         <button onclick="confirmSelection()" 
-                class="flex-1 py-4 bg-white text-slate-900 font-semibold rounded-3xl hover:bg-slate-100 active:scale-[0.985] transition-all">
+                class="flex-1 py-4 bg-white text-black font-semibold rounded-3xl hover:bg-zinc-100 active:scale-[0.985] transition-all">
           Add Selected to Cart
         </button>
         <button onclick="closeModal()" 
-                class="flex-1 py-4 border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-3xl font-semibold">
+                class="flex-1 py-4 border border-white/[0.08] hover:bg-white/5 active:scale-[0.985] transition-all rounded-3xl font-semibold text-zinc-50">
           Cancel
         </button>
       </div>
@@ -375,17 +375,17 @@
       const stockText = service.stock === null ? "Unlimited" : `${service.stock} in stock`;
 
       let html = `
-        <div class="service-card bg-slate-800 border border-white/5 rounded-3xl p-7 flex flex-col h-full">
+        <div class="service-card bg-zinc-950 border border-white/[0.03] rounded-3xl p-7 flex flex-col h-full">
           <div class="flex items-start justify-between mb-5">
             <div>
-              <div class="font-semibold text-2xl tracking-tight">${service.name}</div>
+              <div class="font-semibold text-2xl tracking-tight text-zinc-50">${service.name}</div>
               <div class="mt-1">
                 <span class="status-badge bg-${statusColor}-500/10 text-${statusColor}-400 border border-${statusColor}-500/20">${service.status}</span>
               </div>
             </div>
             <div class="text-right">
-              <div class="text-4xl font-extrabold tracking-tighter">$${service.price}</div>
-              <div class="text-xs text-slate-500">USD</div>
+              <div class="text-4xl font-extrabold tracking-tighter text-zinc-50">$${service.price}</div>
+              <div class="text-xs text-zinc-500">USD</div>
             </div>
           </div>
 
@@ -395,7 +395,7 @@
 
       service.features.forEach(feature => {
         html += `
-          <li class="flex items-start gap-x-3 text-sm text-slate-300">
+          <li class="flex items-start gap-x-3 text-sm text-zinc-300">
             <i data-lucide="check" class="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-400"></i>
             <span>${feature}</span>
           </li>
@@ -406,7 +406,7 @@
             </ul>
           </div>
 
-          <div class="pt-4 border-t border-white/10">
+          <div class="pt-4 border-t border-white/[0.03]">
             <div class="flex items-center justify-between text-sm mb-5">
               <div class="text-emerald-400 font-medium flex items-center gap-x-1.5">
                 <i data-lucide="package" class="w-4 h-4"></i>
@@ -416,7 +416,7 @@
 
             <div class="grid grid-cols-2 gap-3">
               <button onclick="addToCart(${service.id})" 
-                      class="py-3.5 text-sm font-semibold bg-white text-slate-900 hover:bg-slate-100 active:scale-[0.985] transition-all rounded-2xl flex items-center justify-center gap-x-2">
+                      class="py-3.5 text-sm font-semibold bg-white text-black hover:bg-zinc-100 active:scale-[0.985] transition-all rounded-2xl flex items-center justify-center gap-x-2">
                 <span>Add to Cart</span>
               </button>
       `;
@@ -424,7 +424,7 @@
       if (service.hasOptions) {
         html += `
               <button onclick="openConfigModal(${service.id})" 
-                      class="py-3.5 text-sm font-semibold border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-2xl flex items-center justify-center gap-x-2">
+                      class="py-3.5 text-sm font-semibold border border-white/[0.08] hover:bg-white/5 active:scale-[0.985] transition-all rounded-2xl flex items-center justify-center gap-x-2 text-zinc-50">
                 <i data-lucide="settings-2" class="w-4 h-4"></i>
                 <span>Configure</span>
               </button>
@@ -432,7 +432,7 @@
       } else {
         html += `
               <button onclick="addToCart(${service.id})" 
-                      class="py-3.5 text-sm font-semibold border border-white/20 hover:bg-white/5 active:scale-[0.985] transition-all rounded-2xl">
+                      class="py-3.5 text-sm font-semibold border border-white/[0.08] hover:bg-white/5 active:scale-[0.985] transition-all rounded-2xl text-zinc-50">
                 Quick Add
               </button>
         `;
@@ -449,8 +449,8 @@
       if (filteredServices.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full py-12 text-center">
-            <i data-lucide="search-x" class="w-12 h-12 mx-auto text-slate-600 mb-4"></i>
-            <p class="text-slate-400">No services match your filters.</p>
+            <i data-lucide="search-x" class="w-12 h-12 mx-auto text-zinc-600 mb-4"></i>
+            <p class="text-zinc-400">No services match your filters.</p>
           </div>
         `;
         lucide.createIcons();
@@ -488,17 +488,17 @@
       
       // Update active button styles
       document.querySelectorAll('[id^="filter-"]').forEach(btn => {
-        btn.classList.remove('bg-white', 'text-slate-900');
-        btn.classList.add('text-slate-300');
+        btn.classList.remove('bg-white', 'text-black');
+        btn.classList.add('text-zinc-400');
       });
       
       const activeBtn = document.getElementById(`filter-${type}`);
       if (activeBtn) {
-        activeBtn.classList.add('bg-white', 'text-slate-900');
-        activeBtn.classList.remove('text-slate-300');
+        activeBtn.classList.add('bg-white', 'text-black');
+        activeBtn.classList.remove('text-zinc-400');
       } else {
-        document.getElementById('filter-all').classList.add('bg-white', 'text-slate-900');
-        document.getElementById('filter-all').classList.remove('text-slate-300');
+        document.getElementById('filter-all').classList.add('bg-white', 'text-black');
+        document.getElementById('filter-all').classList.remove('text-zinc-400');
       }
       
       filterServices();
@@ -538,15 +538,15 @@
       if (service.type === 'ranks') {
         optionsHTML = `
           <div class="space-y-2">
-            <div class="text-xs uppercase tracking-widest text-slate-400 font-medium mb-3 px-1">SELECT RANK</div>
+            <div class="text-xs uppercase tracking-widest text-zinc-400 font-medium mb-3 px-1">SELECT RANK</div>
         `;
         
         const ranks = [200, 400, 740, 1000, 3000, 4000, 8000];
         ranks.forEach(rank => {
           optionsHTML += `
             <div onclick="selectOption(this, 'Rank ${rank}', ${serviceId})" 
-                 class="option-row flex items-center justify-between border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
-              <div class="font-medium">Rank ${rank}</div>
+                 class="option-row flex items-center justify-between border border-white/[0.03] px-5 py-4 rounded-2xl cursor-pointer">
+              <div class="font-medium text-zinc-50">Rank ${rank}</div>
               <div class="text-xs px-3 py-1 rounded-xl bg-white/5">$${service.price}</div>
             </div>
           `;
@@ -555,12 +555,12 @@
         // Custom Rank
         optionsHTML += `
             <div onclick="selectCustomRank(this, ${serviceId})" 
-                 class="option-row flex flex-col border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
+                 class="option-row flex flex-col border border-white/[0.03] px-5 py-4 rounded-2xl cursor-pointer">
               <div class="flex items-center justify-between mb-2">
-                <div class="font-medium">Custom Rank</div>
+                <div class="font-medium text-zinc-50">Custom Rank</div>
               </div>
               <input type="number" id="custom-rank-input" placeholder="Enter rank (1–5000)" 
-                     class="bg-slate-900 border border-white/10 focus:border-indigo-500 text-sm px-4 py-3 rounded-2xl w-full outline-none" 
+                     class="bg-black border border-white/[0.03] focus:border-indigo-500 text-sm px-4 py-3 rounded-2xl w-full outline-none text-zinc-50" 
                      min="1" max="5000" oninput="event.stopImmediatePropagation()">
             </div>
           </div>
@@ -569,7 +569,7 @@
       else if (service.type === 'vehicles') {
         optionsHTML = `
           <div class="space-y-2">
-            <div class="text-xs uppercase tracking-widest text-slate-400 font-medium mb-3 px-1">SELECT PACKAGE</div>
+            <div class="text-xs uppercase tracking-widest text-zinc-400 font-medium mb-3 px-1">SELECT PACKAGE</div>
         `;
         
         const carOptions = [
@@ -581,8 +581,8 @@
         carOptions.forEach((opt, index) => {
           optionsHTML += `
             <div onclick="selectOption(this, '${opt.label}', ${serviceId})" 
-                 class="option-row flex items-center justify-between border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
-              <div class="font-medium">${opt.label}</div>
+                 class="option-row flex items-center justify-between border border-white/[0.03] px-5 py-4 rounded-2xl cursor-pointer">
+              <div class="font-medium text-zinc-50">${opt.label}</div>
               <div class="text-xs px-3 py-1 rounded-xl bg-white/5">$${opt.price}</div>
             </div>
           `;
@@ -591,12 +591,12 @@
         // Custom Amount
         optionsHTML += `
             <div onclick="selectCustomCars(this, ${serviceId})" 
-                 class="option-row flex flex-col border border-white/10 px-5 py-4 rounded-2xl cursor-pointer">
+                 class="option-row flex flex-col border border-white/[0.03] px-5 py-4 rounded-2xl cursor-pointer">
               <div class="flex items-center justify-between mb-2">
-                <div class="font-medium">Custom Amount</div>
+                <div class="font-medium text-zinc-50">Custom Amount</div>
               </div>
               <input type="number" id="custom-cars-input" placeholder="Enter number of cars" 
-                     class="bg-slate-900 border border-white/10 focus:border-indigo-500 text-sm px-4 py-3 rounded-2xl w-full outline-none" 
+                     class="bg-black border border-white/[0.03] focus:border-indigo-500 text-sm px-4 py-3 rounded-2xl w-full outline-none text-zinc-50" 
                      min="1" oninput="event.stopImmediatePropagation()">
             </div>
           </div>
@@ -614,11 +614,11 @@
       // Deselect all
       document.querySelectorAll('#modal-content .option-row').forEach(el => {
         el.classList.remove('selected', 'border-indigo-500');
-        el.classList.add('border-white/10');
+        el.classList.add('border-white/[0.03]');
       });
       
       element.classList.add('selected', 'border-indigo-500');
-      element.classList.remove('border-white/10');
+      element.classList.remove('border-white/[0.03]');
       
       selectedOptionValue = value;
     }
@@ -626,11 +626,11 @@
     function selectCustomRank(element, serviceId) {
       document.querySelectorAll('#modal-content .option-row').forEach(el => {
         el.classList.remove('selected', 'border-indigo-500');
-        el.classList.add('border-white/10');
+        el.classList.add('border-white/[0.03]');
       });
       
       element.classList.add('selected', 'border-indigo-500');
-      element.classList.remove('border-white/10');
+      element.classList.remove('border-white/[0.03]');
       
       const input = document.getElementById('custom-rank-input');
       if (input) {
@@ -646,11 +646,11 @@
     function selectCustomCars(element, serviceId) {
       document.querySelectorAll('#modal-content .option-row').forEach(el => {
         el.classList.remove('selected', 'border-indigo-500');
-        el.classList.add('border-white/10');
+        el.classList.add('border-white/[0.03]');
       });
       
       element.classList.add('selected', 'border-indigo-500');
-      element.classList.remove('border-white/10');
+      element.classList.remove('border-white/[0.03]');
       
       const input = document.getElementById('custom-cars-input');
       if (input) {
@@ -711,11 +711,11 @@
     function showNotifications() {
       const container = document.getElementById('toast-container');
       const toast = document.createElement('div');
-      toast.className = `px-6 py-4 rounded-3xl flex items-center gap-x-3 shadow-2xl text-sm font-medium border bg-slate-800 border-white/10`;
+      toast.className = `px-6 py-4 rounded-3xl flex items-center gap-x-3 shadow-2xl text-sm font-medium border bg-zinc-950 border-white/[0.03]`;
       toast.innerHTML = `
         <div>
-          <div class="font-semibold">3 new updates</div>
-          <div class="text-xs text-slate-400 mt-0.5">Rank boosts delivered • 2 vehicles ready</div>
+          <div class="font-semibold text-zinc-50">3 new updates</div>
+          <div class="text-xs text-zinc-400 mt-0.5">Rank boosts delivered • 2 vehicles ready</div>
         </div>
       `;
       container.appendChild(toast);
@@ -724,23 +724,23 @@
 
     function showStatusModal() {
       const modalHTML = `
-        <div onclick="this.remove()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[110] flex items-center justify-center p-6">
-          <div onclick="event.stopImmediatePropagation()" class="bg-slate-800 border border-white/10 rounded-3xl w-full max-w-md p-8">
+        <div onclick="this.remove()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[110] flex items-center justify-center p-6">
+          <div onclick="event.stopImmediatePropagation()" class="bg-zinc-950 border border-white/[0.03] rounded-3xl w-full max-w-md p-8">
             <div class="flex justify-between items-center mb-6">
-              <div class="font-semibold text-xl">System Status</div>
-              <button onclick="event.target.closest('.fixed').remove()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+              <div class="font-semibold text-xl text-zinc-50">System Status</div>
+              <button onclick="event.target.closest('.fixed').remove()" class="text-zinc-400 hover:text-zinc-50"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
             
             <div class="space-y-4 text-sm">
-              <div class="flex justify-between items-center py-3 border-b border-white/10">
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.03]">
                 <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Order Processing</span></div>
                 <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
               </div>
-              <div class="flex justify-between items-center py-3 border-b border-white/10">
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.03]">
                 <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Private Sessions</span></div>
                 <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
               </div>
-              <div class="flex justify-between items-center py-3 border-b border-white/10">
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.03]">
                 <div class="flex items-center gap-x-3"><i data-lucide="check-circle" class="text-emerald-400 w-4 h-4"></i> <span>Account Services</span></div>
                 <span class="status-badge bg-emerald-500/10 text-emerald-400">Operational</span>
               </div>
@@ -750,7 +750,7 @@
               </div>
             </div>
             
-            <div class="mt-8 pt-6 border-t border-white/10 text-xs text-center text-slate-500">
+            <div class="mt-8 pt-6 border-t border-white/[0.03] text-xs text-center text-zinc-500">
               All services running at peak performance
             </div>
           </div>
@@ -779,7 +779,7 @@
     function initializeFilters() {
       // Set initial active filter
       const allBtn = document.getElementById('filter-all');
-      if (allBtn) allBtn.classList.add('bg-white', 'text-slate-900');
+      if (allBtn) allBtn.classList.add('bg-white', 'text-black');
       
       // Initial render
       renderServices(servicesData);
@@ -809,11 +809,6 @@
           }
         }
       });
-      
-      // Demo: show one toast after load (optional)
-      setTimeout(() => {
-        // showToast("Welcome back, Alex. Your last order was completed successfully.", "success");
-      }, 4200);
       
       console.log('%c[Vanguard] Enterprise frontend initialized successfully.', 'color:#64748b');
     }
